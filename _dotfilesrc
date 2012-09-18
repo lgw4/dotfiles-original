@@ -1,0 +1,8 @@
+[dotfiles]
+repository = ~/.dotfiles
+prefix = _
+ignore = [
+    '.git',
+    '.gitmodules',
+    'README.md' ]
+
