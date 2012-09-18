@@ -20,7 +20,7 @@ function parse_git_branch {
         return
     fi
     
-    echo "${D}on (${G}"${branch}$(parse_git_in_rebase)"${D})"$(parse_git_dirty)
+    echo "${D}on (${G}"${branch}$(parse_git_in_rebase)"${D}) $(parse_git_dirty) "
 }
 
 parse_svn_status() {
@@ -37,6 +37,6 @@ parse_svn_status() {
         # first column only, filter duplicates
         sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ == 0' ) 
     )
-    echo "(${G}r$REV${D}) ${STATUS[*]}"
+    echo "(${G}r$REV${D}) ${STATUS[*]} "
 }
 
