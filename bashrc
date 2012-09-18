@@ -28,7 +28,7 @@ shopt -s checkwinsize
 # Terminal title bar
 
 if [ ${OS_KERNEL} == "Darwin" ]; then
-    TB="\[\033[G\]\[\033]0;\u@\h:\007\]\n"
+    TB="\[\033[G\]\[\033]0;\u at \h\007\]\n"
 elif [ ${OS_KERNEL} == "Linux" ]; then
     TB="\[\033[G\]\[\033]0;\u@\h: \w\007\]\n"
 fi
@@ -46,8 +46,13 @@ HBS_PATH="/usr/local/bin:/usr/local/sbin"
 # Create environment variable for $HOME/.local/bin
 HOME_BIN="${HOME}/.local/bin"
 
+# Create environment variable for Homebrew's Python install
+if [ -d /usr/local/share/python ]; then
+    HBP_PATH="/usr/local/share/python"
+fi
+
 # Construct custom PATH variable
-export PATH="${HOME_BIN}:${HBS_PATH}:${PATH}"
+export PATH="${HOME_BIN}:${HBP_PATH}:${HBS_PATH}:${PATH}"
 
 # Enable bash completion
 if [ ${OS_KERNEL} == "Darwin" ]; then
