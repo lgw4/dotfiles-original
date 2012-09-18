@@ -8,6 +8,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     alias ll='ls -alF'
     alias la='ls -A'
     alias l='ls -CF'
+    alias gvim='gvim -f'
 fi
 
 if [ -d ${HOME}/.perlbrew ]; then
