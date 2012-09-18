@@ -1,0 +1,10 @@
+[user]
+    name = Chip Warden
+    email = lgw4@introspectiverobot.com
+[color]
+    ui = auto
+[core]
+    excludesfile = /Users/lgw4/.gitignore-global
+    quotepath = false
+[credential]
+    helper = osxkeychain
