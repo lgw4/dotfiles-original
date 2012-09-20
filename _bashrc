@@ -28,7 +28,7 @@ shopt -s checkwinsize
 # Terminal title bar
 
 if [ ${TERM} == "linux" ]; then
-    TB=""
+    TB="\n"
 elif [ ${OS_KERNEL} == "Darwin" ]; then
     TB="\[\033[G\]\[\033]0;\u at \h\007\]\n"
 elif [ ${OS_KERNEL} == "Linux" ]; then
