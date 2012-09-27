@@ -52,3 +52,4 @@ endif
 set autoindent
 
 set colorcolumn=87,95
+
