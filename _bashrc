@@ -48,13 +48,8 @@ HBS_PATH="/usr/local/bin:/usr/local/sbin"
 # Create environment variable for $HOME/.local/bin
 HOME_BIN="${HOME}/.local/bin"
 
-# Create environment variable for Homebrew's Python install
-if [ -e /usr/local/bin/brew ]; then
-    HBP_PATH="/usr/local/share/python"
-fi
-
 # Construct custom PATH variable
-export PATH="${HOME_BIN}:${HBP_PATH}:${HBS_PATH}:${PATH}"
+export PATH="${HOME_BIN}:${HBS_PATH}:${PATH}"
 
 # Enable bash completion
 if [ ${OS_KERNEL} == "Darwin" ]; then
