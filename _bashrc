@@ -6,6 +6,9 @@ export PATH=${PATH/:\/usr\/local\/bin/}
 # Prepend /usr/local hierarcy to PATH
 export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
+# Prepend $HOME/.local/bin to PATH
+export PATH="${HOME}/.local/bin:${PATH}"
+
 # Get OS kernel name
 OS_KERNEL=`uname`
 
@@ -15,9 +18,6 @@ if [ -d ${HOME}/.bashrc.d ]; then
         source ${f}
     done
 fi
-
-# Prepend $HOME/.local/bin to PATH
-export PATH="${HOME}/.local/bin:${PATH}"
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
