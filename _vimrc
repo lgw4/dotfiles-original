@@ -18,6 +18,7 @@ set wrapscan                    " Make search wrap around the file
 set cursorline                  " Highlight current line
 set ignorecase smartcase        " Search case sensitive only if contains upper-case
 
+
 let mapleader=","
 
 " Informative statusline
@@ -36,14 +37,9 @@ if has('mouse')
     set mouse=a                   " Enable mouse in terminal mode
 endif
 
-" Solarized
-" set background=light
+colorscheme IDLE
 
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-
-colorscheme solarized
-
+highlight CursorLine cterm=NONE ctermbg=lightgrey
 
 if has("autocmd")
     filetype plugin indent on

@@ -52,3 +52,8 @@ build/*
 xcuserdata
 profile
 *.moved-aside
+
+# Vim #
+#######
+.netrwhist
+
