@@ -8,7 +8,7 @@ function parse_git_in_rebase {
 
 function parse_git_dirty {
     git_status=$(git status 2> /dev/null | tail -n1)
-    if [[  ${git_status} != "nothing to commit (working directory clean)" ]]; then
+    if [[  ${git_status} != "nothing to commit, working directory clean" ]]; then
         echo "${C}*${D}"
     fi
 }
