@@ -7,7 +7,7 @@ function parse_git_in_rebase {
 }
 
 function parse_git_dirty {
-if [ -n $(git status --porcelain) ]; then
+if [ -n "$(git status --porcelain)" ]; then
         echo "${C}*${D}"
     fi
 }
