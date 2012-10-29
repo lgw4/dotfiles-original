@@ -37,9 +37,9 @@ if has('mouse')
     set mouse=a                   " Enable mouse in terminal mode
 endif
 
-colorscheme IDLE
+colorscheme github 
 
-highlight CursorLine cterm=NONE ctermbg=lightgrey
+highlight CursorLine cterm=NONE ctermbg=lightred ctermfg=black
 
 if has("autocmd")
     filetype plugin indent on
