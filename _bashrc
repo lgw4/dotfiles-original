@@ -1,14 +1,5 @@
 # ${HOME}/.bashrc
 
-# Remove /usr/local/bin from PATH
-export PATH=${PATH/:\/usr\/local\/bin/}
-
-# Prepend /usr/local hierarcy to PATH
-export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
-
-# Prepend $HOME/.local/bin to PATH
-export PATH="${HOME}/.local/bin:${PATH}"
-
 # Get OS kernel name
 OS_KERNEL=`uname`
 
@@ -34,19 +25,6 @@ HISTFILESIZE=2000
 # Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Terminal title bar
-
-if [ ${TERM} == "linux" ]; then
-    TB="\n"
-elif [ ${OS_KERNEL} == "Darwin" ]; then
-    TB="\[\033[G\]\[\033]0;\u at \h\007\]\n"
-elif [ ${OS_KERNEL} == "Linux" ]; then
-    TB="\[\033[G\]\[\033]0;\u@\h: \w\007\]\n"
-fi
-
-# Custom prompt
-export PS1="${TB}${R}\u ${D}at ${P}\h ${D}in ${B}\
-\W${D} \$(parse_git_branch)\$(parse_svn_status)${D}\n\$ "
 
 # Enable bash completion
 if [ ${OS_KERNEL} == "Darwin" ]; then
