@@ -39,7 +39,7 @@ endif
 
 colorscheme github 
 
-highlight CursorLine cterm=NONE ctermbg=lightred ctermfg=black
+highlight CursorLine cterm=NONE ctermbg=lightgray ctermfg=black
 
 if has("autocmd")
     filetype plugin indent on

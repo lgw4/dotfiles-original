@@ -4,7 +4,7 @@
 [color]
     ui = auto
 [core]
-    excludesfile = /Users/lgw4/.gitignore-global
+    excludesfile = ~/.gitignore-global
     quotepath = false
 [credential]
     helper = osxkeychain
