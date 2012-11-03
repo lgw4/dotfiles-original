@@ -10,6 +10,11 @@ if [ -e /usr/local/bin/brew ]; then
     PATH="/usr/local/share/python:${PATH}"
 fi
 
+# Check for OS X local Python binaries
+if [ -d ${HOME}/Library/Python/2.7/bin ]; then
+    PATH="${HOME}/Library/Python/2.7/bin:${PATH}"
+fi
+
 # Set up virtualenvwrapper
 VENVWRAPPER=`which virtualenvwrapper.sh`
 if [ ${VENVWRAPPER} ]; then

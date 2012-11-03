@@ -7,5 +7,7 @@ export PATH=${PATH/:\/usr\/local\/bin/}
 export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
 
 # Prepend $HOME/.local/bin to PATH
-export PATH="${HOME}/.local/bin:${PATH}"
+if [ -d ${HOME}/.local/bin ]; then
+    export PATH="${HOME}/.local/bin:${PATH}"
+fi
 
