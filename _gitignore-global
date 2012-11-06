@@ -63,5 +63,5 @@ profile
 
 # ST2 #
 #######
-.cache
+*.cache
 
