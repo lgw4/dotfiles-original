@@ -16,7 +16,7 @@ if [ -d ${HOME}/Library/Python/2.7/bin ]; then
 fi
 
 # Set up virtualenvwrapper
-VENVWRAPPER=`which virtualenvwrapper.sh`
+VENVWRAPPER=`which virtualenvwrapper.sh 2> /dev/null`
 if [ ${VENVWRAPPER} ]; then
     export VIRTUALENVWRAPPER_PYTHON=`which python`
     export WORKON_HOME="${HOME}/.virtualenvs"
