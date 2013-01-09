@@ -36,6 +36,6 @@ parse_svn_status() {
         # first column only, filter duplicates
         sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ == 0' ) 
     )
-    echo "${D}on ${G}r$REV${D} ${C}${STATUS[*]}${D}"
+    echo "${D}on ${G}r$REV${D} ${C}${STATUS[*]}${D} "
 }
 
