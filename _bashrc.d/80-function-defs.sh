@@ -16,11 +16,34 @@ function __prompt_command() {
 
     # if logged in via ssh shows the ip of the client
     if [ -n "$SSH_CLIENT" ]; then \
-        PS1+="\[$Y\]("${$SSH_CLIENT%% *}")\[$D\]"; 
+        PS1+="\[$Y\]("${$SSH_CLIENT%% *}")\[$D\] "; 
     fi
 
-    # basic information (user@host:path)
+    # basic information (user at host in path)
     PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \w\[$D\] "
+
+    # get git branch
+    branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
+    if [[ ! -z ${branch} ]]; then
+        PS1+="\[$D\]on \[$G\]${branch}\[$D\] "
+    fi
+   
+    # check if git repo is rebasing
+    if [[ -d .git/rebase-apply ]]; then
+        PS1+="\[$Y\]REBASING\[$D\] "
+    fi
+    
+    # check if git repo is dirty
+    if [ -n "`git status --porcelain 2> /dev/null`" ]; then
+        PS1+="\[$C\]*\[$D\] "
+    fi
+
+    # svn status
+    rev="`svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'`"
+    if [[ ! -z ${rev} ]]; then
+        status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
+        PS1+="\[$D\]on \[$G\]r${rev}\[$D\] \[$C\]${status[*]}\[$D\] "
+    fi
 
     # prompt $ or # for root
     PS1+="\n\$ "
