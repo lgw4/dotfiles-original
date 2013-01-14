@@ -1,41 +1,29 @@
 # ${HOME}/.bashrc.d/function_defs.sh file
 
-function parse_git_in_rebase {
-    if [[ -d .git/rebase-apply ]]; then
-        echo " ${Y}REBASING${D}"
+function __prompt_command() {
+
+    # clear PS1 prompt
+    PS1=""
+
+    # terminal title bar                                                                        
+    if [ ${TERM} == "linux" ]; then
+        PS1+="\n"
+    elif [ ${OS_KERNEL} == "Darwin" ]; then
+        PS1+="\[\033[G\]\[\033]0;\u at \h\007\]\n"
+    elif [ ${OS_KERNEL} == "Linux" ]; then
+        PS1+="\[\033[G\]\[\033]0;\u@\h: \w\007\]\n"
     fi
-}
 
-function parse_git_dirty {
-if [ -n "$(git status --porcelain)" ]; then
-        echo " ${C}*${D}"
+    # if logged in via ssh shows the ip of the client
+    if [ -n "$SSH_CLIENT" ]; then \
+        PS1+="\[$Y\]("${$SSH_CLIENT%% *}")\[$D\]"; 
     fi
-}
 
-function parse_git_branch {
-    branch=$(git branch 2> /dev/null | grep "*" | sed -e s/^..//g)
+    # basic information (user@host:path)
+    PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \w\[$D\] "
 
-    if [[ -z ${branch} ]]; then
-        return
-    fi
-    
-    echo "${D}on ${G}"${branch}$(parse_git_in_rebase)"${D}$(parse_git_dirty) "
-}
+    # prompt $ or # for root
+    PS1+="\n\$ "
 
-parse_svn_status() {
-    local REV=$(                # get svn revision number
-        svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'
-    )
-    [ "$REV" ] || return        # stop now if not a working copy
-                         
-    local STATUS=(              # create an array
-                             
-        # svn status items (second column is always ' ', 'C', or 'M')
-        $( svn st | grep '^[^ ][ CM]' | \
-                                                 
-        # first column only, filter duplicates
-        sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ == 0' ) 
-    )
-    echo "${D}on ${G}r$REV${D} ${C}${STATUS[*]}${D} "
 }
 
