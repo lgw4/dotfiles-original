@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/function_defs.sh file
+# ${HOME}/.bashrc.d/80-function-defs.sh file
 
 function __prompt_command() {
 
