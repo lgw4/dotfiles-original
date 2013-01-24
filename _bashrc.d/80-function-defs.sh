@@ -40,6 +40,11 @@ function __prompt_command() {
         PS1+="\[$D\]on \[$G\]r${rev}\[$D\] \[$C\]${status[*]}\[$D\] "
     fi
 
+    # virtualenvwrapper support
+    if [ ${VIRTUAL_ENV} ]; then
+        PS1+="${D}(${Y}`basename \"${VIRTUAL_ENV}\"`${D}) "
+    fi
+
     # prompt $ or # for root
     PS1+="\n\$ "
 
