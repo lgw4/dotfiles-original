@@ -4,7 +4,7 @@ if has ("gui_mac")
     set transparency=5
     set guifont=Menlo\ 11
 else
-    set guifont=Ubuntu\ Mono\ 11
+    set guifont=Source\ Code\ Pro\ 9
 endif
 
 " Get rid of scrollbars. Why it has to be this way, I have no idea.
