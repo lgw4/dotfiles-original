@@ -2,7 +2,7 @@
 
 if [ ${OS_KERNEL} == "Darwin" ]; then
     alias ls="ls -FG"
-    alias finder="open ."
+    alias finder='open -a Finder ./'
 elif [ ${OS_KERNEL} == "Linux" ]; then
     alias ls='ls --color=auto'
     alias ll='ls -alF'

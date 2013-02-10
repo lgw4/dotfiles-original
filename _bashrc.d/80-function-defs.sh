@@ -1,5 +1,7 @@
 # ${HOME}/.bashrc.d/80-function-defs.sh file
 
+# __prompt_command(): function to generate custom PS1 prompt
+
 function __prompt_command() {
 
     # clear PS1 prompt
@@ -49,4 +51,17 @@ function __prompt_command() {
     PS1+="\n\$ "
 
 }
+
+# cdf(): cd to the PATH of the front Finder window
+
+if [ ${OS_KERNEL} == "Darwin" ]; then
+    function cdf () {
+        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+        if [ "$target" != "" ]; then
+            cd "$target"; pwd
+        else
+            echo 'No Finder window found' >&2
+        fi
+    }
+fi
 
