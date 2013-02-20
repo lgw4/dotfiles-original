@@ -37,7 +37,10 @@ function __prompt_command() {
     rev="`svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'`"
     if [[ ! -z ${rev} ]]; then
         status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
-        PS1+="\[$D\]on \[$G\]r${rev}\[$D\] \[$C\]${status[*]}\[$D\] "
+        if [[ ! -z ${status} ]]; then
+            status='*' 
+        fi
+        PS1+="\[$D\]on \[$G\]r${rev}\[$D\] \[$C\]${status}\[$D\] "
     fi
 
     # virtualenvwrapper support
