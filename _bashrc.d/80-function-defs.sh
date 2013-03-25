@@ -17,7 +17,7 @@ function __prompt_command() {
     fi
 
     # basic information (user at host in path)
-    PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \w\[$D\] "
+    PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \W\[$D\] "
 
     # get git branch
     branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
@@ -40,9 +40,9 @@ function __prompt_command() {
     if [[ ! -z ${rev} ]]; then
         status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
         if [[ ! -z ${status} ]]; then
-            status='*' 
+            status=' *' 
         fi
-        PS1+="\[$D\]on \[$G\]r${rev}\[$D\] \[$C\]${status}\[$D\] "
+        PS1+="\[$D\]on \[$G\]r${rev}\[$D\]\[$C\]${status}\[$D\] "
     fi
 
     # virtualenvwrapper support
