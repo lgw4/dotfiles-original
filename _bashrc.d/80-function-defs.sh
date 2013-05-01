@@ -11,7 +11,7 @@ function __prompt_command() {
     if [ ${TERM} == "linux" ]; then
         PS1+="\n"
     elif [ ${OS_KERNEL} == "Darwin" ]; then
-        PS1+="\[\033[G\]\[\033]0;\u at \h\007\]\n"
+        PS1+="\[\033[G\]\[\033]0;\u at \h on \w\007\]\n"
     elif [ ${OS_KERNEL} == "Linux" ]; then
         PS1+="\[\033[G\]\[\033]0;\u@\h: \w\007\]\n"
     fi
