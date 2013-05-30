@@ -1,18 +1,28 @@
 # ${HOME}/.bashrc.d/python_config.sh
 
-# pythonbrew
-if [ -s "${HOME}/.pythonbrew/etc/bashrc" ]; then
-    source "${HOME}/.pythonbrew/etc/bashrc"
+# pythonz
+if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
+    source ${HOME}/.pythonz/etc/bashrc
 fi
 
-# If on OS X and Homebrew is installed, add PyPI binaries to PATH
-if [ -e /usr/local/bin/brew ]; then
-    PATH="/usr/local/share/python:${PATH}"
+# Homebrew Python 2.7 package binaries
+if [ -e /usr/local/share/python ]; then
+    export PATH="/usr/local/share/python:${PATH}"
 fi
 
-# Check for OS X local Python binaries
+# Homebrew Python 3.3 package binaries
+if [ -e /usr/local/share/python3 ]; then
+    export PATH="/usr/local/share/python3:${PATH}"
+fi
+
+# OS X local Python 2.7 package binaries
 if [ -d ${HOME}/Library/Python/2.7/bin ]; then
-    PATH="${HOME}/Library/Python/2.7/bin:${PATH}"
+    export PATH="${HOME}/Library/Python/2.7/bin:${PATH}"
+fi
+
+# OS X local Python 3.3 package binaries
+if [ -d ${HOME}/Library/Python/3.3/bin ]; then
+    export PATH="${HOME}/Library/Python/3.3/bin:${PATH}"
 fi
 
 # Set up virtualenvwrapper

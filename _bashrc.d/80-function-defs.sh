@@ -7,8 +7,8 @@ function __prompt_command() {
     # clear PS1 prompt
     PS1=""
 
-    # terminal title bar                                                                        
-    if [ ${TERM} == "linux" ]; then
+    # terminal title bar
+    if [ ${TERM} == "linux" ] || [ ${TERM} == "eterm-color" ]; then
         PS1+="\n"
     elif [ ${OS_KERNEL} == "Darwin" ]; then
         PS1+="\[\033[G\]\[\033]0;\u at \h on \w\007\]\n"
@@ -24,12 +24,12 @@ function __prompt_command() {
     if [[ ! -z ${branch} ]]; then
         PS1+="\[$D\]on \[$G\]${branch}\[$D\] "
     fi
-   
+
     # check if git repo is rebasing
     if [[ -d .git/rebase-apply ]]; then
         PS1+="\[$Y\]REBASING\[$D\] "
     fi
-    
+
     # check if git repo is dirty
     if [ -n "`git status --porcelain 2> /dev/null`" ]; then
         PS1+="\[$C\]*\[$D\] "
@@ -40,7 +40,7 @@ function __prompt_command() {
     if [[ ! -z ${rev} ]]; then
         status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
         if [[ ! -z ${status} ]]; then
-            status=' *' 
+            status=' *'
         fi
         PS1+="\[$D\]on \[$G\]r${rev}\[$D\]\[$C\]${status}\[$D\] "
     fi

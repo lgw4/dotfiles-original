@@ -1,51 +1,80 @@
 " ${HOME}/.vimrc
+" -*- coding: utf-8 -*-
 
-call pathogen#infect()          " Enable Pathogen
+" Enable Pathogen
+call pathogen#infect()          
 
-set nocompatible		        " Enable all Vim features
+" Enable all Vim-specific features
+set nocompatible
 
-set hidden                      " Remember marks/undo for unsaved buffers
-set backspace=indent,eol,start  " Allow backspacing over everything in insert mode
-set tabstop=4			        " Set default tab stop
-set shiftwidth=4		        " Spaces inserted for indentation
-set expandtab			        " Expand tabs as spaces
-set wildmode=longest,list       " Activate TAB auto-completion for file paths 
-set wildmenu                    " Improve statusline tab completion
-set history=1024                " Keep 1024 lines of command line history
-set ruler                       " Show the cursor position at all times
-set showcmd                     " Display incomplete commands
-set wrapscan                    " Make search wrap around the file
-set cursorline                  " Highlight current line
-set ignorecase smartcase        " Search case sensitive only if contains upper-case
+" Save files in UTF-8
+set fileencoding=utf8
 
+" Remember marks/undo for unsaved buffers
+set hidden                      
 
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start  
+
+" Set default tab stop
+set tabstop=4			        
+
+" Spaces inserted for indentation
+set shiftwidth=4		       
+
+" Expand tabs as spaces
+set expandtab			        
+
+" Activate TAB auto-completion for file paths 
+set wildmode=longest,list       
+
+" Improve statusline tab completion
+set wildmenu                    
+
+" Keep 1024 lines of command line history
+set history=1024                
+
+" Show the cursor position at all times
+set ruler                       
+
+" Display incomplete commands
+set showcmd                     
+
+" Make search wrap around the file
+set wrapscan                    
+
+" Highlight current line
+set cursorline                  
+highlight CursorLine cterm=NONE ctermbg=lightred
+
+" Search case sensitive only if contains upper-case
+set ignorecase smartcase        
+
+" Make the comma the leader key
 let mapleader=","
 
 " Informative statusline
 set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
 
-" CtrlP plugin
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
+" Enable syntax highlighting
 if has('syntax') 
-    syntax on                     " Enable syntax highlighting
+    syntax on                     
 endif
 
+" Enable mouse in terminal mode
 if has('mouse')
-    set mouse=a                   " Enable mouse in terminal mode
+    set mouse=a                   
 endif
 
-colorscheme github 
-
-highlight CursorLine cterm=NONE ctermbg=lightgray ctermfg=black
-
+" Enable filetype loading actions
 if has("autocmd")
     filetype plugin indent on
 endif
 
+" Enable autoindent
 set autoindent
 
+" Set default line ending warning columns
 set colorcolumn=87,95
 
