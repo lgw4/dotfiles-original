@@ -1,13 +1,26 @@
 " ${HOME}/.vimrc
 " -*- coding: utf-8 -*-
 
-" Enable Pathogen
-call pathogen#infect()          
-
 " Enable all Vim-specific features
 set nocompatible
 
-" Save files in UTF-8
+
+" Enable Pathogen
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+
+" Enable filetype loading actions
+if has("autocmd")
+    filetype plugin indent on
+endif
+
+" Enable syntax highlighting
+if has('syntax') 
+    syntax on                     
+endif
+
+"  Save files in UTF-8
 set fileencoding=utf8
 
 " Remember marks/undo for unsaved buffers
@@ -57,19 +70,9 @@ let mapleader=","
 set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
 
-" Enable syntax highlighting
-if has('syntax') 
-    syntax on                     
-endif
-
 " Enable mouse in terminal mode
 if has('mouse')
     set mouse=a                   
-endif
-
-" Enable filetype loading actions
-if has("autocmd")
-    filetype plugin indent on
 endif
 
 " Enable autoindent

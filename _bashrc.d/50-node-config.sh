@@ -2,7 +2,7 @@
 
 # NPM executables
 if [ -e /usr/local/share/npm/bin ] ; then
-    export $PATH+="/usr/local/share/npm/bin"
+    export PATH="/usr/local/share/npm/bin:${PATH}"
 fi
 
 # NVM support 
