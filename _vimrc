@@ -56,9 +56,12 @@ set showcmd
 " Make search wrap around the file
 set wrapscan                    
 
+" Colorscheme
+colorscheme github
+
 " Highlight current line
 set cursorline                  
-highlight CursorLine cterm=NONE ctermbg=lightred
+highlight CursorLine cterm=NONE ctermbg=lightmagenta
 
 " Search case sensitive only if contains upper-case
 set ignorecase smartcase        
@@ -66,9 +69,13 @@ set ignorecase smartcase
 " Make the comma the leader key
 let mapleader=","
 
+" Relative line numbering
+set relativenumber
+highlight CursorLineNr cterm=NONE ctermbg=lightmagenta
 " Informative statusline
 set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
+" highlight StatusLine cterm=NONE ctermbg=lightmagenta
 
 " Enable mouse in terminal mode
 if has('mouse')
@@ -80,4 +87,8 @@ set autoindent
 
 " Set default line ending warning columns
 set colorcolumn=87,95
+highlight ColorColumn cterm=NONE ctermbg=lightmagenta
+
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
 
