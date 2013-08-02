@@ -38,6 +38,9 @@ set shiftwidth=4
 " Expand tabs as spaces
 set expandtab			        
 
+" Set soft tabstop
+set softtabstop=4
+
 " Activate TAB auto-completion for file paths 
 set wildmode=longest,list       
 
@@ -57,6 +60,7 @@ set showcmd
 set wrapscan                    
 
 " Colorscheme
+set background=light
 colorscheme github
 
 " Highlight current line
@@ -91,4 +95,7 @@ highlight ColorColumn cterm=NONE ctermbg=lightmagenta
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" python-mode
+source ~/.vim/config/python-mode-config.vim
 
