@@ -1,6 +1,11 @@
 " ${HOME}/.vim/after/python.vim
 
 setlocal colorcolumn=72,79,99
+setlocal tabstop=8
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal softtabstop=4
 
-" python-mode
-let g:pymode_folding=0
+let python_highlight_all=1
+let python_version_2=1
+

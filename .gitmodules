@@ -1,3 +1,6 @@
 [submodule "_vim/bundle/vim-colors-github"]
 	path = _vim/bundle/vim-colors-github
 	url = https://github.com/croaky/vim-colors-github.git
+[submodule "_vim/bundle/python-syntax"]
+	path = _vim/bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git
