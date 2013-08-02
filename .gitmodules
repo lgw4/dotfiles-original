@@ -4,3 +4,9 @@
 [submodule "_vim/bundle/python-syntax"]
 	path = _vim/bundle/python-syntax
 	url = https://github.com/hdima/python-syntax.git
+[submodule "_vim/bundle/vim-virtualenv"]
+	path = _vim/bundle/vim-virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git
+[submodule "_vim/bundle/vim-django"]
+	path = _vim/bundle/vim-django
+	url = https://github.com/cwood/vim-django.git
