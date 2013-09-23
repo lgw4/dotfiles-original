@@ -5,10 +5,7 @@
 set nocompatible
 
 " Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+source ${HOME}/.vim/config/vundle.vim
 
 " Enable filetype loading actions
 if has("autocmd")
