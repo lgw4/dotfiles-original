@@ -4,6 +4,12 @@
 " Enable all Vim-specific features
 set nocompatible
 
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
 " Enable filetype loading actions
 if has("autocmd")
     filetype plugin indent on
