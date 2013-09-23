@@ -1,10 +1,10 @@
 [user]
     name = Chip Warden
-    email = lgw4@introspectiverobot.com
+    email = c_warden.leonard@cerner.com 
 [color]
     ui = auto
 [core]
-    excludesfile = ~/.gitignore-global
+    excludesfile = ~/.gitignore_global
     quotepath = false
 [credential]
     helper = osxkeychain

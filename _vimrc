@@ -4,12 +4,6 @@
 " Enable all Vim-specific features
 set nocompatible
 
-
-" Enable Pathogen
-filetype off
-call pathogen#infect()
-call pathogen#helptags()
-
 " Enable filetype loading actions
 if has("autocmd")
     filetype plugin indent on
@@ -61,7 +55,7 @@ set wrapscan
 
 " Colorscheme
 set background=light
-colorscheme github
+"colorscheme github
 
 " Highlight current line
 set cursorline                  
@@ -88,4 +82,7 @@ set autoindent
 " Set default line ending warning columns
 set colorcolumn=91,99
 highlight ColorColumn cterm=NONE ctermbg=lightmagenta
+
+" Settings for vim-django
+"source ~/.vim/config/vim-django.vim
 
