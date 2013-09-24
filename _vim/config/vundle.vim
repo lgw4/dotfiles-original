@@ -6,4 +6,5 @@ Bundle 'gmarik/vundle'
 
 " Bundles
 Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
 
