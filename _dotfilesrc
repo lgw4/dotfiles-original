@@ -4,5 +4,6 @@ prefix = _
 ignore = [
     '.git',
     '.gitmodules',
+    '.DS_Store',
     'README.md' ]
 
