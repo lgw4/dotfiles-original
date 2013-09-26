@@ -21,7 +21,7 @@ if [ -d ${HOME}/Library/Python/3.3/bin ]; then
 fi
 
 # pythonz
-if [ -s ${HOME}/.pythonz/etc/bashrc ]; then
+if [ -s ${HOME}/.pythonz/etc/bashrc ]; then 
     source ${HOME}/.pythonz/etc/bashrc
 fi
 
