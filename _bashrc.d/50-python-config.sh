@@ -1,10 +1,5 @@
 # ${HOME}/.bashrc.d/python_config.sh
 
-# pythonz
-if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
-    source ${HOME}/.pythonz/etc/bashrc
-fi
-
 # Homebrew Python 2.7 package binaries
 if [ -e /usr/local/share/python ]; then
     export PATH="/usr/local/share/python:${PATH}"
@@ -23,6 +18,11 @@ fi
 # OS X local Python 3.3 package binaries
 if [ -d ${HOME}/Library/Python/3.3/bin ]; then
     export PATH="${HOME}/Library/Python/3.3/bin:${PATH}"
+fi
+
+# pyenv
+if `which pyenv > /dev/null`; then
+    eval "`pyenv init -`";
 fi
 
 # Set up virtualenvwrapper
