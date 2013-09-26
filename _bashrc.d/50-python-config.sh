@@ -20,6 +20,11 @@ if [ -d ${HOME}/Library/Python/3.3/bin ]; then
     export PATH="${HOME}/Library/Python/3.3/bin:${PATH}"
 fi
 
+# pythonz
+if [ -s ${HOME}/.pythonz/etc/bashrc ]; then 
+    source ${HOME}/.pythonz/etc/bashrc
+fi
+
 # Set up virtualenvwrapper
 VENVWRAPPER=`which virtualenvwrapper.sh 2> /dev/null`
 if [ ${VENVWRAPPER} ]; then
