@@ -5,8 +5,13 @@ if [ -e /usr/local/share/npm/bin ] ; then
     export PATH="/usr/local/share/npm/bin:${PATH}"
 fi
 
-# NVM support 
+# nvm
 if [ -e ${HOME}/.nvm/nvm.sh ]; then
-    source ${HOME}/.nvm/nvm.sh 
+    source ${HOME}/.nvm/nvm.sh
+fi
+
+# nvm completion
+if [ -r $NVM_DIR/bash_completion ]; then
+    source $NVM_DIR/bash_completion
 fi
 
