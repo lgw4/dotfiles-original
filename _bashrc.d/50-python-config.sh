@@ -20,9 +20,9 @@ if [ -d ${HOME}/Library/Python/3.3/bin ]; then
     export PATH="${HOME}/Library/Python/3.3/bin:${PATH}"
 fi
 
-# pyenv
-if `which pyenv > /dev/null`; then
-    eval "`pyenv init -`"
+# pythonz
+if [ -s ${HOME}/.pythonz/etc/bashrc ]; then
+    source ${HOME}/.pythonz/etc/bashrc
 fi
 
 # Set up virtualenvwrapper

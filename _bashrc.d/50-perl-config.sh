@@ -1,7 +1,8 @@
 # ${HOME}/.bashrc.d/perl_config.sh
 
-# plenv
-if `which plenv > /dev/null`; then
-    eval "`plenv init -`";
+# perlbrew
+export PERLBREW_ROOT=${HOME}/.perlbrew
+if [ -e ${HOME}/.perlbrew/etc/bashrc ]; then
+    source ${HOME}/.perlbrew/etc/bashrc
 fi
 
