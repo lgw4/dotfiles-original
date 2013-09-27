@@ -5,7 +5,7 @@
 set nocompatible
 
 " Vundle
-source ${HOME}/.vim/config/vundle.vim
+source $HOME/.vim/config/vundle.vim
 
 " Enable filetype loading actions
 if has("autocmd")
@@ -58,7 +58,7 @@ set wrapscan
 
 " Colorscheme
 set background=light
-"colorscheme github
+colorscheme github
 
 " Highlight current line
 set cursorline                  
@@ -85,7 +85,4 @@ set autoindent
 " Set default line ending warning columns
 set colorcolumn=91,99
 highlight ColorColumn cterm=NONE ctermbg=lightmagenta
-
-" Settings for vim-django
-"source ~/.vim/config/vim-django.vim
 
