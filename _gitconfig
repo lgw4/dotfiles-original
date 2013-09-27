@@ -4,7 +4,7 @@
 [color]
     ui = auto
 [core]
-	excludesfile = /Users/lgw4/.gitignore_global
+	excludesfile = ~/.gitignore_global
     quotepath = false
 [credential]
     helper = osxkeychain
@@ -20,5 +20,5 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = ~/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
