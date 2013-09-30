@@ -8,3 +8,5 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'croaky/vim-colors-github'
+Bundle 'nvie/vim-flake8'
+
