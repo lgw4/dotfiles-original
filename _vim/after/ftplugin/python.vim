@@ -6,6 +6,7 @@ setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
 
-let python_highlight_all=1
-let python_version_2=1
+let g:flake8_max_line_length=99
+
+autocmd BufWritePost *.py call Flake8()
 
