@@ -12,4 +12,5 @@ Bundle 'nvie/vim-flake8'
 Bundle 'rking/ag.vim'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-markdown'
 
