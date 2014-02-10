@@ -83,6 +83,6 @@ endif
 set autoindent
 
 " Set default line ending warning columns
-set colorcolumn=91,99
+set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=lightmagenta
 

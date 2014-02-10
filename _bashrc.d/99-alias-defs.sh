@@ -15,3 +15,6 @@ if [ -d ${HOME}/.perlbrew ]; then
     alias plbrew="perlbrew"
 fi
 
+if [ `which bundle` ]; then
+    alias bex="bundle exec"
+fi
