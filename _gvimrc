@@ -1,6 +1,5 @@
 " ${HOME}/.gvimrc
-
-if has ("gui_mac")
+if has("mac")
     set transparency=5
     set guifont=Menlo\ 11
 else
@@ -12,6 +11,6 @@ set guioptions+=LlRrb
 set guioptions-=LlRrb
 
 set guioptions-=T
-set columns=132
-set lines=43
+set columns=128
+set lines=48
 
