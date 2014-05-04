@@ -5,9 +5,10 @@
 set nocompatible
 
 " Vundle
-source $HOME/.vim/config/vundle.vim
+if filereadable($HOME . "/.vim/config/vundle.vim")
+    source $HOME/.vim/config/vundle.vim
+endif
 
-" Enable filetype loading actions
 if has("autocmd")
     filetype plugin indent on
 endif

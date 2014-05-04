@@ -1,19 +1,22 @@
 " Vundle configuration
+"-*- coding: utf-8 -*-
 
-filetype off 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" Bundles
-Bundle 'hdima/python-syntax'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'croaky/vim-colors-github'
-Bundle 'nvie/vim-flake8'
-Bundle 'rking/ag.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'ervandew/supertab'
-Bundle 'davidhalter/jedi-vim'
+" Plugins
+Plugin 'hdima/python-syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
+Plugin 'croaky/vim-colors-github'
+Plugin 'nvie/vim-flake8'
+Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'ervandew/supertab'
+Plugin 'davidhalter/jedi-vim'
+
+call vundle#end()
 

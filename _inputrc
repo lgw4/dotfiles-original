@@ -1,0 +1,8 @@
+# #{HOME}/.inputrc
+# -*- coding: utf-8 -*-
+
+# General settings
+set completion-ignore-case on
+set mark-symlinked-directories on
+set prefer-visual-bell on
+
