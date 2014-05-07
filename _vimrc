@@ -6,7 +6,7 @@ set nocompatible
 
 " Vundle
 if filereadable($HOME . "/.vim/config/vundle.vim")
-    source $HOME/.vim/config/vundle.vim
+    source $HOME/.vim/config/Vundle.vim
 endif
 
 if has("autocmd")
