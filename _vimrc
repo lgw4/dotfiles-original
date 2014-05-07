@@ -5,7 +5,7 @@
 set nocompatible
 
 " Vundle
-if filereadable($HOME . "/.vim/config/vundle.vim")
+if filereadable($HOME . "/.vim/config/Vundle.vim")
     source $HOME/.vim/config/Vundle.vim
 endif
 
