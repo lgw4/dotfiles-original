@@ -8,15 +8,16 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Plugins
-Plugin 'hdima/python-syntax'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
 Plugin 'croaky/vim-colors-github'
+Plugin 'kien/ctrlp.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'rking/ag.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
-Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
