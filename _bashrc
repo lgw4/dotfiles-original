@@ -35,3 +35,12 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
         source /etc/bash_completion
     fi
 fi
+
+# Run archey, if available
+if [ `which archey` ]; then
+    if [ ${OS_KERNEL} == "Darwin" ]; then
+        archey -c
+    else
+        archey
+    fi
+fi
