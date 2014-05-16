@@ -11,6 +11,6 @@ set guioptions+=LlRrb
 set guioptions-=LlRrb
 
 set guioptions-=T
-set columns=128
-set lines=48
+set columns=111
+set lines=37
 
