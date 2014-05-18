@@ -19,30 +19,36 @@ function __prompt_command() {
     # basic information (user at host in path)
     PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \W\[$D\] "
 
-    # get git branch
-    branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
-    if [[ ! -z ${branch} ]]; then
-        PS1+="\[$D\]on \[$G\]${branch}\[$D\] "
-    fi
-
-    # check if git repo is rebasing
-    if [[ -d .git/rebase-apply ]]; then
-        PS1+="\[$Y\]REBASING\[$D\] "
-    fi
-
-    # check if git repo is dirty
-    if [ -n "`git status --porcelain 2> /dev/null`" ]; then
-        PS1+="\[$C\]*\[$D\] "
-    fi
-
-    # svn status
-    rev="`svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'`"
-    if [[ ! -z ${rev} ]]; then
-        status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
-        if [[ ! -z ${status} ]]; then
-            status=' *'
+    # Git support (if available)
+    if [ `which git` > /dev/null ]; then
+        # get git branch
+        branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
+        if [[ ! -z ${branch} ]]; then
+            PS1+="\[$D\]on \[$G\]${branch}\[$D\] "
         fi
-        PS1+="\[$D\]on \[$G\]r${rev}\[$D\]\[$C\]${status}\[$D\] "
+
+        # check if git repo is rebasing
+        if [[ -d .git/rebase-apply ]]; then
+            PS1+="\[$Y\]REBASING\[$D\] "
+        fi
+
+        # check if git repo is dirty
+        if [ -n "`git status --porcelain 2> /dev/null`" ]; then
+            PS1+="\[$C\]*\[$D\] "
+        fi
+    fi
+
+    # Subversion support (if available)
+    if [ `which svn` > /dev/null ]; then
+        # svn status
+        rev="`svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'`"
+        if [[ ! -z ${rev} ]]; then
+            status="`svn st | grep '^[^ ][ CM]' | sed -Ee 's/^(.).*$/\1/' | awk 'x[$0]++ 0'`"
+            if [[ ! -z ${status} ]]; then
+                status=' *'
+            fi
+            PS1+="\[$D\]on \[$G\]r${rev}\[$D\]\[$C\]${status}\[$D\] "
+        fi
     fi
 
     # virtualenvwrapper support
