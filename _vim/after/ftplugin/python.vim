@@ -9,5 +9,6 @@ setlocal softtabstop=4
 let g:flake8_max_line_length=99
 let python_highlight_all=1
 
+autocmd BufWritePre *.py :call StripTrailingWhitespace()
 autocmd BufWritePost *.py call Flake8()
 

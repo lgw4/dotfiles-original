@@ -5,8 +5,8 @@
 set nocompatible
 
 " Vundle
-if filereadable($HOME . "/.vim/config/Vundle.vim")
-    source $HOME/.vim/config/Vundle.vim
+if filereadable(glob("~/.vim/config/Vundle.vim"))
+    source ~/.vim/config/Vundle.vim
 endif
 
 if has("autocmd")
@@ -91,3 +91,7 @@ set autoindent
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=lightgrey
 
+" Functions
+if filereadable(glob("~/.vim/config/functions.vim"))
+    source ~/.vim/config/functions.vim
+endif
