@@ -1,8 +1,8 @@
 # ${HOME}/.bashrc.d/python_config.sh
 
-# pythonz
-if [ -s ${HOME}/.pythonz/etc/bashrc ]; then
-    source ${HOME}/.pythonz/etc/bashrc
+# pyenv
+if `which pyenv > /dev/null`; then
+    eval "$(pyenv init -)"
 fi
 
 # Set up virtualenvwrapper
