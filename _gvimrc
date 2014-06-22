@@ -1,9 +1,9 @@
 " ${HOME}/.gvimrc
 if has("mac")
     set transparency=5
-    set guifont=Menlo\ 11
+    set guifont=Menlo\ Regular:h12
 else
-    set guifont=Ubuntu\ Mono\ 11
+    set guifont=Ubuntu\ Mono:h12
 endif
 
 " Get rid of scrollbars. Why it has to be this way, I have no idea.
