@@ -18,7 +18,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
-Plugin 'Valloric/YouCompleteMe'
+if v:version > 703 || v:version == 703 && has('patch584')
+    Plugin 'Valloric/YouCompleteMe'
+endif
 
 call vundle#end()
 
