@@ -16,7 +16,6 @@ if [[ ! -f "${HOME}/.gitconfig" ]] && [[ `which git` ]]; then
     git config --global alias.type "cat-file -t"
     git config --global alias.dump "cat-file -p"
     git config --global github.user lgw4
-    git config --global github.token 6c6908fa73e78b222148929676e8b83e2392fe92
     if [[ `uname -s` == "Darwin" ]]; then
         git config --global credential.helper osxkeychain
     elif [[ -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
@@ -24,4 +23,5 @@ if [[ ! -f "${HOME}/.gitconfig" ]] && [[ `which git` ]]; then
     else
         git config --global credential.helper store
     fi
+    chmod 600 ~/.gitconfig
 fi
