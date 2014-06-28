@@ -3,6 +3,7 @@ repository = ~/.dotfiles
 prefix = _
 ignore = [
     '.git',
+    '.gitignore'
     '.gitmodules',
     '.DS_Store',
     '*.swp',
