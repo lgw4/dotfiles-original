@@ -11,6 +11,21 @@ else
 fi
 
 # Enable Homebrew GitHub API token, if available
-if [ -e ${HOME}/.homebrew/00-homebrew-github-api-token.sh ]; then
-    source ${HOME}/.homebrew/00-homebrew-github-api-token.sh
+if [ ${OS_KERNEL} == "Darwin" ]; then
+    if [ -e ${HOME}/.homebrew/00-homebrew-github-api-token.sh ]; then
+        source ${HOME}/.homebrew/00-homebrew-github-api-token.sh
+    fi
 fi
+
+# Homebrew cask options
+if [ ${OS_KERNEL} == "Darwin" ]; then
+    app='--appdir="/Applications"'
+    prefp='--prefpanedir="/Library/PreferencePanes"'
+    ql='--qlplugindir="/Library/QuickLook"'
+    widget='--widgetdir="/Library/Widgets"'
+    font='--fontdir="/Library/Fonts"'
+    input_m='--input_methoddir="/Library/Input Methods"'
+    screen_s='--screen_saverdir="/Library/Screen Savers"'
+    export HOMEBREW_CASK_OPTS="${app} ${prefp} ${ql} ${widget} ${font} ${input_m} ${screen_s}"
+fi
+

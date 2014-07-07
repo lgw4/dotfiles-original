@@ -1,7 +1,7 @@
 # ${HOME}/.bashrc
 
 # Get OS kernel name
-OS_KERNEL=`uname`
+export OS_KERNEL="$(uname -s)"
 
 # Import files from ${HOME}/.bashrc.d
 if [ -d ${HOME}/.bashrc.d ]; then
