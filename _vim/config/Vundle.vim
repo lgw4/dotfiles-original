@@ -20,6 +20,8 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-repeat'
 if v:version > 703 || v:version == 703 && has('patch584')
     Plugin 'Valloric/YouCompleteMe'
+else
+    Plugin 'ervandew/supertab'
 endif
 
 call vundle#end()
