@@ -1,24 +1,25 @@
 # ${HOME}/.bashrc.d/00-variables-defs.sh
 
 # Set architecture flags
-export ARCHFLAGS="-arch x86_64"
-
-# Make subl editor, if available
-if `which subl > /dev/null`; then
-    export EDITOR="subl -n -w"
-else
-    export EDITOR="vim"
+if [ "${OS_KERNEL}" == "Darwin" ]; then
+    export ARCHFLAGS="-arch x86_64"
 fi
 
+# Make MacVim the default visual editor, if available
+if [ "${OS_KERNEL}" == "Darwin" ] && [ `command -v mvim` ] ; then
+    export VISUAL="mvim --nofork"
+fi
+
+export EDITOR="vim"
+
 # Enable Homebrew GitHub API token, if available
-if [ ${OS_KERNEL} == "Darwin" ]; then
-    if [ -e ${HOME}/.homebrew/00-homebrew-github-api-token.sh ]; then
-        source ${HOME}/.homebrew/00-homebrew-github-api-token.sh
-    fi
+if [ "${OS_KERNEL}" == "Darwin" ] \
+    && [ -e "${HOME}/.homebrew/00-homebrew-github-api-token.sh" ]; then
+        source "${HOME}/.homebrew/00-homebrew-github-api-token.sh"
 fi
 
 # Homebrew cask options
-if [ ${OS_KERNEL} == "Darwin" ]; then
+if [ "${OS_KERNEL}" == "Darwin" ]; then
     app='--appdir="/Applications"'
     prefp='--prefpanedir="/Library/PreferencePanes"'
     ql='--qlplugindir="/Library/QuickLook"'
