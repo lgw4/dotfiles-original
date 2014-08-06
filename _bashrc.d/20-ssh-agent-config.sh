@@ -1,10 +1,12 @@
 # ssh-agent-config.sh
-eval $(ssh-agent) > /dev/null
 
-function cleanup {
-    echo "Killing SSH-Agent..."
-    kill -9 $SSH_AGENT_PID
-}
+if [ `uname` == "Darwin" ]; then
+    eval $(ssh-agent) > /dev/null
 
-trap cleanup EXIT
+    function cleanup {
+        echo "Killing SSH-Agent..."
+        kill -9 $SSH_AGENT_PID
+    }
 
+    trap cleanup EXIT
+fi
