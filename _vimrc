@@ -59,7 +59,7 @@ set wrapscan
 
 " Colorscheme
 set background=light
-colorscheme solarized
+silent! colorscheme solarized
 
 " Highlight current line
 set cursorline
