@@ -47,5 +47,5 @@ fi
 
 # Run fortune, if available
 if [ `which fortune` ]; then
-    fortune -a
+    fortune -n 280 -s
 fi
