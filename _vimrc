@@ -39,7 +39,7 @@ set expandtab
 " Set soft tabstop
 set softtabstop=4
 
-" Activate TAB auto-completion for file paths 
+" Activate TAB auto-completion for file paths
 set wildmode=longest,list
 
 " Improve statusline tab completion
@@ -76,7 +76,7 @@ exec "set listchars=tab:\uBB\uBB,nbsp:~,trail:\uB7"
 set list
 
 " Informative statusline
-set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
+" set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
 
 " Enable mouse in terminal mode

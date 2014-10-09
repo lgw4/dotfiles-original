@@ -9,6 +9,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Plugins
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'nvie/vim-flake8'
