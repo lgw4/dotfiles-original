@@ -18,3 +18,9 @@ fi
 if [ `which bundle` ]; then
     alias bex="bundle exec"
 fi
+
+# ruby-install
+
+if hash ruby-install 2>/dev/null; then
+    alias ruby-install="ruby-install -s ~/.ruby-install"
+fi
