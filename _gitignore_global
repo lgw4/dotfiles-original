@@ -61,7 +61,11 @@ profile
 ##########
 *.pyc
 
-# ST2 #
+# ST  #
 #######
 *.cache
+
+# Vagrant #
+###########
+.vagrant
 
