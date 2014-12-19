@@ -3,6 +3,9 @@
 if [ ${OS_KERNEL} == "Darwin" ]; then
     alias ls="ls -FG"
     alias finder='open -a Finder ./'
+    if [ -d "/Applications/Yoink.app" ]; then
+        alias yoink="open -a Yoink"
+    fi
 elif [ ${OS_KERNEL} == "Linux" ]; then
     alias ls='ls --color=auto'
     alias ll='ls -alF'
