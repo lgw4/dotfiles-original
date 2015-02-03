@@ -62,6 +62,7 @@ profile
 *.pyc
 *.ipynb_checkpoints
 *.egg-info
+*.ropeproject
 
 # ST  #
 #######
