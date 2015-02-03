@@ -60,6 +60,8 @@ profile
 # Python #
 ##########
 *.pyc
+*.ipynb_checkpoints
+*.egg-info
 
 # ST  #
 #######
