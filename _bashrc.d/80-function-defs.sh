@@ -53,7 +53,8 @@ function __prompt_command() {
 
     # virtualenvwrapper support
     if [ ${VIRTUAL_ENV} ]; then
-        PS1+="${D}(${Y}`basename \"${VIRTUAL_ENV}\"`${D}) "
+        PYIMPL=`python -c "import platform ; print(\"{imp}:{ver}\".format(imp=platform.python_implementation(), ver=platform.python_version()))"`
+        PS1+="${D}(${Y}`basename \"${VIRTUAL_ENV}\"`:${PYIMPL}${D}) "
     fi
 
     # prompt $ or # for root
