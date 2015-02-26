@@ -1,5 +1,5 @@
-" ${HOME}/.vim/after/python.vim
+" ${HOME}/.vim/ftplugin/python.vim
 
-let g:flake8_max_line_length=99
-let g:pymode_folding = 0
-let g:pymode_options_max_line_length = 99
+let g:pymode_options=1
+let g:pymode_folding=0
+let g:pymode_options_max_line_length=99
