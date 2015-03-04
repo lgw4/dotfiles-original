@@ -37,7 +37,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
 fi
 
 # Run archey, if available
-if [ `which archey` ]; then
+if [ `command -v archey > /dev/null 2>&1` ]; then
     if [ ${OS_KERNEL} == "Darwin" ]; then
         archey -c
     else
@@ -46,6 +46,6 @@ if [ `which archey` ]; then
 fi
 
 # Run fortune, if available
-if [ `which fortune` ]; then
+if [ `command -v fortune > /dev/null 2>&1` ]; then
     fortune -n 280 -s
 fi
