@@ -18,7 +18,7 @@ if [ -d ${HOME}/.perlbrew ]; then
     alias plbrew="perlbrew"
 fi
 
-if [ `which bundle` ]; then
+if hash bundle 2>/dev/null; then
     alias bex="bundle exec"
 fi
 
