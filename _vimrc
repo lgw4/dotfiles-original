@@ -14,9 +14,21 @@ if has("autocmd")
 endif
 
 " Enable syntax highlighting
-if has('syntax')
-    syntax on
+if has("syntax")
+    syntax enable
 endif
+
+" Enable breakindent
+try
+    set breakindent
+catch /^Vim\%((\a\+)\)\=:E518/
+    let no_breakindent=1
+finally
+    if !exists("no_breakindent")
+        set linebreak
+        set showbreak=\ \
+    endif
+endtry
 
 "  Save files in UTF-8
 set fileencoding=utf8
@@ -58,7 +70,8 @@ set showcmd
 set wrapscan
 
 " Colorscheme
-set background=light
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
 silent! colorscheme solarized
 
 " Highlight current line
@@ -72,8 +85,8 @@ set ignorecase smartcase
 let mapleader=","
 
 " Show trailing whitespace and blank lines
-exec "set listchars=tab:\uBB\uBB,nbsp:~,trail:\uB7"
-set list
+" exec "set listchars=tab:\uBB\uBB,nbsp:~,trail:\uB7"
+" set list
 
 " Informative statusline
 " set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]

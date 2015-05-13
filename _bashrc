@@ -27,8 +27,8 @@ shopt -s checkwinsize
 
 # Enable bash completion
 if [ ${OS_KERNEL} == "Darwin" ]; then
-    if [ -e /usr/local/bin/brew ] && [ -f `brew --prefix`/etc/bash_completion ]; then
-        source `brew --prefix`/etc/bash_completion
+    if [ -f /opt/local/etc/bash_completion ]; then
+        source /opt/local/etc/bash_completion
     fi
 elif [ ${OS_KERNEL} == "Linux" ]; then
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
@@ -36,16 +36,8 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     fi
 fi
 
-# Run archey, if available
-if hash archey 2>/dev/null; then
-    if [ ${OS_KERNEL} == "Darwin" ]; then
-        archey -c
-    else
-        archey
-    fi
-fi
-
 # Run fortune, if available
 if hash fortune 2>/dev/null; then
-    fortune -n 280 -s
+    echo
+    fortune -a
 fi

@@ -1,9 +1,8 @@
 # ${HOME}/.bashrc.d/00-path-config.sh
 
-# Remove /usr/local/bin and prepend /usr/local hierarchy to PATH
+# Add /opt/local/bin and /opt/local/sbin to PATH
 if [ `uname` = "Darwin" ]; then
-    export PATH=${PATH/:\/usr\/local\/bin/}
-    export PATH="/usr/local/bin:/usr/local/sbin:${PATH}"
+    export PATH="/opt/local/bin:/opt/local/sbin:${PATH}"
 fi
 
 # Prepend $HOME/.local/bin to PATH

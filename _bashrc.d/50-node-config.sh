@@ -2,7 +2,7 @@
 
 # NPM executables
 if [ -e /usr/local/share/npm/bin ] ; then
-    export PATH="/usr/local/share/npm/bin:${PATH}"
+    export PATH="${PATH}/usr/local/share/npm/bin"
 fi
 
 # nvm

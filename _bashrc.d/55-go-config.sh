@@ -3,6 +3,6 @@
 if [ -d "${HOME}/Developer/go" ]; then
     export GOPATH="${HOME}/Developer/go"
     if [ -d "${GOPATH}/bin" ]; then
-        export PATH="${GOPATH}/bin:${PATH}"
+        export PATH="${PATH}:${GOPATH}/bin"
     fi
 fi
