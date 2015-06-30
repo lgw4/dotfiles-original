@@ -20,7 +20,7 @@ function __prompt_command() {
     PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \W\[$D\] "
 
     # Git support (if available)
-    if  hash git 2> /dev/null; then
+    if  command -v git > /dev/null 2>&1; then
         # get git branch
         branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
         if [[ ! -z ${branch} ]]; then
@@ -39,7 +39,7 @@ function __prompt_command() {
     fi
 
     # Subversion support (if available)
-    if hash svn 2> /dev/null; then
+    if command -v svn > /dev/null 2>&1; then
         # svn status
         rev="`svn info 2>/dev/null | grep Revision | sed -e 's/Revision: //'`"
         if [[ ! -z ${rev} ]]; then

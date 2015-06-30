@@ -18,12 +18,12 @@ if [ -d ${HOME}/.perlbrew ]; then
     alias plbrew="perlbrew"
 fi
 
-if hash bundle 2>/dev/null; then
+if command -v bundle > /dev/null 2>&1; then
     alias bex="bundle exec"
 fi
 
 # ruby-install
 
-if hash ruby-install 2>/dev/null; then
+if command -v ruby-install > /dev/null 2>&1; then
     alias ruby-install="ruby-install -s ~/.ruby-install"
 fi

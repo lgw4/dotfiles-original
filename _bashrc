@@ -37,7 +37,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
 fi
 
 # Run fortune, if available
-if hash fortune 2>/dev/null; then
+if command -v fortune > /dev/null 2>&1; then
     echo
     fortune -a
 fi

@@ -16,12 +16,12 @@ if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
 fi
 
 # Set up virtualenvwrapper
-if hash virtualenvwrapper.sh 2>/dev/null; then
-    VENVWRAPPER=`which virtualenvwrapper.sh`
+if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
+    VENVWRAPPER=$(command -v virtualenvwrapper.sh)
 fi
 
 if [ "${VENVWRAPPER}" ]; then
-    export VIRTUALENVWRAPPER_PYTHON=`which python`
+    export VIRTUALENVWRAPPER_PYTHON=$(command -v python3)
     export WORKON_HOME="${HOME}/.virtualenvs"
     export PIP_VIRTUALENV_BASE="${WORKON_HOME}"
     source "${VENVWRAPPER}"
