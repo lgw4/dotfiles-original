@@ -40,6 +40,6 @@
 ".ruby.source":
   editor:
     tabLength: 2
-"html.source":
+".html.source":
   editor:
     tabLength: 2
