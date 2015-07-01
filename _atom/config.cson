@@ -34,6 +34,7 @@
   "autocomplete-python": {}
   "linter-flake8":
     maxLineLength: 99
+    executableDir: "/Users/lgw4/Library/Python/3.4/bin/"
   minimap:
     absoluteMode: true
   "unity-ui":
@@ -43,6 +44,7 @@
 ".coffee.source":
   editor:
     tabLength: 2
+    softWrapHangingIndent: 4
 ".gfm.source":
   editor:
     softWrapHangingIndent: 0
@@ -53,3 +55,4 @@
 ".ruby.source":
   editor:
     tabLength: 2
+    softWrapHangingIndent: 4
