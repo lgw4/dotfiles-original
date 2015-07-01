@@ -34,12 +34,22 @@
   "autocomplete-python": {}
   "linter-flake8":
     maxLineLength: 99
+  minimap:
+    absoluteMode: true
+  "unity-ui":
+    showIcons: true
+    colorStatusIndicatorsInTreeView: true
+  "one-light-ui": {}
 ".coffee.source":
   editor:
     tabLength: 2
-".ruby.source":
+".gfm.source":
+  editor:
+    softWrapHangingIndent: 0
+".html.text":
   editor:
     tabLength: 2
-".html.source":
+    softWrapHangingIndent: 4
+".ruby.source":
   editor:
     tabLength: 2
