@@ -1,7 +1,7 @@
 {
   "name": "atom-fuzzy-grep",
   "main": "./lib/atom-fuzzy-grep",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Fuzzy grep project using ag, ack, grep or git-grep",
   "activationCommands": {
     "atom-workspace": [
@@ -26,10 +26,10 @@
     "url": "https://github.com/geksilla/atom-fuzzy-grep/issues"
   },
   "homepage": "https://github.com/geksilla/atom-fuzzy-grep",
-  "_id": "atom-fuzzy-grep@0.3.0",
-  "_shasum": "5a866e6fd88062ea679e57c089fa69f8c422c092",
-  "_resolved": "file:../d-11561-15736-gta6ue/package.tgz",
-  "_from": "../d-11561-15736-gta6ue/package.tgz",
+  "_id": "atom-fuzzy-grep@0.4.0",
+  "_shasum": "36ee0373cd668f9b02ceeea32243924170afc83a",
+  "_resolved": "file:../d-11562-18626-5qqpw2/package.tgz",
+  "_from": "../d-11562-18626-5qqpw2/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

@@ -41,18 +41,18 @@
     showIcons: true
     colorStatusIndicatorsInTreeView: true
   "one-light-ui": {}
-".coffee.source":
+".ruby.source":
+  editor:
+    tabLength: 2
+    softWrapHangingIndent: 4
+".html.text":
   editor:
     tabLength: 2
     softWrapHangingIndent: 4
 ".gfm.source":
   editor:
     softWrapHangingIndent: 0
-".html.text":
-  editor:
-    tabLength: 2
-    softWrapHangingIndent: 4
-".ruby.source":
+".coffee.source":
   editor:
     tabLength: 2
     softWrapHangingIndent: 4

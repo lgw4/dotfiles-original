@@ -15,7 +15,6 @@ class GrepView extends SelectListView
       @grepProject()
 
     @panel = atom.workspace.addModalPanel(item: this, visible: false)
-    window.myCoolPanel = @panel
     @addClass 'atom-fuzzy-grep'
     @runner = new Runner
     atom.config.observe 'atom-fuzzy-grep.minSymbolsToStartSearch', =>
@@ -38,7 +37,7 @@ class GrepView extends SelectListView
         @div content, class: 'secondary-line'
 
   confirmed: (item)->
-    @openFile item.filePath, item.line, item.column
+    @openFile item.fullPath, item.line, item.column
     @cancelled()
 
   openFile: (filePath, line, column)->
@@ -72,12 +71,13 @@ class GrepView extends SelectListView
     @runner?.destroy()
 
   getProjectPath: ->
+    homeDir = process.env.HOME
     editor = atom.workspace.getActiveTextEditor()
-    return unless editor
+    return atom.project.getPaths()[0] || homeDir unless editor
     if editor.getPath()
       atom.project.relativizePath(editor.getPath())[0]
     else
-      atom.project.getPaths()[0]
+      atom.project.getPaths()[0] || homeDir
 
   setSelection: ->
     editor = atom.workspace.getActiveTextEditor()
