@@ -1,8 +1,8 @@
 # ${HOME}/.bashrc.d/55-go-config.sh
 
-if [ -d /opt/local/go ]; then
-    export GOROOT="/opt/local/go"
-elif [ -d /usr/local/go ]; then
+if [ -d "/usr/local/opt/go" ]; then
+    export GOROOT="/opt/local/opt/go"
+elif [ -d "/usr/local/go" ]; then
     export GOROOT="/usr/local/go"
 fi
 
