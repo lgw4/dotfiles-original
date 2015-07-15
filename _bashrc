@@ -27,8 +27,8 @@ shopt -s checkwinsize
 
 # Enable bash completion
 if [ "${OS_KERNEL}" == "Darwin" ]; then
-    if [ -f "/usr/local/etc/bash_completion" ]; then
-        source "/usr/local/etc/bash_completion"
+    if [ -f "/opt/local/etc/bash_completion" ]; then
+        source "/opt/local/etc/bash_completion"
     fi
 elif [ ${OS_KERNEL} == "Linux" ]; then
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
