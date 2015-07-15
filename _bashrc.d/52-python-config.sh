@@ -1,12 +1,12 @@
 # ${HOME}/.bashrc.d/python_config.sh
 
 # OS X Local Python 2.7 binaries
-if [ -f "${HOME}/Library/Python/2.7/bin" ]; then
+if [ -d "${HOME}/Library/Python/2.7/bin" ]; then
     export PATH="${HOME}/Library/Python/2.7/bin:${PATH}"
 fi
 
 # OS X Local Python 3.4 binaries
-if [ -f "${HOME}/Library/Python/3.4/bin" ]; then
+if [ -d "${HOME}/Library/Python/3.4/bin" ]; then
     export PATH="${HOME}/Library/Python/3.4/bin:${PATH}"
 fi
 
