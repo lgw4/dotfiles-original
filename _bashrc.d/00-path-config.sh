@@ -1,7 +1,7 @@
 # ${HOME}/.bashrc.d/00-path-config.sh
 
 # MacPorts on OS X
-if [ -f "/opt/local/bin" ]; then
+if [ -d "/opt/local/bin" ]; then
     export PATH="/opt/local/bin:/opt/local/sbin:${PATH}"
 fi
 
