@@ -4,9 +4,9 @@
 export OS_KERNEL="$(uname -s)"
 
 # Import files from ${HOME}/.bashrc.d
-if [ -d ${HOME}/.bashrc.d ]; then
-    for f in ${HOME}/.bashrc.d/*.sh; do
-        source ${f}
+if [ -d "${HOME}/.bashrc.d} ]; then
+    for f in "${HOME}/.bashrc.d/*.sh"; do
+        source "${f}""
     done
 fi
 
@@ -26,9 +26,9 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # Enable bash completion
-if [ "${OS_KERNEL}" == "Darwin" ] && command -v brew > /dev/null 2>&1; then
-    if [ -e "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
-        source "$(brew --prefix)/share/bash-completion/bash_completion"
+if [ "${OS_KERNEL}" == "Darwin" ]; then
+    if [ -e "/opt/local/share/bash-completion/bash_completion" ]; then
+        source "/opt/local/share/bash-completion/bash_completion"
     fi
 elif [ ${OS_KERNEL} == "Linux" ]; then
     if [ -f "/etc/bash_completion" ] && ! shopt -oq posix; then

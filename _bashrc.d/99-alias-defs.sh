@@ -14,7 +14,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     alias gvim='gvim -f'
 fi
 
-if [ -d ${HOME}/.perlbrew ]; then
+if [ -d "${HOME}/.perlbrew" ]; then
     alias plbrew="perlbrew"
 fi
 
