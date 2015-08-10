@@ -1,8 +1,8 @@
 # ${HOME}/.bashrc.d/50-node-config.sh
 
 # NPM executables
-if [ -d "/opt/local/share/npm/bin" ] ; then
-    export PATH="${PATH}/opt/local/share/npm/bin"
+if [ -d "/usr/local/share/npm/bin" ] ; then
+    export PATH="${PATH}/usr/local/share/npm/bin"
 fi
 
 # nvm
