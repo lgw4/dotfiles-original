@@ -1,7 +1,7 @@
 # ${HOME}/.bashrc.d/00-path-config.sh
 
 # Add /sbin and /usr/sbin to PATH on Debian systems
-if [ -e /etc/debian_version ]; then
+if [ -e "/etc/debian_version" ]; then
     export PATH="${PATH}:/sbin:/usr/sbin"
 fi
 
