@@ -1,6 +1,5 @@
 [dotfiles]
 repository = ~/.dotfiles
-prefix = _
 ignore = [
     '.git',
     '.gitignore',
