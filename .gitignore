@@ -1,4 +1,4 @@
-_pip/cache
-_vim/bundle
-_emacs.d/auto-save-list
-_emacs.d/network-security.data
+pip/cache
+vim/bundle
+emacs.d/auto-save-list
+emacs.d/network-security.data
