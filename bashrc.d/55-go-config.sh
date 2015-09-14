@@ -2,6 +2,8 @@
 
 if [ -d "/opt/local/go" ]; then
     export GOROOT="/opt/local/go"
+elif [ -d "/usr/local/go "]; then
+    export GOROOT="/usr/local/go"
 fi
 
 if [ -n "${GOROOT}" ]; then
