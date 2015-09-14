@@ -1,4 +1,5 @@
 pip/cache
 vim/bundle
+vim/bundle/**
 emacs.d/auto-save-list
 emacs.d/network-security.data
