@@ -1,4 +1,6 @@
 pip/cache
+tmux/plugins
+tmux/plugins/**
 vim/autoload
 vim/autoload/**
 vim/plugged
