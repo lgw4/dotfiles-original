@@ -4,9 +4,9 @@
 " Enable all Vim-specific features
 set nocompatible
 
-" Vundle
-if filereadable(glob("~/.vim/config/Vundle.vim"))
-    source ~/.vim/config/Vundle.vim
+" vim-plug 
+if filereadable(glob("~/.vim/config/vim-plug.vim"))
+    source ~/.vim/config/vim-plug.vim
 endif
 
 if has("autocmd")
@@ -76,7 +76,7 @@ silent! colorscheme solarized
 
 " Highlight current line
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=lightgrey
+highlight CursorLine cterm=NONE ctermbg=white
 
 " Search case sensitive only if contains upper-case
 set ignorecase smartcase
@@ -100,9 +100,13 @@ endif
 " Enable autoindent
 set autoindent
 
+" Line numbering
+set relativenumber
+set number
+
 " Set default line ending warning columns
 set colorcolumn=79,99
-highlight ColorColumn cterm=NONE ctermbg=lightgrey
+highlight ColorColumn cterm=NONE ctermbg=white
 
 " Functions
 if filereadable(glob("~/.vim/config/functions.vim"))

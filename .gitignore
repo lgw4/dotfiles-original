@@ -1,5 +1,6 @@
 pip/cache
-vim/bundle
-vim/bundle/**
-emacs.d/auto-save-list
-emacs.d/network-security.data
+vim/autoload
+vim/autoload/**
+vim/plugged
+vim/plugged/**
+
