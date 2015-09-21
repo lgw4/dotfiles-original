@@ -102,7 +102,6 @@ set autoindent
 
 " Line numbering
 set relativenumber
-set number
 
 " Set default line ending warning columns
 set colorcolumn=79,99
