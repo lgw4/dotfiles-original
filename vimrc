@@ -103,6 +103,9 @@ set autoindent
 " Line numbering
 set relativenumber
 
+" Enable neocomplete
+let g:neocomplete#enable_at_startup=1
+
 " Set default line ending warning columns
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=white
