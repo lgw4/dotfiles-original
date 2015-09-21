@@ -2,7 +2,7 @@
 
 if [[ ! -f "${HOME}/.gitconfig" ]] && [[ `which git` ]]; then
     git config --global user.name "Chip Warden"
-    git config --global user.email lgw4@introspectiverobot.com
+    git config --global user.email "chip.warden@gmail.com" 
     git config --global color.ui auto
     git config --global core.excludesfile "~/.gitignore_global"
     git config --global core.quotepath false
