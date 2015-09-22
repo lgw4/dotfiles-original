@@ -4,7 +4,7 @@
 " Enable all Vim-specific features
 set nocompatible
 
-" vim-plug 
+" vim-plug
 if filereadable(glob("~/.vim/config/vim-plug.vim"))
     source ~/.vim/config/vim-plug.vim
 endif
