@@ -70,13 +70,14 @@ set showcmd
 set wrapscan
 
 " Colorscheme
+set background=light
 let g:solarized_termtrans=1
 let g:solarized_termcolors=256
 silent! colorscheme solarized
 
 " Highlight current line
 set cursorline
-highlight CursorLine cterm=NONE ctermbg=white
+highlight CursorLine cterm=NONE ctermbg=187
 
 " Search case sensitive only if contains upper-case
 set ignorecase smartcase
@@ -91,6 +92,9 @@ let mapleader=","
 " Informative statusline
 " set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
+let g:lightline = {
+    \ 'colorscheme': 'solarized',
+    \ }
 
 " Enable mouse in terminal mode
 if has('mouse')
@@ -108,7 +112,7 @@ let g:neocomplete#enable_at_startup=1
 
 " Set default line ending warning columns
 set colorcolumn=79,99
-highlight ColorColumn cterm=NONE ctermbg=white
+highlight ColorColumn cterm=NONE ctermbg=187
 
 " Functions
 if filereadable(glob("~/.vim/config/functions.vim"))
