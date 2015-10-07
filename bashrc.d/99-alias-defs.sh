@@ -17,13 +17,3 @@ fi
 if [ -d "${HOME}/.perlbrew" ]; then
     alias plbrew="perlbrew"
 fi
-
-if command -v bundle > /dev/null 2>&1; then
-    alias bex="bundle exec"
-fi
-
-# ruby-install
-
-if command -v ruby-install > /dev/null 2>&1; then
-    alias ruby-install="ruby-install -s ~/.ruby-install"
-fi
