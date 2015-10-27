@@ -1,8 +1,6 @@
 # ${HOME}/.bashrc.d/55-go-config.sh
 
-if [ -d "/opt/local/go" ]; then
-    export GOROOT="/opt/local/go"
-elif [ -d "/usr/local/go" ]; then
+if [ -d "/usr/local/go" ]; then
     export GOROOT="/usr/local/go"
 fi
 
@@ -12,7 +10,10 @@ fi
 
 if [ -d "${HOME}/Developer/go" ]; then
     export GOPATH="${HOME}/Developer/go"
-    if [ -d "${GOPATH}/bin" ]; then
-        export PATH="${PATH}:${GOPATH}/bin"
-    fi
+elif [ -d "${HOME}/devel/go" ]; then
+    export GOPATH="${HOME}/devel/go"
+fi
+
+if [ -d "${GOPATH}/bin" ]; then
+    export PATH="${PATH}:/${GOPATH}/bin"
 fi
