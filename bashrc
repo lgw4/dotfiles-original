@@ -36,6 +36,12 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     fi
 fi
 
+# Run screenfetch, if available
+if command -v screenfetch > /dev/null 2>&1; then
+    echo
+    screenfetch
+fi
+
 # Run fortune, if available
 if command -v fortune > /dev/null 2>&1; then
     echo
