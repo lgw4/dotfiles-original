@@ -3,9 +3,6 @@
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'

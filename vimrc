@@ -18,18 +18,6 @@ if has("syntax")
     syntax enable
 endif
 
-" Enable breakindent
-try
-    set breakindent
-catch /^Vim\%((\a\+)\)\=:E518/
-    let no_breakindent=1
-finally
-    if !exists("no_breakindent")
-        set linebreak
-        set showbreak=\ \
-    endif
-endtry
-
 "  Save files in UTF-8
 set fileencoding=utf8
 
@@ -107,22 +95,16 @@ set autoindent
 " Line numbering
 set relativenumber
 
-" Enable neocomplete
-let g:neocomplete#enable_at_startup=1
-
 " Set default line ending warning columns
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=187
+
+" Jedi-vim
+let g:jedi#popup_on_dot=0
+let g:jedi#popup_select_first=0
+let g:jedi#show_call_signatures=2
 
 " Functions
 if filereadable(glob("~/.vim/config/functions.vim"))
     source ~/.vim/config/functions.vim
 endif
-
-" Fix meta-keys which generate <Esc>a .. <Esc>z
-let c='a'
-while c <= 'z'
-  exec "set <M-".toupper(c).">=\e".c
-  exec "imap \e".c." <M-".toupper(c).">"
-  let c = nr2char(1+char2nr(c))
-endw

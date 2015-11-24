@@ -15,3 +15,13 @@ let g:pymode_folding=0
 
 " Set line length
 let g:pymode_options_max_line_length=99
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=99
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
