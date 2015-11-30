@@ -15,7 +15,8 @@
   (package-refresh-contents))
 
 (defvar selectedPackages 
-  '(ein
+  '(column-marker
+    ein
     elpy
     flycheck
     py-autopep8
@@ -29,8 +30,12 @@
 ;; BASIC CUSTOMIZATION
 ;; -------------------
 
+(require 'column-marker)
+
+(setq column-number-mode t)
 (setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'solarized-light t) ;; load solarized-light theme
+(global-hl-line-mode 1)
 (global-linum-mode t) ;; enable line numbers globally
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -49,3 +54,8 @@
 ;; enable autopep8 formatting on save
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+
+;; columns in Python code
+(add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-1 72)))
+(add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-2 79)))
+(add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-3 99)))
