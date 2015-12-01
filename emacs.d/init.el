@@ -3,7 +3,7 @@
 ;; INSTALL PACKAGES
 ;; ----------------
 
-(setq tls-checktrust 'ask)
+(setq tls-checktrust 'ask) ;; enable HTTPS for package archives
 
 (require 'package)
 
@@ -18,6 +18,7 @@
   '(column-marker
     ein
     elpy
+    exec-path-from-shell
     flycheck
     py-autopep8
     solarized-theme))
@@ -30,15 +31,20 @@
 ;; BASIC CUSTOMIZATION
 ;; -------------------
 
+;; get shell environment when running OS X
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
 (require 'column-marker)
 
-(setq column-number-mode t)
+(setq column-number-mode t) ;; show column number in status bar
 (setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'solarized-light t) ;; load solarized-light theme
-(global-hl-line-mode 1)
+(global-hl-line-mode 1) ;; highlight current line
 (global-linum-mode t) ;; enable line numbers globally
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+(scroll-bar-mode -1) ;; disable scrollbars
+(tool-bar-mode -1) ;; disable toolbar
 
 ;; PYTHON CONFIGURATION
 ;; --------------------
