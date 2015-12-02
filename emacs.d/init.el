@@ -18,10 +18,10 @@
   '(column-marker
     ein
     elpy
+    color-theme-solarized
     exec-path-from-shell
     flycheck
-    py-autopep8
-    solarized-theme))
+    py-autopep8))
 
 (mapc #'(lambda (package)
     (unless (package-installed-p package)
@@ -30,6 +30,10 @@
 
 ;; BASIC CUSTOMIZATION
 ;; -------------------
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
 ;; get shell environment when running OS X
 (when (memq window-system '(mac ns))
@@ -40,7 +44,7 @@
 
 (setq column-number-mode t) ;; show column number in status bar
 (setq inhibit-startup-message t) ;; hide the startup message
-(load-theme 'solarized-light t) ;; load solarized-light theme
+(load-theme 'solarized t) ;; load solarized-light theme
 (global-hl-line-mode 1) ;; highlight current line
 (global-linum-mode t) ;; enable line numbers globally
 (scroll-bar-mode -1) ;; disable scrollbars
@@ -65,3 +69,17 @@
 (add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-1 72)))
 (add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-2 79)))
 (add-hook 'elpy-mode-hook (lambda () (interactive) (column-marker-3 99)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (color-theme-solarized solarized-theme py-autopep8 flycheck exec-path-from-shell elpy ein column-marker))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

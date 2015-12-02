@@ -63,6 +63,7 @@ profile
 *.ipynb_checkpoints
 *.egg-info
 *.ropeproject
+*.fab_tasks~
 
 # ST  #
 #######
@@ -70,7 +71,7 @@ profile
 
 # Vagrant #
 ###########
-.vagrant
+*.vagrant
 
 # Emacs #
 #########
