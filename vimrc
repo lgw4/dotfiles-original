@@ -73,12 +73,7 @@ set ignorecase smartcase
 " Make the comma the leader key
 let mapleader=","
 
-" Show trailing whitespace and blank lines
-" exec "set listchars=tab:\uBB\uBB,nbsp:~,trail:\uB7"
-" set list
-
 " Informative statusline
-" set statusline=%F%m%r%h%w\ [%{&ff}]\ [%Y]\ [%03.3b]\ [%02.2B]\ [%l,%v]\ [%p%%]\ [%L]
 set laststatus=2
 let g:lightline = {
     \ 'colorscheme': 'solarized',
@@ -94,6 +89,11 @@ set autoindent
 
 " Line numbering
 set relativenumber
+
+" Better line wrapping
+set linebreak
+set breakindent
+set showbreak=\ \ \ \ 
 
 " Set default line ending warning columns
 set colorcolumn=79,99
