@@ -91,18 +91,15 @@ set autoindent
 set relativenumber
 
 " Better line wrapping
-set linebreak
-set breakindent
-set showbreak=\ \ \ \ 
+if has("linebreak") && exists("&breakindent")
+    set linebreak
+    set breakindent
+    set showbreak=\ \ \ \ 
+endif
 
 " Set default line ending warning columns
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=187
-
-" Jedi-vim
-let g:jedi#popup_on_dot=0
-let g:jedi#popup_select_first=0
-let g:jedi#show_call_signatures=2
 
 " Functions
 if filereadable(glob("~/.vim/config/functions.vim"))
