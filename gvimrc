@@ -1,6 +1,5 @@
 " ${HOME}/.gvimrc
 if has("mac")
-    set transparency=5
     set guifont=Menlo\ Regular:h11
 else
     set guifont=Ubuntu\ Mono\ 11
