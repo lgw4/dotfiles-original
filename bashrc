@@ -35,3 +35,8 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
         source "/etc/bash_completion"
     fi
 fi
+
+# Bash sessions
+if [ -r "/etc/bashrc_$TERM_PROGRAM" ]; then
+    source "/etc/bashrc_$TERM_PROGRAM"
+fi
