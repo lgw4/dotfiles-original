@@ -15,7 +15,9 @@ if [ -d "${HOME}/Library/Python/3.5/bin" ]; then
     export PATH="${HOME}/Library/Python/3.5/bin:${PATH}"
 fi
 
-# Set up pew
-if command -v pew > /dev/null 2>&1; then
-    source $(pew shell_config)
+# Set up virtualenvwrapper
+if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
+    export VIRTUALENVWRAPPER_PYTHON=$(command -v python3)
+    export WORKON_HOME="${HOME}/.local/share/virtualenvs"
+    source $(command -v virtualenvwrapper.sh)
 fi
