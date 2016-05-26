@@ -35,3 +35,11 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
         source "/etc/bash_completion"
     fi
 fi
+
+# Enable Bash Git prompt
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"  ]; then
+    GIT_PROMPT_THEME=Solarized
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+
