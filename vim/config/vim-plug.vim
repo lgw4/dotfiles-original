@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'altercation/vim-colors-solarized'
+Plug 'dag/vim-fish'
 Plug 'davidhalter/jedi-vim'
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
