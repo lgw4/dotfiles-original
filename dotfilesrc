@@ -7,4 +7,5 @@ ignore = [
     '.DS_Store',
     '*.swp',
     'README.md']
+packages = ['config']
 
