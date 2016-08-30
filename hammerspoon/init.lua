@@ -1,96 +1,102 @@
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Y", function()
+local application = require "hs.application"
+local fnutils = require "hs.fnutils"
+local grid = require "hs.grid"
+local hotkey = require "hs.hotkey"
+local mjomatic = require "hs.mjomatic"
+local window = require "hs.window"
+
+grid.MARGINX = 0
+grid.MARGINY = 0
+grid.GRIDHEIGHT = 13
+grid.GRIDWIDTH = 13
+
+local mash = {"cmd", "alt", "ctrl"}
+local mashshift = {"cmd", "alt", "ctrl", "shift"}
+
+--
+-- toggle push window to edge and restore to screen
+--
+
+-- somewhere to store the original position of moved windows
+local origWindowPos = {}
+
+-- cleanup the original position when window restored or closed
+local function cleanupWindowPos(_,_,_,id)
+  origWindowPos[id] = nil
+end
+
+-- function to move a window to edge or back
+local function movewin(direction)
   local win = hs.window.focusedWindow()
-  local f = win:frame()
+  local res = hs.screen.mainScreen():frame()
+  local id = win:id()
 
-  f.x = f.x - 10
-  f.y = f.y - 10
-  win:setFrame(f)
-end)
+  if not origWindowPos[id] then
+    -- move the window to edge if no original position is stored in
+    -- origWindowPos for this window id
+    local f = win:frame()
+    origWindowPos[id] = win:frame()
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "K", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
+    -- add a watcher so we can clean the origWindowPos if window is closed
+    local watcher = win:newWatcher(cleanupWindowPos, id)
+    watcher:start({hs.uielement.watcher.elementDestroyed})
 
-  f.y = f.y - 10
-  win:setFrame(f)
-end)
+    if direction == "left" then f.x = (res.w - (res.w * 2)) + 10 end
+    if direction == "right" then f.x = (res.w + res.w) - 10 end
+    if direction == "down" then f.y = (res.h + res.h) - 10 end
+    win:setFrame(f)
+  else
+    -- restore the window if there is a value for origWindowPos
+    win:setFrame(origWindowPos[id])
+    -- and clear the origWindowPos value
+    cleanupWindowPos(_,_,_,id)
+  end
+end
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "U", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
+hs.hotkey.bind(mash, "A", function() movewin("left") end)
+hs.hotkey.bind(mash, "D", function() movewin("right") end)
+hs.hotkey.bind(mash, "S", function() movewin("down") end)
+--
+-- /toggle push window to edge and restore to screen
+--
 
-  f.x = f.x + 10
-  f.y = f.y - 10
-  win:setFrame(f)
-end)
+--
+-- Window management
+--
+--Alter gridsize
+hotkey.bind(mashshift, '=', function() grid.adjustHeight( 1) end)
+hotkey.bind(mashshift, '-', function() grid.adjustHeight(-1) end)
+hotkey.bind(mash, '=', function() grid.adjustWidth( 1) end)
+hotkey.bind(mash, '-', function() grid.adjustWidth(-1) end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
+--Snap windows
+hotkey.bind(mash, ';', function() grid.snap(window.focusedWindow()) end)
+hotkey.bind(mash, "'", function() fnutils.map(window.visibleWindows(), grid.snap) end)
 
-  f.x = f.x - 10
-  win:setFrame(f)
-end)
+-- hotkey.bind(mashshift, 'H', function() window.focusedWindow():focusWindowWest() end)
+-- hotkey.bind(mashshift, 'L', function() window.focusedWindow():focusWindowEast() end)
+-- hotkey.bind(mashshift, 'K', function() window.focusedWindow():focusWindowNorth() end)
+-- hotkey.bind(mashshift, 'J', function() window.focusedWindow():focusWindowSouth() end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
+--Move windows
+hotkey.bind(mash, 'DOWN', grid.pushWindowDown)
+hotkey.bind(mash, 'UP', grid.pushWindowUp)
+hotkey.bind(mash, 'LEFT', grid.pushWindowLeft)
+hotkey.bind(mash, 'RIGHT', grid.pushWindowRight)
 
-  f.x = f.x + 10
-  win:setFrame(f)
-end)
+--resize windows
+hotkey.bind(mashshift, 'UP', grid.resizeWindowShorter)
+hotkey.bind(mashshift, 'DOWN', grid.resizeWindowTaller)
+hotkey.bind(mashshift, 'RIGHT', grid.resizeWindowWider)
+hotkey.bind(mashshift, 'LEFT', grid.resizeWindowThinner)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "B", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
+hotkey.bind(mash, 'N', grid.pushWindowNextScreen)
+hotkey.bind(mash, 'P', grid.pushWindowPrevScreen)
 
-  f.x = f.x - 10
-  f.y = f.y + 10
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "J", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-
-  f.y = f.y + 10
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "N", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-
-  f.x = f.x + 10
-  f.y = f.y + 10
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 2)
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
-end)
+-- hotkey.bind(mashshift, 'M', grid.maximizeWindow)
+--
+-- /Window management
+--
 
 function reloadConfig(files)
     doReload = false
