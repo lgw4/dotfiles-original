@@ -5,10 +5,7 @@ local hotkey = require "hs.hotkey"
 local mjomatic = require "hs.mjomatic"
 local window = require "hs.window"
 
-grid.MARGINX = 0
-grid.MARGINY = 0
-grid.GRIDHEIGHT = 13
-grid.GRIDWIDTH = 13
+grid.setGrid('16x10', 'Color LCD')
 
 local mash = {"cmd", "alt", "ctrl"}
 local mashshift = {"cmd", "alt", "ctrl", "shift"}
@@ -64,10 +61,10 @@ hs.hotkey.bind(mash, "S", function() movewin("down") end)
 -- Window management
 --
 --Alter gridsize
-hotkey.bind(mashshift, '=', function() grid.adjustHeight( 1) end)
-hotkey.bind(mashshift, '-', function() grid.adjustHeight(-1) end)
-hotkey.bind(mash, '=', function() grid.adjustWidth( 1) end)
-hotkey.bind(mash, '-', function() grid.adjustWidth(-1) end)
+-- hotkey.bind(mashshift, '=', function() grid.adjustHeight( 1) end)
+-- hotkey.bind(mashshift, '-', function() grid.adjustHeight(-1) end)
+-- hotkey.bind(mash, '=', function() grid.adjustWidth( 1) end)
+-- hotkey.bind(mash, '-', function() grid.adjustWidth(-1) end)
 
 --Snap windows
 hotkey.bind(mash, ';', function() grid.snap(window.focusedWindow()) end)
@@ -77,6 +74,10 @@ hotkey.bind(mash, "'", function() fnutils.map(window.visibleWindows(), grid.snap
 -- hotkey.bind(mashshift, 'L', function() window.focusedWindow():focusWindowEast() end)
 -- hotkey.bind(mashshift, 'K', function() window.focusedWindow():focusWindowNorth() end)
 -- hotkey.bind(mashshift, 'J', function() window.focusedWindow():focusWindowSouth() end)
+
+hotkey.bind(mash, 'C', function()
+  window.frontmostWindow():centerOnScreen(ensureInScreenBounds)
+end)
 
 --Move windows
 hotkey.bind(mash, 'DOWN', grid.pushWindowDown)
