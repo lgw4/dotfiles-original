@@ -47,7 +47,7 @@ end)
 -- Automatically reload configuration on save
 function reloadConfig(files)
     doReload = false
-    for _,file in pairs(files) do
+    for _, file in pairs(files) do
         if file:sub(-4) == ".lua" then
             doReload = true
         end
