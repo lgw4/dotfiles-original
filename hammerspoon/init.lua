@@ -44,6 +44,25 @@ function center_window()
   win:centerOnScreen(ensureInScreenBounds)
 end
 
+-- Resize frontmost window to 1024 x 768
+function set_window_size(w, h)
+  local win = hs.window.frontmostWindow()
+  local size = hs.geometry.size(w, h)
+
+  win:setSize(size)
+end
+
+-- Extend window to maximum height
+function make_full_height()
+  local win = hs.window.frontmostWindow()
+  local f = win:frame()
+  local max = win:screen():frame()
+  local size = win:size()
+
+  size.h = max.h
+  win:setSize(size)
+end
+
 -- Move to monitor x. Checks to make sure monitor exists, if not moves to last monitor that exists
 function moveToMonitor(x)
   local win = hs.window.frontmostWindow()
@@ -84,6 +103,18 @@ hs.hotkey.bind(rz_mod_shift, "RIGHT", function() resize_window(10, 0) end)
 
 -- Center frontmost window
 hs.hotkey.bind(act_mod, "=", function() center_window() end)
+
+-- Set dimensions of frontmost window
+hs.hotkey.bind(act_mod, "1", function() set_window_size(1024, 768) end)
+hs.hotkey.bind(act_mod, "2", function() set_window_size(1280, 720) end)
+hs.hotkey.bind(act_mod, "3", function() set_window_size(1366, 768) end)
+hs.hotkey.bind(act_mod, "5", function() set_window_size(1152, 864) end)
+hs.hotkey.bind(act_mod, "6", function() set_window_size(640, 480) end)
+hs.hotkey.bind(act_mod, "8", function() set_window_size(800, 600) end)
+hs.hotkey.bind(act_mod, "F", function() set_window_size(705, 505) end)
+
+-- Extend window to full height
+hs.hotkey.bind(act_mod, "DOWN", function() make_full_height() end)
 
 -- Manually reload configuration
 -- Found in the "Getting Started with Hammerspoon" guide (http://www.hammerspoon.org/go/)
