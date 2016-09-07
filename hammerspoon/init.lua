@@ -1,124 +1,136 @@
--- Modifier keys
-local mv_mod = {"control", "option"}
-local mv_mod_shift = {"control", "option", "shift"}
-local rz_mod = {"control", "command"}
-local rz_mod_shift = {"control", "command", "shift"}
-local act_mod = {"control", "option", "command"}
-local act_mod_shift = {"control", "option", "command", "shift"}
-local no_mod = {}
+-- Modules
+local fnutils = require "hs.fnutils"
+local grid = require "hs.grid"
+local hotkey = require "hs.hotkey"
+local screen = require "hs.screen"
+local window = require "hs.window"
 
--- Disable animation
-hs.window.animationDuration = 0
+-- Modifier keys
+local mod = {"control", "command"}
+local mod_shift = {"control", "command", "shift"}
 
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
-local screens = hs.screen.allScreens()
-local screenwatcher = hs.screen.watcher.new(function()
-  screens = hs.screen.allScreens()
+local screens = screen.allScreens()
+local screenwatcher = screen.watcher.new(function()
+  screens = screen.allScreens()
 end)
 screenwatcher:start()
 
--- Move frontmost window a number of pixels in x and y
-function move_window(xpos, ypos)
-  local win = hs.window.frontmostWindow()
-  local f = win:frame()
+-- Create grid
+grid.GRIDWIDTH = 16
+grid.GRIDHEIGHT = 4
+grid.MARGINX = 0
+grid.MARGINY = 0
+grid.ui.textSize = 48
 
-  f.x = f.x + xpos
-  f.y = f.y + ypos
-  win:setFrameInScreenBounds(f)
+-- Disable animation
+window.animationDuration = 0
+
+-- Original position of moved windows
+local original_position = {}
+
+-- Reset the original position when window is restored or closed
+local function resetWindowPosition(_, _, _, id)
+  original_position[id] = nil
 end
 
--- Resize frontmost by moving the bottom
-function resize_window(xpixels, ypixels)
-  local win = hs.window.frontmostWindow()
-  local f = win:frame()
+-- Move window to edge or back
+local function moveWindow(direction)
+  local win = window.frontmostWindow()
+  local res = screen.mainScreen():frame()
+  local id = win:id()
 
-  f.w = f.w + xpixels
-  f.h = f.h + ypixels
-  win:setFrameInScreenBounds(f)
+  if not original_position[id] then
+    -- Move window to edge if no original position is stored in
+    -- original_position for this window id
+    local f = win:frame()
+    original_position[id] = win:frame()
+
+    -- Add watcher so we can reset the original_position if window is closed
+    local watcher = win:newWatcher(resetWindowPosition, id)
+    watcher:start({hs.uielement.watcher.elementDestroyed})
+
+    if direction == "left" then f.x = (res.w - (res.w * 2)) + 10 end
+    if direction == "right" then f.x = (res.w + res.w) - 10 end
+    if direction == "down" then f.y = (res.h + res.h) - 10 end
+    win:setFrame(f)
+  else
+    -- Restore window if there is a value for original_position
+    win:setFrame(original_position[id])
+    -- Reset the original_position value
+    resetWindowPosition(_, _, _, id)
+  end
 end
+
+hotkey.bind(mod, "A", function() moveWindow("left") end)
+hotkey.bind(mod, "D", function() moveWindow("right") end)
+hotkey.bind(mod, "S", function() moveWindow("down") end)
 
 -- Center frontmost window
-function center_window()
-  local win = hs.window.frontmostWindow()
+function centerWindow()
+  local win = window.frontmostWindow()
 
   win:centerOnScreen(ensureInScreenBounds)
 end
 
--- Resize frontmost window to 1024 x 768
-function set_window_size(w, h)
+-- Move frontmost window down 100 pixels
+function down100Pixels()
   local win = hs.window.frontmostWindow()
+  local f = win:frame()
+
+  f.y = 100
+  win:setFrameInScreenBounds(f)
+end
+
+-- Set size of frontmost window to w x h
+function setWindowSize(w, h)
+  local win = window.frontmostWindow()
   local size = hs.geometry.size(w, h)
 
   win:setSize(size)
 end
 
--- Extend window to maximum height
-function make_full_height()
-  local win = hs.window.frontmostWindow()
-  local f = win:frame()
-  local max = win:screen():frame()
-  local size = win:size()
-
-  size.h = max.h
-  win:setSize(size)
-end
-
--- Move to monitor x. Checks to make sure monitor exists, if not moves to last monitor that exists
-function moveToMonitor(x)
-  local win = hs.window.frontmostWindow()
-  local newScreen = nil
-
-  while not newScreen do
-    newScreen = screens[x]
-    x = x - 1
-  end
-  win:moveToScreen(newScreen)
-end
-
--- Movement hotkeys
--- Move directonally by 1 pixel
-hs.hotkey.bind(mv_mod, "UP", function() move_window(0, -1) end)
-hs.hotkey.bind(mv_mod, "DOWN", function() move_window(0, 1) end)
-hs.hotkey.bind(mv_mod, "LEFT", function() move_window(-1, 0) end)
-hs.hotkey.bind(mv_mod, "RIGHT", function() move_window(1, 0) end)
-
--- Move directionally by 10 pixels
-hs.hotkey.bind(mv_mod_shift, "UP", function() move_window(0, -10) end)
-hs.hotkey.bind(mv_mod_shift, "DOWN", function() move_window(0, 10) end)
-hs.hotkey.bind(mv_mod_shift, "LEFT", function() move_window(-10, 0) end)
-hs.hotkey.bind(mv_mod_shift, "RIGHT", function() move_window(10, 0) end)
-
--- Resize hotkeys
--- Resize directionally by 1 pixel
-hs.hotkey.bind(rz_mod, "UP", function() resize_window(0, -1) end)
-hs.hotkey.bind(rz_mod, "DOWN", function() resize_window(0, 1) end)
-hs.hotkey.bind(rz_mod, "LEFT", function() resize_window(-1, 0) end)
-hs.hotkey.bind(rz_mod, "RIGHT", function() resize_window(1, 0) end)
-
--- Resize directionally by 10 pixels
-hs.hotkey.bind(rz_mod_shift, "UP", function() resize_window(0, -10) end)
-hs.hotkey.bind(rz_mod_shift, "DOWN", function() resize_window(0, 10) end)
-hs.hotkey.bind(rz_mod_shift, "LEFT", function() resize_window(-10, 0) end)
-hs.hotkey.bind(rz_mod_shift, "RIGHT", function() resize_window(10, 0) end)
-
 -- Center frontmost window
-hs.hotkey.bind(act_mod, "=", function() center_window() end)
+hotkey.bind(mod, "=", function() centerWindow() end)
+
+-- Center frontmost window macOS-style
+hotkey.bind(mod_shift, "=", function()
+  centerWindow()
+  down100Pixels()
+end)
 
 -- Set dimensions of frontmost window
-hs.hotkey.bind(act_mod, "1", function() set_window_size(1024, 768) end)
-hs.hotkey.bind(act_mod, "2", function() set_window_size(1280, 720) end)
-hs.hotkey.bind(act_mod, "3", function() set_window_size(1366, 768) end)
-hs.hotkey.bind(act_mod, "5", function() set_window_size(1152, 864) end)
-hs.hotkey.bind(act_mod, "6", function() set_window_size(640, 480) end)
-hs.hotkey.bind(act_mod, "8", function() set_window_size(800, 600) end)
-hs.hotkey.bind(act_mod, "F", function() set_window_size(705, 505) end)
+hotkey.bind(mod, "1", function() setWindowSize(1024, 768) end)
+hotkey.bind(mod, "2", function() setWindowSize(1280, 720) end)
+hotkey.bind(mod, "3", function() setWindowSize(1366, 768) end)
+hotkey.bind(mod, "5", function() setWindowSize(1152, 864) end)
+hotkey.bind(mod, "6", function() setWindowSize(640, 480) end)
+hotkey.bind(mod, "8", function() setWindowSize(800, 600) end)
+hotkey.bind(mod, "F", function() setWindowSize(705, 505) end)
 
--- Extend window to full height
-hs.hotkey.bind(act_mod, "DOWN", function() make_full_height() end)
+-- Move windows
+hotkey.bind(mod, "DOWN", grid.pushWindowDown)
+hotkey.bind(mod, "UP", grid.pushWindowUp)
+hotkey.bind(mod, "LEFT", grid.pushWindowLeft)
+hotkey.bind(mod, "RIGHT", grid.pushWindowRight)
+
+-- Move windows across screens
+hotkey.bind(mod, "N", grid.pushWindowNextScreen)
+hotkey.bind(mod, "P", grid.pushWindowPrevScreen)
+
+-- Resize windows
+hotkey.bind(mod_shift, "UP", grid.resizeWindowShorter)
+hotkey.bind(mod_shift, "DOWN", grid.resizeWindowTaller)
+hotkey.bind(mod_shift, "RIGHT", grid.resizeWindowWider)
+hotkey.bind(mod_shift, "LEFT", grid.resizeWindowThinner)
+
+-- Snap windows
+hotkey.bind(mod, ";", function() grid.snap(window.frontmostWindow()) end)
+hotkey.bind(mod, "'", function() fnutils.map(window.visibleWindows(), grid.snap) end)
 
 -- Manually reload configuration
 -- Found in the "Getting Started with Hammerspoon" guide (http://www.hammerspoon.org/go/)
-hs.hotkey.bind(act_mod_shift, "R", function()
+hotkey.bind(mod_shift, "R", function()
   hs.reload()
 end)
 
