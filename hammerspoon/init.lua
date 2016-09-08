@@ -17,11 +17,11 @@ end)
 screenwatcher:start()
 
 -- Create grid
-grid.GRIDWIDTH = 10
-grid.GRIDHEIGHT = 10
+grid.GRIDWIDTH = 16
+grid.GRIDHEIGHT = 8
 grid.MARGINX = 0
 grid.MARGINY = 0
-grid.ui.textSize = 48
+grid.ui.textSize = 36
 
 -- Disable animation
 window.animationDuration = 0
