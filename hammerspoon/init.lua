@@ -16,19 +16,24 @@ local screenwatcher = screen.watcher.new(function()
 end)
 screenwatcher:start()
 
--- Set screen grid depending on resolution
-grid.setMargins("0, 0")
+-- Default grid settings
+grid.GRIDWIDTH = 9
+grid.GRIDHEIGHT = 6
+grid.MARGINX = 0
+grid.MARGINY = 0
 grid.ui.textSize = 36
+
+-- Set display grid depending on resolution
 for index, display in pairs(screen.allScreens()) do
   if display:frame().w / display:frame().h > 2 then
-    -- 16 x 8 for ultra wide screen
+    -- 16 x 8 for ultrawide display
     grid.setGrid("16 x 8", display)
   else
     if display:frame().w < display:frame().h then
-      -- 6 x 12 for vertically aligned screen
-      grid.setGrid("6 x1 2", display)
+      -- 6 x 12 for vertically aligned display
+      grid.setGrid("6 x 12", display)
     else
-      -- 12 x 6 for normal screen
+      -- 12 x 6 for normal display
       grid.setGrid("12 x 6", display)
     end
   end
