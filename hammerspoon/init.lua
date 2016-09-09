@@ -17,7 +17,7 @@ end)
 screenwatcher:start()
 
 -- Default grid settings
-grid.GRIDWIDTH = 9
+grid.GRIDWIDTH = 12
 grid.GRIDHEIGHT = 6
 grid.MARGINX = 0
 grid.MARGINY = 0
