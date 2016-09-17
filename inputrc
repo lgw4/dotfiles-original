@@ -4,5 +4,5 @@
 # General settings
 set completion-ignore-case on
 set mark-symlinked-directories on
-set prefer-visual-bell on
+set bell-style visible 
 
