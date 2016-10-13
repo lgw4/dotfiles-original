@@ -22,3 +22,6 @@ if [ -d "${HOME}/.perlbrew" ]; then
     alias plbrew='perlbrew'
 fi
 
+# SSH by password only
+alias sshp='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
+alias scpp='scp -o PreferredAuthentications=password -o PubkeyAuthentication=no'
