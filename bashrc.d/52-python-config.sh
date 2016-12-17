@@ -14,9 +14,3 @@ fi
 if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
     source "${HOME}/.pythonz/etc/bashrc"
 fi
-
-# Set up pew
-if command -v pew > /dev/null 2>&1; then
-    source $(pew shell_config)
-    complete -o default -F _pew pew
-fi
