@@ -14,3 +14,11 @@ fi
 if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
     source "${HOME}/.pythonz/etc/bashrc"
 fi
+
+# virtualenvwrapper
+if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
+    export WORKON_HOME="${HOME}/.virtualenvs"
+    export PROJECT_HOME="${HOME}/Development/python"
+    export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    source $(command -v virtualenvwrapper.sh)
+fi

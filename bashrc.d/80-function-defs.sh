@@ -1,7 +1,6 @@
 # ${HOME}/.bashrc.d/80-function-defs.sh file
 
 # __prompt_command(): function to generate custom PS1 prompt
-
 function __prompt_command() {
 
     # clear PS1 prompt
@@ -38,7 +37,7 @@ function __prompt_command() {
         fi
     fi
 
-    # Python virtual environments 
+    # Python virtual environments
     if [ ${VIRTUAL_ENV} ]; then
         PYIMPL=`python -c "import platform ; print(\"{imp}:{ver}\".format(imp=platform.python_implementation(), ver=platform.python_version()))"`
         PS1+="${D}(${Y}`basename \"${VIRTUAL_ENV}\"`:${PYIMPL}${D}) "
@@ -50,7 +49,6 @@ function __prompt_command() {
 }
 
 # cdf(): cd to the PATH of the front Finder window
-
 if [ ${OS_KERNEL} == "Darwin" ]; then
     function cdf () {
         target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
