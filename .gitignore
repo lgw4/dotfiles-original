@@ -2,6 +2,7 @@ emacs.d/auto-save-list
 emacs.d/auto-save-list/**
 emacs.d/elpa
 emacs.d/elpa/**
+ipython/profile_default/db/
 pip/cache
 tmux/plugins
 tmux/plugins/**

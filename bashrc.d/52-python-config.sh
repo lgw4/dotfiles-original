@@ -15,7 +15,7 @@ if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
     source "${HOME}/.pythonz/etc/bashrc"
 fi
 
-# pew
-if command -v pew > /dev/null 2>&1; then
-    source $(pew shell_config)
+if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
+    export VIRTUALENVWRAPPER_PYTHON="`command -v python3`"
+    source `command -v virtualenvwrapper.sh`
 fi
