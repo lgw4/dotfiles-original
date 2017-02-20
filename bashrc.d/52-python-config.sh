@@ -11,9 +11,7 @@ if [ -d "${HOME}/Library/Python/Current/bin" ]; then
 fi
 
 # pythonz
-if [ -s "${HOME}/.pythonz/etc/bashrc" ]; then
-    source "${HOME}/.pythonz/etc/bashrc"
-fi
+[[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
 
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     export VIRTUALENVWRAPPER_PYTHON="`command -v python3`"
