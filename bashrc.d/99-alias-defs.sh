@@ -6,9 +6,6 @@ if [ ${OS_KERNEL} == "Darwin" ]; then
     if [ -d "/Applications/Yoink.app" ]; then
         alias yoink='open -a Yoink'
     fi
-    if [ -d "${HOME}/.pythonz" ]; then
-        alias pythonz='env LDFLAGS="-L/usr/local/opt/openssl/lib" CPPFLAGS="-I/usr/local/opt/openssl/include" pythonz'
-    fi
 elif [ ${OS_KERNEL} == "Linux" ]; then
     alias ls='ls --color=auto'
     alias ll='ls -alF'
