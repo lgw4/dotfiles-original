@@ -88,6 +88,7 @@ endif
 set autoindent
 
 " Line numbering
+set number
 set relativenumber
 
 " Better line wrapping
@@ -105,3 +106,4 @@ highlight ColorColumn cterm=NONE ctermbg=187
 if filereadable(glob("~/.vim/config/functions.vim"))
     source ~/.vim/config/functions.vim
 endif
+
