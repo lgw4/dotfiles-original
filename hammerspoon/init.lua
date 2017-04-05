@@ -116,13 +116,13 @@ hotkey.bind(mod_shift, "=", function()
 end)
 
 -- Set dimensions of frontmost window
-hotkey.bind(mod, "1", function() setWindowSize(1024, 768) end)
-hotkey.bind(mod, "2", function() setWindowSize(1280, 720) end)
-hotkey.bind(mod, "3", function() setWindowSize(1366, 768) end)
-hotkey.bind(mod, "5", function() setWindowSize(1152, 864) end)
-hotkey.bind(mod, "6", function() setWindowSize(640, 480) end)
-hotkey.bind(mod, "8", function() setWindowSize(800, 600) end)
-hotkey.bind(mod, "F", function() setWindowSize(705, 505) end)
+hotkey.bind(mod_shift, "1", function() setWindowSize(1024, 768) end)
+hotkey.bind(mod_shift, "2", function() setWindowSize(1280, 720) end)
+hotkey.bind(mod_shift, "3", function() setWindowSize(1366, 768) end)
+hotkey.bind(mod_shift, "5", function() setWindowSize(1152, 864) end)
+hotkey.bind(mod_shift, "6", function() setWindowSize(640, 480) end)
+hotkey.bind(mod_shift, "8", function() setWindowSize(800, 600) end)
+hotkey.bind(mod_shift, "F", function() setWindowSize(705, 505) end)
 
 -- Move windows
 hotkey.bind(mod, "DOWN", grid.pushWindowDown)
