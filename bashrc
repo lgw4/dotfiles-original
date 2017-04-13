@@ -43,3 +43,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
         source "/etc/bash_completion"
     fi
 fi
+
+if [ -f "${HOME}/.local/bin/homebrew_api_token.bash" ]; then
+    source "${HOME}/.local/bin/homebrew_api_token.bash"
+fi
