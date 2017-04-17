@@ -44,6 +44,6 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     fi
 fi
 
-if [ -f "${HOME}/.local/bin/homebrew_api_token.bash" ]; then
-    source "${HOME}/.local/bin/homebrew_api_token.bash"
+if [ -f "${HOME}/.local/bin/homebrew_api_token.sh" ]; then
+    source "${HOME}/.local/bin/homebrew_api_token.sh"
 fi
