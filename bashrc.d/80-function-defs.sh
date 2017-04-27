@@ -73,12 +73,12 @@ complete -o default -F _pip_completion pip3
 # pip bash completion end
 
 # Proxy control functions
-function enable_proxy {
-    if [ -e "${HOME}/.local/share/dst_proxy_settings.sh" ]; then
-        source "${HOME}/.local/share/dst_proxy_settings.sh"
-    fi
-}
+if [ -e "${HOME}/.local/share/cli_proxy_settings.sh" ]; then
+    function enable_proxy {
+        source "${HOME}/.local/share/cli_proxy_settings.sh"
+    }
 
-function disable_proxy {
-    unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
-}
+    function disable_proxy {
+        unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
+    }
+fi
