@@ -15,5 +15,5 @@ fi
 
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
-    source `command -v virtualenvwrapper.sh`
+    source "$(command -v virtualenvwrapper.sh)"
 fi
