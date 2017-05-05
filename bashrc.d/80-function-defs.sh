@@ -83,4 +83,12 @@ if [ -e "${HOME}/.local/share/cli_proxy_settings.sh" ]; then
         unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
         printf "\nDST proxy disabled.\n"
     }
+
+    function proxy_status {
+        if [ -z ${http_proxy+x} ]; then
+            printf "\nDST proxy is disabled.\n"
+        else
+            printf "\nDST proxy is enabled.\n"
+        fi
+    }
 fi
