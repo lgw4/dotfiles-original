@@ -74,12 +74,12 @@ complete -o default -F _pip_completion pip3
 
 # Proxy control functions
 if [ -e "${HOME}/.local/share/cli_proxy_settings.sh" ]; then
-    function proxy_on {
+    function proxy_enable {
         source "${HOME}/.local/share/cli_proxy_settings.sh"
         printf "\nDST proxy enabled.\n"
     }
 
-    function proxy_off {
+    function proxy_disable {
         unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
         printf "\nDST proxy disabled.\n"
     }
