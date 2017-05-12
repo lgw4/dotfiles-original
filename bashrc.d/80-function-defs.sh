@@ -69,7 +69,9 @@ _pip_completion()
 }
 complete -o default -F _pip_completion pip
 complete -o default -F _pip_completion pip2
+complete -o default -f _pip_completion pip2.7
 complete -o default -F _pip_completion pip3
+complete -o default -F _pip_completion pip3.6
 # pip bash completion end
 
 # Proxy control functions
