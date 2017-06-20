@@ -96,4 +96,13 @@ if [ -e "${HOME}/.local/share/cli_proxy_settings.sh" ]; then
             fi
         done
     }
+
+    function proxy_retry {
+        retries=0
+        until [ $retries -ge 500 ]; do
+            "$@" && break
+            retries=$[$retries+1]
+            sleep 8
+        done 
+    }
 fi
