@@ -1,5 +1,8 @@
 ;; init.el --- Emacs configuration
 
+(tool-bar-mode -1) ;; disable toolbar
+(scroll-bar-mode -1) ;; disable scrollbars
+
 ;; INSTALL PACKAGES
 ;; ----------------
 
@@ -47,8 +50,6 @@
 (load-theme 'solarized t) ;; load solarized-light theme
 (global-hl-line-mode 1) ;; highlight current line
 (global-linum-mode t) ;; enable line numbers globally
-(scroll-bar-mode -1) ;; disable scrollbars
-(tool-bar-mode -1) ;; disable toolbar
 
 ;; PYTHON CONFIGURATION
 ;; --------------------
