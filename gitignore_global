@@ -69,8 +69,8 @@ profile
 *.ropeproject
 *.fab_tasks~
 
-# Sublime Text  #
-#################
+# Sublime Text #
+################
 *.cache
 
 # Vagrant #
@@ -80,4 +80,8 @@ profile
 # Emacs #
 #########
 *~
+
+# Fish shell #
+##############
+fishd.*
 
