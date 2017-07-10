@@ -8,7 +8,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dag/vim-fish'
 Plug 'davidhalter/jedi-vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'fisadev/vim-isort'
 Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'

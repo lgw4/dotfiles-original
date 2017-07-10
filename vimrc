@@ -40,7 +40,7 @@ set expandtab
 set softtabstop=4
 
 " Activate TAB auto-completion for file paths
-set wildmode=longest,list
+set wildmode=list:longest,full
 
 " Improve statusline tab completion
 set wildmenu
