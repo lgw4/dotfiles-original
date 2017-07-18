@@ -9,6 +9,11 @@ local window = require "hs.window"
 local mod = {"control", "command"}
 local mod_shift = {"control", "command", "shift"}
 
+-- Spoons
+hs.loadSpoon("Caffeine")
+spoon.Caffeine:bindHotkeys({toggle={mod, "C"}})
+spoon.Caffeine:start()
+
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
 local screens = screen.allScreens()
 local screenwatcher = screen.watcher.new(function()
