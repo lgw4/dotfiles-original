@@ -1,5 +1,6 @@
 -- Modules
 local fnutils = require "hs.fnutils"
+local fs = require "hs.fs"
 local grid = require "hs.grid"
 local hotkey = require "hs.hotkey"
 local screen = require "hs.screen"
@@ -10,9 +11,11 @@ local mod = {"control", "command"}
 local mod_shift = {"control", "command", "shift"}
 
 -- Spoons
-hs.loadSpoon("Caffeine")
-spoon.Caffeine:bindHotkeys({toggle={mod, "C"}})
-spoon.Caffeine:start()
+if not fs.attributes("/Applications/Amphetamine.app") then
+  hs.loadSpoon("Caffeine")
+  spoon.Caffeine:bindHotkeys({toggle={mod, "C"}})
+  spoon.Caffeine:start()
+end
 
 -- Get list of screens and refresh that list whenever screens are plugged or unplugged:
 local screens = screen.allScreens()
