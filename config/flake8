@@ -1,3 +1,6 @@
 [flake8]
+ignore = 
+    D1                  # Don't require docstrings
+max-complexity = 10
 max-line-length = 99
 
