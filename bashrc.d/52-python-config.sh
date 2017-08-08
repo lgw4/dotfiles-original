@@ -13,7 +13,6 @@ fi
 # pythonz
 [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
 
-
 # Enable pew
 if command -v pew > /dev/null 2>&1; then
     export WORKON_HOME="${HOME}/.virtualenvs"
