@@ -13,7 +13,11 @@ fi
 # pythonz
 [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
 
-if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
-    source "$(command -v virtualenvwrapper.sh)"
+
+# Enable pew
+if command -v pew > /dev/null 2>&1; then
+    export WORKON_HOME="${HOME}/.virtualenvs"
+    export PROJECT_HOME="${HOME}/Developer/python"
+    source "$(pew shell_config)"
 fi
+
