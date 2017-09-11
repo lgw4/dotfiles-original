@@ -8,5 +8,5 @@ setlocal softtabstop=4
 setlocal tabstop=4
 setlocal textwidth=99
 
-autocmd BufWritePre *.py :call StripTrailingWhitespace()
+autocmd BufWritePre *.py call StripTrailingWhitespace()
 autocmd BufWritePost *.py call Flake8()
