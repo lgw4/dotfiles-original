@@ -11,7 +11,8 @@ local mod = {"control", "command"}
 local mod_shift = {"control", "command", "shift"}
 
 -- Spoons
-if not fs.attributes("/Applications/Amphetamine.app") then
+if not (fs.attributes("/Applications/Amphetamine.app") or 
+        fs.attributes("/Applications/KeepingYouAwake.app")) then
   hs.loadSpoon("Caffeine")
   spoon.Caffeine:bindHotkeys({toggle={mod, "C"}})
   spoon.Caffeine:start()
