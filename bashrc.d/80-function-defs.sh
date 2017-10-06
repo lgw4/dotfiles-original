@@ -16,24 +16,24 @@ function __prompt_command() {
     fi
 
     # basic information (user at host in path)
-    PS1+="\[$R\]\u\[$D\] at \[$P\]\h\[$D\] in\[$B\] \W\[$D\] "
+    PS1+="\[${R}\]\u\[${D}\] at \[${P}\]\h\[${D}\] in\[${B}\] \W\[${D}\] "
 
     # Git support (if available)
     if  command -v git > /dev/null 2>&1; then
         # get git branch
         branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
         if [[ ! -z ${branch} ]]; then
-            PS1+="\[$D\]on \[$G\]${branch}\[$D\] "
+            PS1+="\[${D}\]on \[${G}\]${branch}\[${D}\] "
         fi
 
         # check if git repo is rebasing
         if [[ -d .git/rebase-apply ]]; then
-            PS1+="\[$Y\]REBASING\[$D\] "
+            PS1+="\[${Y}\]REBASING\[${D}\] "
         fi
 
         # check if git repo is dirty
         if [ -n "`git status --porcelain 2> /dev/null`" ]; then
-            PS1+="\[$C\]*\[$D\] "
+            PS1+="\[${C}\]*\[${D}\] "
         fi
     fi
 
@@ -52,8 +52,8 @@ function __prompt_command() {
 if [ ${OS_KERNEL} == "Darwin" ]; then
     function cdf () {
         target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-        if [ "$target" != "" ]; then
-            cd "$target"; pwd
+        if [ "${target}" != "" ]; then
+            cd "${target}"; pwd
         else
             echo 'No Finder window found' >&2
         fi
@@ -64,45 +64,11 @@ fi
 _pip_completion()
 {
     COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=$COMP_CWORD \
-                   PIP_AUTO_COMPLETE=1 $1 ) )
+                   COMP_CWORD=${COMP_CWORD} \
+                   PIP_AUTO_COMPLETE=1 ${1} ) )
 }
-complete -o default -F _pip_completion pip
 complete -o default -F _pip_completion pip2
 complete -o default -f _pip_completion pip2.7
 complete -o default -F _pip_completion pip3
 complete -o default -F _pip_completion pip3.6
 # pip bash completion end
-
-# Proxy control functions
-if [ -e "${HOME}/.local/share/cli_proxy_settings.sh" ]; then
-    function proxy_enable {
-        source "${HOME}/.local/share/cli_proxy_settings.sh"
-        printf "\nDST proxy enabled.\n"
-    }
-
-    function proxy_disable {
-        unset http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY
-        printf "\nDST proxy disabled.\n"
-    }
-
-    function proxy_status {
-        printf "\n"
-        for proxy_var in HTTP_PROXY HTTPS_PROXY NO_PROXY http_proxy https_proxy no_proxy; do
-            if [ -z ${!proxy_var+x} ]; then
-                printf "$proxy_var is not set.\n"
-            else
-                printf "$proxy_var is set.\n"
-            fi
-        done
-    }
-
-    function proxy_retry {
-        retries=0
-        until [ $retries -ge 500 ]; do
-            "$@" && break
-            retries=$[$retries+1]
-            sleep 8
-        done 
-    }
-fi
