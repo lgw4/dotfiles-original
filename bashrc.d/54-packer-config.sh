@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/56-packer.io-config.sh file
+# ${HOME}/.bashrc.d/54-packer-config.sh file
 
 if [ -d "/opt/local/packer" ]; then
     export PATH="${PATH}:/opt/local/packer"

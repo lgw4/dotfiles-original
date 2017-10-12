@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/57-cabal-config.sh
+# ${HOME}/.bashrc.d/51-cabal-config.sh
 
 if [ -d "${HOME}/.cabal/bin" ]; then
     export PATH="${PATH}:${HOME}/.cabal/bin"

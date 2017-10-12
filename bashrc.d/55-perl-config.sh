@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/perl_config.sh
+# ${HOME}/.bashrc.d/55-perl_config.sh
 
 # perlbrew
 export PERLBREW_ROOT="${HOME}/.perlbrew"

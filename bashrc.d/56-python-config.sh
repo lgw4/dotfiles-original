@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/python_config.sh
+# ${HOME}/.bashrc.d/56-python_config.sh
 
 # macOS legacy Python packages (be sure to create symlink)
 if [ -d "${HOME}/Library/Python/Legacy/bin" ]; then
@@ -14,9 +14,9 @@ fi
 [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
 
 # Enable pew
+PATH="${HOME}/.local/bin:${PATH}"
 if command -v pew > /dev/null 2>&1; then
     export WORKON_HOME="${HOME}/.virtualenvs"
     export PROJECT_HOME="${HOME}/Developer/python"
     source "$(pew shell_config)"
 fi
-

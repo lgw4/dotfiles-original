@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/99-path-config.sh
+# ${HOME}/.bashrc.d/99-user-path-config.sh
 
 # Prepend $HOME/.local/bin to PATH
 if [ -d "${HOME}/.local/bin" ]; then

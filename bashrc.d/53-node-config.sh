@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/50-node-config.sh
+# ${HOME}/.bashrc.d/53-node-config.sh
 
 # NPM executables
 if [ -d "/usr/local/share/npm/bin" ] ; then
@@ -14,4 +14,3 @@ fi
 if [ -r "${NVM_DIR}/bash_completion" ]; then
     source "${NVM_DIR}/bash_completion"
 fi
-

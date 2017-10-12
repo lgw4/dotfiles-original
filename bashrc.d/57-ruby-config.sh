@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/ruby-config.sh file.
+# ${HOME}/.bashrc.d/57-ruby-config.sh file.
 
 # chruby
 if command -v chruby > /dev/null 2>&1; then
