@@ -15,5 +15,5 @@ elif [ -d "${HOME}/devel/go" ]; then
 fi
 
 if [ -d "${GOPATH}/bin" ]; then
-    export PATH="${GOPATH}:${PATH}/bin"
+    export PATH="${PATH}:${GOPATH}/bin"
 fi
