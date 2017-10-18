@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/56-python_config.sh
+# ${HOME}/.bashrc.d/50-python_config.sh
 
 # macOS current Python packages (be sure to create symlink)
 if [ -d "${HOME}/Library/Python/Current/bin" ]; then
