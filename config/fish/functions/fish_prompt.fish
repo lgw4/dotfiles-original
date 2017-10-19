@@ -2,7 +2,8 @@ function fish_prompt
 	if not set -q VIRTUAL_ENV_DISABLE_PROMPT
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end
-    set_color yellow
+    echo
+    set_color red 
     printf '%s' (whoami)
     set_color normal
     printf ' at '
@@ -12,10 +13,17 @@ function fish_prompt
     set_color normal
     printf ' in '
 
-    set_color $fish_color_cwd
+    set_color blue
     printf '%s' (prompt_pwd)
     set_color normal
-
+    if test (__fish_git_prompt)
+        printf ' on'
+        set_color green
+        printf '%s' (__fish_git_prompt)
+        set_color cyan
+        printf ' %s' (__fish_git_prompt_dirty)
+        set_color normal
+    end
     # Line 2
     echo
     if test $VIRTUAL_ENV
