@@ -16,31 +16,20 @@ function __prompt_command() {
     fi
 
     # basic information (user at host in path)
-    PS1+="\[${R}\]\u\[${D}\] at \[${P}\]\h\[${D}\] in\[${B}\] \W\[${D}\] "
-
-    # Git support (if available)
-    if  command -v git > /dev/null 2>&1; then
-        # get git branch
-        branch="`git branch 2> /dev/null | grep "*" | sed -e s/^..//g`"
-        if [[ ! -z ${branch} ]]; then
-            PS1+="\[${D}\]on \[${G}\]${branch}\[${D}\] "
-        fi
-
-        # check if git repo is rebasing
-        if [[ -d .git/rebase-apply ]]; then
-            PS1+="\[${Y}\]REBASING\[${D}\] "
-        fi
-
-        # check if git repo is dirty
-        if [ -n "`git status --porcelain 2> /dev/null`" ]; then
-            PS1+="\[${C}\]*\[${D}\] "
-        fi
-    fi
-
+    PS1+="\[${R}\]\u\[${D}\] at \[${P}\]\h\[${D}\] in\[${B}\] \W\[${D}\]"
+    
     # Python virtual environments
     if [ ${VIRTUAL_ENV} ]; then
-        PYIMPL=`python -c "import platform ; print(\"{imp}:{ver}\".format(imp=platform.python_implementation(), ver=platform.python_version()))"`
-        PS1+="${D}(${Y}`basename \"${VIRTUAL_ENV}\"`:${PYIMPL}${D}) "
+        PS1+=" \[${D}\](\[${Y}\]`basename \"${VIRTUAL_ENV}\"`\[${D}\])"
+    fi
+    
+    # Git status (if available)
+    if command -v brew > /dev/null 2>&1; then
+        if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
+            GIT_PS1_SHOWDIRTYSTATE=1
+            source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+            PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
+        fi
     fi
 
     # prompt $ or # for root
