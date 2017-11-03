@@ -1,0 +1,6 @@
+default_context:
+  full_name: "Chip Warden"
+  email: "chip.warden@gmail.com"
+  github_username: "lgw4"
+  gitlab_username: "lgw4"
+cookiecutters_dir: "~/.local/cookiecutters/"
