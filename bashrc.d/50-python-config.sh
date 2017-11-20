@@ -15,7 +15,7 @@ fi
 
 # Enable pew
 if command -v pew > /dev/null 2>&1; then
-    export WORKON_HOME="${HOME}/.local/virtualenvs"
+    export WORKON_HOME="${HOME}/.local/share/virtualenvs"
     export PROJECT_HOME="${HOME}/Developer/python"
     source "$(pew shell_config)"
 fi
