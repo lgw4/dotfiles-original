@@ -1,4 +1,12 @@
-# ${HOME}/.bashrc
+# -*- mode: sh; -*-
+
+# Are we in a login shell?
+shopt -q login_shell
+if [ $? -eq 0 ]; then
+    export LOGIN_SHELL="True"
+else
+    export LOGIN_SHELL="False"
+fi
 
 # Get OS kernel name
 export OS_KERNEL="$(uname -s)"

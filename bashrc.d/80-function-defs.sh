@@ -62,30 +62,3 @@ complete -o default -F _pip_completion pip3
 complete -o default -F _pip_completion pip3.6
 # pip bash completion end
 
-# pipsi bash completion
-_pipsi() {
-    local cur prev commands opts
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    first="${COMP_WORDS[0]}"
-
-    commands=$($first --help | awk '/Commands\:/,/Options\:/' | \
-               \grep -E -o "^\s{2}[[:lower:]]+" | tr -d ' ')
-    opts=$($first --help | \grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
-
-
-    if [ $COMP_CWORD == 1 ] ; then
-        COMPREPLY=( $(compgen -W "${commands}" -- ${cur}) )
-        return 0
-    fi
-
-    if [[ ${cur} == -* ]] ; then
-	local command_opts
-        command_opts=$($first $prev --help | \
-                             \grep -E -o "((-\w{1}|--(\w|-)*=?)){1,2}")
-        COMPREPLY=( $(compgen -W "${command_opts}" -- ${cur}) )
-        return 0
-    fi
-}
-complete -o default -F _pipsi pipsi
-# pipsi bash completion end

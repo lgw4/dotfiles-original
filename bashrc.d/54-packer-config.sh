@@ -1,5 +1,10 @@
-# ${HOME}/.bashrc.d/54-packer-config.sh file
+# -*- mode: sh; -*-
 
-if [ -d "/opt/local/packer" ]; then
-    export PATH="${PATH}:/opt/local/packer"
+if [ "${LOGIN_SHELL}" == "True" ]; then
+
+    if [ -d "/opt/local/packer" ]; then
+        export PATH="${PATH}:/opt/local/packer"
+    fi
+
 fi
+

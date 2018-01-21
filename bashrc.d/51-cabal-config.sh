@@ -1,5 +1,10 @@
-# ${HOME}/.bashrc.d/51-cabal-config.sh
+# -*- mode: sh; -*-
 
-if [ -d "${HOME}/.cabal/bin" ]; then
-    export PATH="${PATH}:${HOME}/.cabal/bin"
+if [ "${LOGIN_SHELL}" == "True" ]; then
+
+    if [ -d "${HOME}/.cabal/bin" ]; then
+        export PATH="${PATH}:${HOME}/.cabal/bin"
+    fi
+
 fi
+

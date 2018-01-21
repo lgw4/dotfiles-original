@@ -1,17 +1,21 @@
-# ${HOME}/.bashrc.d/50-python_config.sh
+# -*- mode: sh; -*-
 
-# macOS current Python packages (be sure to create symlink)
-if [ -d "${HOME}/Library/Python/Current/bin" ]; then
-    export PATH="${PATH}:${HOME}/Library/Python/Current/bin"
+if [ "${LOGIN_SHELL}" == "True" ]; then
+
+    # macOS current Python packages (be sure to create symlink)
+    if [ -d "${HOME}/Library/Python/Current/bin" ]; then
+        export PATH="${PATH}:${HOME}/Library/Python/Current/bin"
+    fi
+
+    # macOS legacy Python packages (be sure to create symlink)
+    if [ -d "${HOME}/Library/Python/Legacy/bin" ]; then
+        export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
+    fi
+
+    # pythonz
+    [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
+
 fi
-
-# macOS legacy Python packages (be sure to create symlink)
-if [ -d "${HOME}/Library/Python/Legacy/bin" ]; then
-    export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
-fi
-
-# pythonz
-[[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
@@ -23,3 +27,4 @@ if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}/.hooks"
     source "$(which virtualenvwrapper.sh)"
 fi
+

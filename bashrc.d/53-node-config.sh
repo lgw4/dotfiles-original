@@ -1,8 +1,12 @@
-# ${HOME}/.bashrc.d/53-node-config.sh
+# -*- mode: sh; -*-
 
-# NPM executables
-if [ -d "/usr/local/share/npm/bin" ] ; then
-    export PATH="${PATH}:/usr/local/share/npm/bin"
+if [ "${LOGIN_SHELL}" == "True" ]; then
+
+    # NPM executables
+    if [ -d "/usr/local/share/npm/bin" ] ; then
+        export PATH="${PATH}:/usr/local/share/npm/bin"
+    fi
+
 fi
 
 # nvm
@@ -14,3 +18,4 @@ fi
 if [ -r "${NVM_DIR}/bash_completion" ]; then
     source "${NVM_DIR}/bash_completion"
 fi
+
