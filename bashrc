@@ -8,6 +8,11 @@ else
     export LOGIN_SHELL="False"
 fi
 
+# Enable globstar
+if ((BASH_VERSINFO[0] > 3)); then
+    shopt -s globstar
+fi
+
 # Get OS kernel name
 export OS_KERNEL="$(uname -s)"
 
