@@ -1,10 +1,16 @@
 # -*- mode: sh; -*-
 
 if [ "${LOGIN_SHELL}" == "True" ]; then
+    # Add Homebrew's Python 2.7 to PATH
+    if [ "${OS_KERNEL}" == "Darwin" ]; then
+        if [ -d "/usr/local/opt/python@2/libexec/bin" ]; then
+            export PATH="${PATH}:/usr/local/opt/python@2/libexec/bin"
+        fi
+    fi
 
     # macOS current Python packages (be sure to create symlink)
     if [ -d "${HOME}/Library/Python/Current/bin" ]; then
-        export PATH="${PATH}:${HOME}/Library/Python/Current/bin"
+        export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
     fi
 
     # macOS legacy Python packages (be sure to create symlink)
