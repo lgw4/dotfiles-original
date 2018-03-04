@@ -3,8 +3,8 @@
 if [ "${LOGIN_SHELL}" == "True" ]; then
     # Add Homebrew's Python 2.7 to PATH
     if [ "${OS_KERNEL}" == "Darwin" ]; then
-        if [ -d "/usr/local/opt/python@2/libexec/bin" ]; then
-            export PATH="${PATH}:/usr/local/opt/python@2/libexec/bin"
+        if [ -d "/usr/local/opt/python@2/bin" ]; then
+            export PATH="${PATH}:/usr/local/opt/python@2/bin"
         fi
     fi
 
