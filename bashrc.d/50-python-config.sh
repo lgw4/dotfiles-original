@@ -1,13 +1,6 @@
 # -*- mode: sh; -*-
 
 if [ "${LOGIN_SHELL}" == "True" ]; then
-    # Add Homebrew's Python 2.7 to PATH
-    if [ "${OS_KERNEL}" == "Darwin" ]; then
-        if [ -d "/usr/local/opt/python@2/bin" ]; then
-            export PATH="${PATH}:/usr/local/opt/python@2/bin"
-        fi
-    fi
-
     # macOS current Python packages (be sure to create symlink)
     if [ -d "${HOME}/Library/Python/Current/bin" ]; then
         export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
@@ -20,7 +13,6 @@ if [ "${LOGIN_SHELL}" == "True" ]; then
 
     # pythonz
     [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
-
 fi
 
 # Enable virtualenvwrapper
