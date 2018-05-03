@@ -10,6 +10,7 @@ if [ "${LOGIN_SHELL}" == "True" ]; then
     if [ -d "${HOME}/Library/Python/Legacy/bin" ]; then
         export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
     fi
+fi
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
