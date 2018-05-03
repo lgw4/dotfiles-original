@@ -57,6 +57,7 @@ elif [ ${OS_KERNEL} == "Linux" ]; then
     fi
 fi
 
-if [ -f "${HOME}/.local/bin/homebrew_api_token.sh" ]; then
-    source "${HOME}/.local/bin/homebrew_api_token.sh"
+# Enable pyenv shims
+if command -v pyenv > /dev/null 2>&1; then
+    eval "$(pyenv init -)"
 fi
