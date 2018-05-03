@@ -1,4 +1,4 @@
-# ${HOME}/.bash_profile file
+# ${HOME}/.profile file
 
 if [ -f ~/.bashrc ]; then
    source ~/.bashrc
