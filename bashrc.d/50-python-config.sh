@@ -16,9 +16,9 @@ fi
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     export WORKON_HOME="${HOME}/.local/share/virtualenvs"
     export PROJECT_HOME="${HOME}/Developer/python"
-    export VIRTUALENVWRAPPER_PYTHON="$(which python3)"
-    export VIRTUALENVWRAPPER_VIRTUALENV="$(which virtualenv)"
+    export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
+    export VIRTUALENVWRAPPER_VIRTUALENV="$(command -v virtualenv)"
     export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
     export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}/.hooks"
-    source "$(which virtualenvwrapper.sh)"
+    source "$(command -v virtualenvwrapper.sh)"
 fi
