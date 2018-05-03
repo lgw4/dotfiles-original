@@ -11,10 +11,6 @@ if [ "${LOGIN_SHELL}" == "True" ]; then
         export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
     fi
 
-    # pythonz
-    [[ -s ${HOME}/.pythonz/etc/bashrc ]] && source ${HOME}/.pythonz/etc/bashrc
-fi
-
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     export WORKON_HOME="${HOME}/.local/share/virtualenvs"
