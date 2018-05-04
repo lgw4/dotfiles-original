@@ -6,7 +6,8 @@ ignore = [
     '.gitmodules',
     '.DS_Store',
     '*.swp',
-    'README.md',
+    'LICENSE',
+    'README.markdown',
     'fishd.*']
 packages = ['config']
 
