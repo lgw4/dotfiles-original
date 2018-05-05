@@ -17,12 +17,12 @@ function __prompt_command() {
 
     # basic information (user at host in path)
     PS1+="\[${R}\]\u\[${D}\] at \[${P}\]\h\[${D}\] in\[${B}\] \W\[${D}\]"
-    
+
     # Python virtual environments
     if [ ${VIRTUAL_ENV} ]; then
         PS1+=" \[${D}\](\[${Y}\]`basename \"${VIRTUAL_ENV}\"`\[${D}\])"
     fi
-    
+
     # Git status (if available)
     if command -v brew > /dev/null 2>&1; then
         if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
@@ -48,17 +48,3 @@ if [ ${OS_KERNEL} == "Darwin" ]; then
         fi
     }
 fi
-
-# pip bash completion start
-_pip_completion()
-{
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=${COMP_CWORD} \
-                   PIP_AUTO_COMPLETE=1 ${1} ) )
-}
-complete -o default -F _pip_completion pip2
-complete -o default -f _pip_completion pip2.7
-complete -o default -F _pip_completion pip3
-complete -o default -F _pip_completion pip3.6
-# pip bash completion end
-
