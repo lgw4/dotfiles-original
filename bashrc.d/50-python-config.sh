@@ -18,5 +18,6 @@ if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
     fi
     export PROJECT_HOME="${HOME}/Developer/python"
+    export WORKON_HOME="${HOME}/.local/share/virtualenvs"
     source "$(command -v virtualenvwrapper.sh)"
 fi
