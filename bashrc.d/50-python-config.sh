@@ -14,11 +14,9 @@ fi
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    export WORKON_HOME="${HOME}/.local/share/virtualenvs"
+    if [ -e "/usr/local/bin/python3" ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    fi
     export PROJECT_HOME="${HOME}/Developer/python"
-    export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
-    export VIRTUALENVWRAPPER_VIRTUALENV="$(command -v virtualenv)"
-    export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
-    export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}/.hooks"
     source "$(command -v virtualenvwrapper.sh)"
 fi
