@@ -13,3 +13,6 @@ vim/autoload/**
 vim/plugged
 vim/plugged/**
 **/*.sqlite
+
+# Farmobile ignores
+bashrc.d/70-postgresql-9.6-config.sh
