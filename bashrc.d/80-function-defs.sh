@@ -7,11 +7,11 @@ function __prompt_command() {
     PS1=""
 
     # terminal title bar
-    if [ ${TERM} == "linux" ] || [ ${TERM} == "eterm-color" ]; then
+    if [[ ${TERM} == "linux" ]] || [[ ${TERM} == "eterm-color" ]]; then
         PS1+="\n"
-    elif [ ${OS_KERNEL} == "Darwin" ]; then
+    elif [[ ${OS_KERNEL} == "Darwin" ]]; then
         PS1+="\[\033[G\]\[\033]0;\u at \h on \w\007\]\n"
-    elif [ ${OS_KERNEL} == "Linux" ]; then
+    elif [[ ${OS_KERNEL} == "Linux" ]]; then
         PS1+="\[\033[G\]\[\033]0;\u@\h: \w\007\]\n"
     fi
 
@@ -19,13 +19,13 @@ function __prompt_command() {
     PS1+="\[${R}\]\u\[${D}\] at \[${P}\]\h\[${D}\] in\[${B}\] \W\[${D}\]"
 
     # Python virtual environments
-    if [ ${VIRTUAL_ENV} ]; then
+    if [[ ${VIRTUAL_ENV} ]]; then
         PS1+=" \[${D}\](\[${Y}\]`basename \"${VIRTUAL_ENV}\"`\[${D}\])"
     fi
 
     # Git status (if available)
     if command -v brew > /dev/null 2>&1; then
-        if [ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]; then
+        if [[ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]]; then
             GIT_PS1_SHOWDIRTYSTATE=1
             source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
             PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
@@ -38,10 +38,10 @@ function __prompt_command() {
 }
 
 # cdf(): cd to the PATH of the front Finder window
-if [ ${OS_KERNEL} == "Darwin" ]; then
+if [[ ${OS_KERNEL} == "Darwin" ]]; then
     function cdf () {
         target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-        if [ "${target}" != "" ]; then
+        if [[ "${target}" != "" ]]; then
             cd "${target}"; pwd
         else
             echo 'No Finder window found' >&2

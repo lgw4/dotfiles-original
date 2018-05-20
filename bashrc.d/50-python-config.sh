@@ -1,13 +1,13 @@
 # -*- mode: sh; -*-
 
-if [ "${LOGIN_SHELL}" == "True" ]; then
+if [[ "${LOGIN_SHELL}" == "True" ]]; then
     # macOS current Python packages (be sure to create symlink)
-    if [ -d "${HOME}/Library/Python/Current/bin" ]; then
+    if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
         export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
     fi
 
     # macOS legacy Python packages (be sure to create symlink)
-    if [ -d "${HOME}/Library/Python/Legacy/bin" ]; then
+    if [[ -d "${HOME}/Library/Python/Legacy/bin" ]]; then
         export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
     fi
 fi

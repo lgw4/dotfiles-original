@@ -1,8 +1,8 @@
 # ${HOME}/.bashrc.d/30-gitconfig.sh
 
-if [[ ! -f "${HOME}/.gitconfig" ]] && [[ `which git` ]]; then
+if [[ ! -f "${HOME}/.gitconfig" ]] && [[ $(command -v git) ]]; then
     git config --global user.name "Chip Warden"
-    git config --global user.email "chip.warden@gmail.com" 
+    git config --global user.email "chip.warden@gmail.com"
     git config --global color.ui auto
     git config --global core.excludesfile "~/.gitignore_global"
     git config --global core.quotepath false
@@ -16,7 +16,7 @@ if [[ ! -f "${HOME}/.gitconfig" ]] && [[ `which git` ]]; then
     git config --global alias.type "cat-file -t"
     git config --global alias.dump "cat-file -p"
     git config --global github.user lgw4
-    if [[ `uname -s` == "Darwin" ]]; then
+    if [[ $(uname -s) == "Darwin" ]]; then
         git config --global credential.helper osxkeychain
     elif [[ -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
         git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring

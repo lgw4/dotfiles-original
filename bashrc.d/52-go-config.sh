@@ -1,24 +1,21 @@
 # -*- mode: sh; -*-
 
-if [ "${LOGIN_SHELL}" == "True" ]; then
-
-    if [ -d "/usr/local/go" ]; then
+if [[ "${LOGIN_SHELL}" == "True" ]]; then
+    if [[ -d "/usr/local/go" ]]; then
         export GOROOT="/usr/local/go"
     fi
 
-    if [ -n "${GOROOT}" ]; then
+    if [[ -n "${GOROOT}" ]]; then
         export PATH="${PATH}:${GOROOT}/bin"
     fi
 
-    if [ -d "${HOME}/Developer/go" ]; then
+    if [[ -d "${HOME}/Developer/go" ]]; then
         export GOPATH="${HOME}/Developer/go"
-    elif [ -d "${HOME}/devel/go" ]; then
+    elif [[ -d "${HOME}/devel/go" ]]; then
         export GOPATH="${HOME}/devel/go"
     fi
 
-    if [ -d "${GOPATH}/bin" ]; then
+    if [[ -d "${GOPATH}/bin" ]]; then
         export PATH="${PATH}:${GOPATH}/bin"
     fi
-
 fi
-
