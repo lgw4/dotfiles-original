@@ -5,4 +5,3 @@ if [[ "${LOGIN_SHELL}" == "True" ]]; then
         export PATH="${PATH}:${HOME}/.cabal/bin"
     fi
 fi
-
