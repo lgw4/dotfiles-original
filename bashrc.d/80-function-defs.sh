@@ -31,7 +31,7 @@ function __prompt_command() {
             PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
         fi
     elif [[ ${OS_KERNEL} == "Linux" ]]; then
-        if [[ -f "/etc/bash_completion.d/git-prompt.sh" ]]; then
+        if [[ -f "/etc/bash_completion.d/git-prompt" ]]; then
             GIT_PS1_SHOWDIRTYSTATE=1
             source "/etc/bash_completion.d/git-prompt"
             PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
