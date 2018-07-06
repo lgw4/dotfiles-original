@@ -46,12 +46,6 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
     if [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
         source "$(brew --prefix)/share/bash-completion/bash_completion"
     fi
-    # Enable Bash Git prompt
-    if [[ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"  ]]; then
-        GIT_PROMPT_THEME=Solarized
-        GIT_PROMPT_ONLY_IN_REPO=1
-        source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-    fi
 # GNU/Linux settings
 elif [[ ${OS_KERNEL} == "Linux" ]]; then
     if [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then

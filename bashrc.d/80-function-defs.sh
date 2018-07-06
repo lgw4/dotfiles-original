@@ -24,10 +24,16 @@ function __prompt_command() {
     fi
 
     # Git status (if available)
-    if command -v brew > /dev/null 2>&1; then
+    if [[ ${OS_KERNEL} == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
         if [[ -f "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh" ]]; then
             GIT_PS1_SHOWDIRTYSTATE=1
             source "$(brew --prefix)/etc/bash_completion.d/git-prompt.sh"
+            PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
+        fi
+    elif [[ ${OS_KERNEL} == "Linux" ]]; then
+        if [[ -f "/etc/bash_completion.d/git-prompt.sh" ]]; then
+            GIT_PS1_SHOWDIRTYSTATE=1
+            source "/etc/bash_completion.d/git-prompt.sh"
             PS1+=' $(__git_ps1 "\[${D}\](\[${G}\]%s\[${D}\])")'
         fi
     fi
