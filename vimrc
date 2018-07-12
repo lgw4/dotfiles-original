@@ -95,15 +95,9 @@ set relativenumber
 if has("linebreak") && exists("&breakindent")
     set linebreak
     set breakindent
-    set showbreak=\ \ \ \ 
+    set showbreak=\ \ \ \
 endif
 
 " Set default line ending warning columns
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=187
-
-" Functions
-if filereadable(glob("~/.vim/config/functions.vim"))
-    source ~/.vim/config/functions.vim
-endif
-
