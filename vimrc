@@ -1,6 +1,11 @@
 " ${HOME}/.vimrc
 " -*- coding: utf-8 -*-
 
+" Disable Python 3 deprication warnings
+if has('python3')
+    silent! python3 1
+endif
+
 " Enable all Vim-specific features
 set nocompatible
 

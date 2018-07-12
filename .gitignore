@@ -10,6 +10,8 @@ tmux/plugins
 tmux/plugins/**
 vim/autoload
 vim/autoload/**
+vim/black
+vim/black/**
 vim/plugged
 vim/plugged/**
 **/*.sqlite
