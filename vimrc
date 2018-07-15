@@ -23,7 +23,13 @@ if has("syntax")
     syntax enable
 endif
 
+" Enable access to the macOS clipboard
+if has("macunix")
+    set clipboard=unnamed
+endif
+
 "  Save files in UTF-8
+set encoding=utf-8
 set fileencoding=utf8
 
 " Remember marks/undo for unsaved buffers
