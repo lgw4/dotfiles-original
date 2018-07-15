@@ -1,4 +1,4 @@
-" ${HOME}/.vim/ftplugin/ruby.vim
+" ${HOME}/.vim/after/ftplugin/ruby.vim
 
 setlocal colorcolumn=79,99
 setlocal expandtab

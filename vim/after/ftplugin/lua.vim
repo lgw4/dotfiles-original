@@ -1,4 +1,4 @@
-" ${HOME}/.vim/ftplugin/lua.vim
+" ${HOME}/.vim/after/ftplugin/lua.vim
 
 setlocal colorcolumn=79,99
 setlocal expandtab

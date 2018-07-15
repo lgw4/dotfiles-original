@@ -1,4 +1,4 @@
-" ${HOME}/.vim/ftplugin/python.vim
+" ${HOME}/.vim/after/ftplugin/python.vim
 
 setlocal colorcolumn=72,79,99
 setlocal autoindent
