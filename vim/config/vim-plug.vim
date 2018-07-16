@@ -12,5 +12,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'kh3phr3n/python-syntax'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'w0rp/ale'
 
 call plug#end()
