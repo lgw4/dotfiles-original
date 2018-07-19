@@ -1,13 +1,5 @@
 # -*- mode: sh; -*-
 
-# Are we in a login shell?
-shopt -q login_shell
-if [[ $? -eq 0 ]]; then
-    export LOGIN_SHELL="True"
-else
-    export LOGIN_SHELL="False"
-fi
-
 # Enable globstar
 if ((BASH_VERSINFO[0] > 3)); then
     shopt -s globstar

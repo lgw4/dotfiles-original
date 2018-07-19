@@ -1,15 +1,13 @@
 # -*- mode: sh; -*-
 
-if [[ "${LOGIN_SHELL}" == "True" ]]; then
-    # macOS current Python packages (be sure to create symlink)
-    if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
-        export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
-    fi
+# macOS current Python packages (be sure to create symlink)
+if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
+    export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
+fi
 
-    # macOS legacy Python packages (be sure to create symlink)
-    if [[ -d "${HOME}/Library/Python/Legacy/bin" ]]; then
-        export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
-    fi
+# macOS legacy Python packages (be sure to create symlink)
+if [[ -d "${HOME}/Library/Python/Legacy/bin" ]]; then
+    export PATH="${PATH}:${HOME}/Library/Python/Legacy/bin"
 fi
 
 # Enable virtualenvwrapper

@@ -1,10 +1,8 @@
 # -*- mode: sh; -*-
 
-if [[ "${LOGIN_SHELL}" == "True" ]]; then
-    # NPM executables
-    if [ -d "/usr/local/share/npm/bin" ] ; then
-        export PATH="${PATH}:/usr/local/share/npm/bin"
-    fi
+# NPM executables
+if [ -d "/usr/local/share/npm/bin" ] ; then
+    export PATH="${PATH}:/usr/local/share/npm/bin"
 fi
 
 # nvm
