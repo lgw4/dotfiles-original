@@ -2,10 +2,11 @@
 
 # Set architecture flags
 if [[ "${OS_KERNEL}" == "Darwin" ]]; then
-    if [[ -d $(brew --prefix openssl) ]]; then
-        export CFLAGS="-I$(brew --prefix openssl)/include"
-        export CPPFLAGS="-I$(brew --prefix openssl)/include"
-        export LDFLAGS="-L$(brew --prefix openssl)/lib"
+    OPENSSL_PREFIX="$(brew --prefix openssl)"
+    if [[ -d "${OPENSSL_PREFIX}" ]]; then
+        export CFLAGS="-I${OPENSSL_PREFIX}/include"
+        export CPPFLAGS="-I${OPENSSL_PREFIX}/include"
+        export LDFLAGS="-L${OPENSSL_PREFIX}/lib"
     fi
 fi
 
