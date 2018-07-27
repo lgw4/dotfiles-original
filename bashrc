@@ -35,8 +35,8 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
     # Make `brew cask` default to `~/Applications`
     export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
     # Enable bash-completion with Homebrew
-    if [[ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]]; then
-        source "$(brew --prefix)/share/bash-completion/bash_completion"
+    if [[ -f "/usr/local/share/bash-completion/bash_completion" ]]; then
+        source "/usr/local/share/bash-completion/bash_completion"
     fi
 # GNU/Linux settings
 elif [[ ${OS_KERNEL} == "Linux" ]]; then
