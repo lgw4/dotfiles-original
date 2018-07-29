@@ -109,6 +109,14 @@ if has("linebreak") && exists("&breakindent")
     set showbreak=\ \ \ \
 endif
 
+" Split defaults and navigation
+set splitbelow
+set splitright
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
 " Set default line ending warning columns
 set colorcolumn=79,99
 highlight ColorColumn cterm=NONE ctermbg=187
