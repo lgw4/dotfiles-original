@@ -45,13 +45,8 @@ elif [[ ${OS_KERNEL} == "Linux" ]]; then
     fi
 fi
 
-# Check for non-package manager pyenv
-if [[ -d "${HOME}/.pyenv/bin" ]]; then
-    export PATH="${HOME}/.pyenv/bin:${PATH}"
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-fi
-
-# Enable pyenv shims
+# Enable pyenv
 if command -v pyenv > /dev/null 2>&1; then
     eval "$(pyenv init -)"
+    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
