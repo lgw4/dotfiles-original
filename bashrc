@@ -45,6 +45,11 @@ elif [[ ${OS_KERNEL} == "Linux" ]]; then
     fi
 fi
 
+# Add pyenv to PATH if installed without system package manager
+if [[ -d "${HOME}/.pyenv/bin" ]]; then
+    export PATH="${HOME}/.pyenv/bin":"${PATH}"
+fi
+
 # Enable pyenv
 if command -v pyenv > /dev/null 2>&1; then
     eval "$(pyenv init -)"
