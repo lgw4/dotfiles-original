@@ -1,9 +1,12 @@
 # -*- mode: sh; -*-
 
+
 # macOS current Python packages (be sure to create symlink)
-if [[ "${OS_KERNEL}" == "Darwin" ]]; then
-    if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
-        export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
+if [[ ! -v VIRTUAL_ENV ]]; then
+    if [[ "${OS_KERNEL}" == "Darwin" ]]; then
+        if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
+            export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
+        fi
     fi
 fi
 
