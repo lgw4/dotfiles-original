@@ -1,4 +1,4 @@
-# My _dotfiles_. Probably of no interest to anyone other than myself.
+# `${HOME}/.dotfiles`
 
 My collection of _dotfiles_. I recently switched to [dotfiles](https://github.com/jbernard/dotfiles) for dotfile management. It's a lighter solution than [Dotify](http://mattdbridges.github.com/dotify/) (not that I didn't _like_ Dotify), and I think it fits my workflow a little better.
 
