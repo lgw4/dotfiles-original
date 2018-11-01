@@ -45,7 +45,16 @@ function __prompt_command() {
 
 # cdf(): cd to the PATH of the front Finder window
 if [[ ${OS_KERNEL} == "Darwin" ]]; then
-    function cdf () {
+    HOMEBREW_DIR="/usr/local/Homebrew/Library"
+    if command -v brew > /dev/null 2>&1 && [[ -d "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask/.git" ]]; then
+        function bcain() {
+            brew cask install --appdir=~/Applications "${@}"
+        }
+        function bcarm() {
+            brew cask rm --appdir=~/Applications "${@}"
+        }
+    fi
+    function cdf() {
         target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
         if [[ "${target}" != "" ]]; then
             cd "${target}"; pwd
