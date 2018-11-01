@@ -2,8 +2,8 @@
 
 # Farmobile pip configuration
 if [[ "${HOSTNAME}" == "constellation" ]]; then
-    export PIP_TRUSTED_HOST="pypi.farmobile.local"
     export PIP_EXTRA_INDEX_URL="http://pypi.farmobile.local/simple/"
+    export PIP_TRUSTED_HOST="pypi.farmobile.local"
 fi
 
 # macOS current Python packages (be sure to create symlink)
