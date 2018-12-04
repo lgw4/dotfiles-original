@@ -8,6 +8,7 @@ ignore = [
     '*.swp',
     'LICENSE',
     'README.markdown',
-    'fishd.*']
+    'fishd.*',
+    '.vscode']
 packages = ['config']
 
