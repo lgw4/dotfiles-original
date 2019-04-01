@@ -1,10 +1,8 @@
 # -*- mode: sh; -*-
 
 # NPM executables
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [ -d "/usr/local/share/npm/bin" ] ; then
-        export PATH="${PATH}:/usr/local/share/npm/bin"
-    fi
+if [[ ! -v VIRTUAL_ENV ]] && [[ -d "/usr/local/share/npm/bin" ]] ; then
+    export PATH="${PATH}:/usr/local/share/npm/bin"
 fi
 
 # nvm

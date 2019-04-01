@@ -1,17 +1,13 @@
 # -*- mode: sh; -*-
 
 # macOS current Python packages (be sure to create symlink)
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ "${OS_KERNEL}" == "Darwin" ]]; then
-        if [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
-            export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
-        fi
-    fi
+if [[ ! -v VIRTUAL_ENV ]] && [[ "${OS_KERNEL}" == "Darwin" ]] && [[ -d "${HOME}/Library/Python/Current/bin" ]]; then
+    export PATH="${HOME}/Library/Python/Current/bin:${PATH}"
 fi
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    if [ -e "/usr/local/bin/python3" ]; then
+    if [[ -e "/usr/local/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
     fi
     if [[ "${OS_KERNEL}" == "Darwin" ]]; then

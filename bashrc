@@ -38,10 +38,8 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
         source "/usr/local/share/bash-completion/bash_completion"
     fi
 # GNU/Linux settings
-elif [[ ${OS_KERNEL} == "Linux" ]]; then
-    if [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
-        source "/etc/bash_completion"
-    fi
+elif [[ ${OS_KERNEL} == "Linux" ]] && [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
+    source "/etc/bash_completion"
 fi
 
 # Enable pyenv

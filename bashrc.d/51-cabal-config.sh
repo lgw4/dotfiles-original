@@ -1,7 +1,5 @@
 # -*- mode: sh; -*-
 
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ -d "${HOME}/.cabal/bin" ]]; then
-        export PATH="${PATH}:${HOME}/.cabal/bin"
-    fi
+if [[ ! -v VIRTUAL_ENV ]] && [[ -d "${HOME}/.cabal/bin" ]]; then
+    export PATH="${PATH}:${HOME}/.cabal/bin"
 fi
