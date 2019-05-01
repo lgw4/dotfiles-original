@@ -41,14 +41,3 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
 elif [[ ${OS_KERNEL} == "Linux" ]] && [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
 fi
-
-# Enable pyenv
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ -d "${HOME}/.pyenv/bin" ]]; then
-        export PATH="${HOME}/.pyenv/bin":"${PATH}"
-    fi
-    if command -v pyenv > /dev/null 2>&1; then
-        eval "$(pyenv init -)"
-        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    fi
-fi

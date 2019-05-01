@@ -5,8 +5,9 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         export GOROOT="/usr/local/go"
     fi
 
-    if [[ -n "${GOROOT}" ]]; then
-        export PATH="${PATH}:${GOROOT}/bin"
+    GOROOT_BIN="${GOROOT}/bin"
+    if [[ -d "${GOROOT_BIN}" ]] && [[ ":${PATH}:" != *":${GOROOT_BIN}:"* ]]; then
+        export PATH="${GOROOT_BIN}:${PATH}"
     fi
 
     if [[ -d "${HOME}/Developer/go" ]]; then
@@ -15,7 +16,8 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         export GOPATH="${HOME}/devel/go"
     fi
 
-    if [[ -d "${GOPATH}/bin" ]]; then
-        export PATH="${PATH}:${GOPATH}/bin"
+    GOPATH_BIN="${GOPATH}/bin"
+    if [[ -d "${GOPATH_BIN}" ]] && [[ ":${PATH}:" != *":${GOPATH_BIN}:"* ]]; then
+        export PATH="${GOPATH_BIN}:${PATH}"
     fi
 fi
