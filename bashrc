@@ -37,6 +37,10 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
     if [[ -f "/usr/local/share/bash-completion/bash_completion" ]]; then
         source "/usr/local/share/bash-completion/bash_completion"
     fi
+    # iTerm2 shell integration
+    if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
+        source "${HOME}/.iterm2_shell_integration.bash"
+    fi
 # GNU/Linux settings
 elif [[ ${OS_KERNEL} == "Linux" ]] && [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
