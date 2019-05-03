@@ -38,7 +38,7 @@ function __prompt_command {
 
 # add_to_path(): Add parameter to PATH if it isn't already there
 function add_to_path {
-    if [[ -d "${1}" ]] && [[ ":${PATH}:" != *":${1}:"* ]]; then
+    if [[ -d "${1}" ]] && [[ ! "${PATH}" =~ (^|:)"${1}"(:|$) ]]; then
             export PATH="${1}:${PATH}"
     fi
 }
