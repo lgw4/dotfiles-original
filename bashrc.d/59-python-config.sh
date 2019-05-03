@@ -1,9 +1,8 @@
 # -*- mode: sh; -*-
 
 # macOS current Python packages (be sure to create symlink)
-PY_BIN="${HOME}/Library/Python/Current/bin"
-if [[ ! -v VIRTUAL_ENV ]] && [[ "${OS_KERNEL}" == "Darwin" ]] && [[ -d "${PY_BIN}" ]] && [[ ":${PATH}:" != *":${PY_BIN}:"* ]]; then
-    export PATH="${PY_BIN}:${PATH}"
+if [[ ! -v VIRTUAL_ENV ]] && [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    add_to_path "${HOME}/Library/Python/Current/bin"
 fi
 
 # Enable virtualenvwrapper
@@ -23,13 +22,9 @@ fi
 
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
-    PYENV_BIN="${HOME}/.pyenv/bin"
-    if [[ -d "${PYENV_BIN}" ]] && [[ ":${PATH}:" != *":${PYENV_BIN}:"* ]]; then
-        export PATH="${PYENV_BIN}":"${PATH}"
-        if command -v pyenv > /dev/null 2>&1; then
-            eval "$(pyenv init -)"
-            export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-        fi
+    add_to_path "${HOME}/.pyenv/bin"
+    if command -v pyenv > /dev/null 2>&1; then
+        eval "$(pyenv init -)"
+        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     fi
-
 fi

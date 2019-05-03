@@ -1,9 +1,9 @@
 # -*- mode: sh; -*-
 
 # Homebrew npm executables
-HB_NPM_BIN="/usr/local/share/npm/bin"
-if [[ ! -v VIRTUAL_ENV ]] && [[ -d "${HB_NPM_BIN}" ]] && [[ ":${PATH}:" != *":${HB_NPM_BIN}:"* ]]; then
-    export PATH="${HB_NPM_BIN}:${PATH}"
+
+if [[ ! -v VIRTUAL_ENV ]]; then
+    add_to_path "/usr/local/share/npm/bin"
 fi
 
 # nvm
