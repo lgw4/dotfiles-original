@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/00-variables-defs.sh
+# ~/.bashrc.d/01-variables-defs.bash
 
 # Set architecture flags
 if [[ "${OS_KERNEL}" == "Darwin" ]]; then

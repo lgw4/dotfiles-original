@@ -1,4 +1,4 @@
-# ${HOME}/.bashrc.d/color_defs.sh file
+# ~/.bashrc.d/00-color_defs.bash file
 
 D="\033[0m"
 P="\033[0;35m"
