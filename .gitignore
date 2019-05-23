@@ -17,4 +17,4 @@ vim/plugged/**
 **/*.sqlite
 
 # Farmobile ignores
-bashrc.d/99-farmobile-config.sh
+bashrc.d/99-farmobile-config.bash
