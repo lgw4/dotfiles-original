@@ -32,10 +32,12 @@ shopt -s checkwinsize
 
 # macOS settings
 if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
+    export HOMEBREW_PREFIX="$(brew --prefix)"
     export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
     # Enable bash-completion with Homebrew
-    if [[ -f "/usr/local/share/bash-completion/bash_completion" ]]; then
-        source "/usr/local/share/bash-completion/bash_completion"
+    export BASH_COMPLETION_COMPAT_DIR="${HOMEBREW_PREFIX}/etc/bash_completion.d"
+    if [[ -f "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
     fi
     # iTerm2 shell integration
     if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
