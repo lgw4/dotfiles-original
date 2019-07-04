@@ -7,10 +7,12 @@ fi
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    if [[ -e "/usr/local/bin/python3" ]]; then
-        export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    if command -v pyenv > /dev/null 2>&1; then
+        export VIRTUALENVWRAPPER_PYTHON="$(pyenv which python3)"
+    else
+        export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
     fi
-    if [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    if [[ -d "${HOME}/Developer/python" ]]; then
         export PROJECT_HOME="${HOME}/Developer/python"
     else
         export PROJECT_HOME="${HOME}/devel/python"
