@@ -31,7 +31,7 @@ HISTFILESIZE=2048
 shopt -s checkwinsize
 
 # macOS settings
-if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
+if command -v brew > /dev/null 2>&1; then
     export HOMEBREW_PREFIX="$(brew --prefix)"
     export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
     # Enable bash-completion with Homebrew
@@ -44,6 +44,8 @@ if [[ "${OS_KERNEL}" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
         source "${HOME}/.iterm2_shell_integration.bash"
     fi
 # GNU/Linux settings
-elif [[ ${OS_KERNEL} == "Linux" ]] && [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
+elif [[ -f "/etc/profile.d/bash_completion.sh" ]] && ! -oq posix; then
+    source "/etc/profile.d/bash_completion.sh"
+elif [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
 fi
