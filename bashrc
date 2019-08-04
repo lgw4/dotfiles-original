@@ -49,3 +49,7 @@ elif [[ -f "/etc/profile.d/bash_completion.sh" ]] && ! shopt -oq posix; then
 elif [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
 fi
+
+if command -v pipx > /dev/null 2>&1; then
+    eval "$(register-python-argcomplete pipx)"
+fi
