@@ -7,10 +7,10 @@ fi
 
 # Enable virtualenvwrapper
 if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    if command -v pyenv > /dev/null 2>&1; then
-        export VIRTUALENVWRAPPER_PYTHON="$(pyenv which python3)"
-    else
-        export VIRTUALENVWRAPPER_PYTHON="$(command -v python3)"
+    if [ -x "/usr/local/bin/python3" ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
+    elif [ -x "/usr/bin/python3" ]; then
+        export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
     fi
     if [[ -d "${HOME}/Developer/python" ]]; then
         export PROJECT_HOME="${HOME}/Developer/python"
