@@ -31,7 +31,6 @@ if [[ ! -v VIRTUAL_ENV ]]; then
     fi
 fi
 
-
 # Enable pip completion
 _pip_completion()
 {
