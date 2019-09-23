@@ -1,5 +1,10 @@
 # -*- mode: sh; -*-
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	source /etc/bashrc
+fi
+
 # Enable globstar
 if ((BASH_VERSINFO[0] > 3)); then
     shopt -s globstar
