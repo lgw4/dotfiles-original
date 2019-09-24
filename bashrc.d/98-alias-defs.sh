@@ -1,4 +1,4 @@
-# ~/.bashrc.d/98-alias-defs.bash file
+# ~/.bashrc.d/98-alias-defs.sh
 
 if [[ ${OS_KERNEL} == "Darwin" ]]; then
     alias ls='ls -FG'

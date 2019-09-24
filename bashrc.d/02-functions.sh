@@ -1,4 +1,4 @@
-# ~/.bashrc.d/02-function-defs.bash file
+# ~/.bashrc.d/02-function-defs.sh
 
 # __prompt_command(): function to generate custom PS1 prompt
 function __prompt_command {
