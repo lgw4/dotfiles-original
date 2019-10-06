@@ -6,10 +6,15 @@ if [[ ! -v VIRTUAL_ENV ]] && [[ "${OS_KERNEL}" == "Darwin" ]]; then
 fi
 
 # Enable virtualenvwrapper
-if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
-    if [ -x "/usr/local/bin/python3" ]; then
+if [[ -e "${HOME}/Library/Python/Current/bin/virtualenvwrapper.sh" ]]; then
+    VIRTUALENVWRAPPER="${HOME}/Library/Python/Current/bin/virtualenvwrapper.sh"
+elif [[ -e "${HOME}/.local/bin/virtualenvwrapper.sh" ]]; then
+    VIRTUALENVWRAPPER="${HOME}/.local/bin/virtualenvwrapper.sh"
+fi
+if [[ -v VIRTUALENVWRAPPER ]]; then
+    if [[ -x "/usr/local/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
-    elif [ -x "/usr/bin/python3" ]; then
+    elif [[ -x "/usr/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
     fi
     if [[ -d "${HOME}/Developer/python" ]]; then
@@ -19,7 +24,7 @@ if command -v virtualenvwrapper.sh > /dev/null 2>&1; then
     fi
     export WORKON_HOME="${HOME}/.local/share/virtualenvs"
     export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}/_hooks"
-    source "$(command -v virtualenvwrapper.sh)"
+    source "$(command -v ${VIRTUALENVWRAPPER})"
 fi
 
 # Enable pyenv
