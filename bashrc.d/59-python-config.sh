@@ -12,7 +12,9 @@ elif [[ -e "${HOME}/.local/bin/virtualenvwrapper.sh" ]]; then
     VIRTUALENVWRAPPER="${HOME}/.local/bin/virtualenvwrapper.sh"
 fi
 if [[ -v VIRTUALENVWRAPPER ]]; then
-    if [[ -x "/usr/local/bin/python3" ]]; then
+    if [[ -x "${HOME}/.pyenv/versions/3.7.5/bin/python3.7" ]]; then
+        export VIRTUALENVWRAPPER_PYTHON="${HOME}/.pyenv/versions/3.7.5/bin/python3.7"
+    elif [[ -x "/usr/local/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
     elif [[ -x "/usr/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
