@@ -1,12 +1,25 @@
 # -*- mode: sh; -*-
 
+# Enable pyenv
+if [[ ! -v VIRTUAL_ENV ]]; then
+    if [[ -f "${HOME}/.pyenv/bin" ]]; then
+        add_to_path "${HOME}/.pyenv/bin"
+    fi
+    if command -v pyenv > /dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
+        eval "$(pyenv init -)"
+        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    fi
+fi
+
 # Enable virtualenvwrapper
 if [[ -e "${HOME}/.local/bin/virtualenvwrapper.sh" ]]; then
     VIRTUALENVWRAPPER="${HOME}/.local/bin/virtualenvwrapper.sh"
 fi
+
 if [[ -v VIRTUALENVWRAPPER ]]; then
-    if [[ -x "${HOME}/.pyenv/versions/3.7.5/bin/python3.7" ]]; then
-        export VIRTUALENVWRAPPER_PYTHON="${HOME}/.pyenv/versions/3.7.5/bin/python3.7"
+    PYENV_PYTHON3="$(pyenv which python3)"
+    if [[ -x ${PYENV_PYTHON3} ]]; then
+        export VIRTUALENVWRAPPER_PYTHON="${PYENV_PYTHON3}"
     elif [[ -x "/usr/local/bin/python3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
     elif [[ -x "/usr/bin/python3" ]]; then
@@ -20,17 +33,6 @@ if [[ -v VIRTUALENVWRAPPER ]]; then
     export WORKON_HOME="${HOME}/.local/share/virtualenvs"
     export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}/_hooks"
     source "$(command -v ${VIRTUALENVWRAPPER})"
-fi
-
-# Enable pyenv
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ ! -e "/usr/local/bin/pyenv" ]]; then
-        add_to_path "${HOME}/.pyenv/bin"
-    fi
-    if command -v pyenv > /dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
-        eval "$(pyenv init -)"
-        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-    fi
 fi
 
 # Enable pip completion
