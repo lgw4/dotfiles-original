@@ -2,7 +2,7 @@
 
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ -f "${HOME}/.pyenv/bin" ]]; then
+    if [[ -d "${HOME}/.pyenv/bin" ]]; then
         add_to_path "${HOME}/.pyenv/bin"
     fi
     if command -v pyenv > /dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
