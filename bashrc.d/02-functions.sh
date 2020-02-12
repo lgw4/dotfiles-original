@@ -2,6 +2,11 @@
 
 # __prompt_command(): function to generate custom PS1 prompt
 function __prompt_command {
+    # preserve history across sessions
+    history -n
+    history -w
+    history -c
+    history -r
     # clear PS1 prompt
     PS1=""
     # terminal title bar

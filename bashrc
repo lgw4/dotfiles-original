@@ -22,14 +22,14 @@ fi
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups:erasedups
 
 # Append to the history file, don't overwrite it
 shopt -s histappend
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1024
-HISTFILESIZE=2048
+HISTSIZE=10240
+HISTFILESIZE=20480
 
 # Check the window size after each command and, if necessary,
 # Update the values of LINES and COLUMNS.
