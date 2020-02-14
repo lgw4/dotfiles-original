@@ -92,10 +92,13 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 USER_COLOR="red"
 HOST_COLOR="magenta"
 PWD_COLOR="blue"
-BRANCH_COLOR="yellow"
-INDEXED_IND=" *"
-UNINDEXED_IND=" +"
-UNTRACKED_IND=" -"
+BRANCH_COLOR="cyan"
+INDEXED_COLOR="green"
+INDEXED_IND="+"
+UNINDEXED_COLOR="yellow"
+UNINDEXED_IND="*"
+UNTRACKED_COLOR="red"
+UNTRACKED_IND="-"
 
 # ------------------
 # Initialize modules
