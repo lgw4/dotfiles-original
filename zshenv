@@ -1,9 +1,5 @@
-# Start configuration added by Zim install {{{
-#
-# User configuration sourced by all invocations of the shell
-#
-
-# Define Zim location
-: ${ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim}
-# }}} End configuration added by Zim install
-
+if [[ -d "${HOME}/.zshenv.d" ]]; then
+  for f in ${HOME}/.zshenv.d/**/*.zsh(N); do
+    [ -r "${f}" ] && source "${f}"
+  done
+fi
