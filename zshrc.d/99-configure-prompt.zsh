@@ -1,21 +1,11 @@
 setopt nopromptbang prompt{cr,percent,sp,subst}
 
-_git_status() {
-    if [[ ${OS_KERNEL} == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
-        if [[ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]]; then
-            GIT_PS1_SHOWDIRTYSTATE=1
-            source "/usr/local/etc/bash_completion.d/git-prompt.sh"
-            GIT_PROMPT=$(__git_ps1 %s)
-        fi
-    elif [[ ${OS_KERNEL} == "Linux" ]]; then
-        if [[ -f "/etc/bash_completion.d/git-prompt" ]]; then
-            GIT_PS1_SHOWDIRTYSTATE=1
-            source "/etc/bash_completion.d/git-prompt"
-            GIT_PROMPT=$(__git_ps1 %s)
-        fi
-    fi
-    if [[ ${GIT_PROMPT} ]] echo " (%F{yellow}${GIT_PROMPT}%f)"
-}
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+zstyle ':vcs_info:git:*' formats ' (%F{yellow}%b%f)'
+zstyle ':vcs_info:*' enable git
+
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 _prompt_venv() {
@@ -23,5 +13,5 @@ _prompt_venv() {
 }
 
 PROMPT=$'
-%F{red}%n%f at %F{magenta}%m%f in %F{blue}%c%f$(_git_status)$(_prompt_venv)
+%F{red}%n%f at %F{magenta}%m%f in %F{blue}%c%f$vcs_info_msg_0_%f$(_prompt_venv)
 %(!.#.$) '
