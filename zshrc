@@ -1,8 +1,3 @@
-if [[ -d "${HOME}/.zshrc.d" ]]; then
-  for f in ${HOME}/.zshrc.d/**/*.zsh(N); do
-    [ -r "${f}" ] && source "${f}"
-  done
-fi
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.local/share/zsh/histfile
 HISTSIZE=10240
@@ -15,4 +10,11 @@ zstyle :compinstall filename '/Users/lgw4/.zshrc'
 
 autoload -Uz compinit
 compinit
+autoload -Uz bashcompinit
+bashcompinit
 # End of lines added by compinstall
+if [[ -d "${HOME}/.zshrc.d" ]]; then
+    for f in ${HOME}/.zshrc.d/**/*.zsh(N); do
+      [ -r "${f}" ] && source "${f}"
+    done
+fi
