@@ -5,7 +5,7 @@ precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:*' stagedstr '%F{yellow}▲%f'
 zstyle ':vcs_info:*' unstagedstr '%F{red}▲%f'
-zstyle ':vcs_info:git:*' formats ' on %F{cyan}%b %u%c%f'
+zstyle ':vcs_info:git:*' formats ' on %F{cyan}%b %u%c%f '
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' enable git
 

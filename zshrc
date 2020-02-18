@@ -9,6 +9,7 @@ bindkey -e
 zstyle :compinstall filename '/Users/lgw4/.zshrc'
 
 autoload -Uz compinit
+fpath+=("${HOME}/.local/share/zsh/zfunc")
 compinit
 autoload -Uz bashcompinit
 bashcompinit
