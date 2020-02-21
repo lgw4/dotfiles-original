@@ -71,7 +71,6 @@ ZSH_CUSTOM="${HOME}/.config/oh-my-zsh"
 plugins=(
     brew
     git
-    git-prompt
     osx
     pyenv
 )
