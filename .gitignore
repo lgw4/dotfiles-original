@@ -18,4 +18,4 @@ vim/plugged/**
 
 # Farmobile ignores
 bashrc.d/99-farmobile-config.sh
-zshrc.d/farmobile-config.zsh
+zshenv.d/99-farmobile.zsh
