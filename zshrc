@@ -71,7 +71,7 @@ ZSH_CUSTOM="${HOME}/.config/oh-my-zsh"
 plugins=(
     brew
     git
-    osx
+    nvm
     pyenv
 )
 
