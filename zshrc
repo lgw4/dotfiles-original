@@ -15,3 +15,7 @@ compinit
 # Add ${HOME}/.local/bin to PATH
 path=("${HOME}/.local/bin" $path)
 export PATH
+
+for f in ${HOME}/.zshrc.d/**/*.zsh(N); do
+    [[ -r "${f}" ]] && source "${f}"
+done
