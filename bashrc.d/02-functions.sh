@@ -12,9 +12,7 @@ function __prompt_command {
     # terminal title bar
     if [[ ${TERM} == "linux" ]] || [[ ${TERM} == "eterm-color" ]]; then
         PS1+="\n"
-    elif [[ ${OS_KERNEL} == "Darwin" ]]; then
-        PS1+="\[\e[G\]\[\e]0;\u at \h on \w\007\]\n"
-    elif [[ ${OS_KERNEL} == "Linux" ]]; then
+    else
         PS1+="\[\e[G\]\[\e]0;\u@\h: \w\007\]\n"
     fi
     # basic information (user at host in path)
