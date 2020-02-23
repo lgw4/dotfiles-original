@@ -18,7 +18,7 @@ function __prompt_command {
         PS1+="\[\e[G\]\[\e]0;\u@\h: \w\007\]\n"
     fi
     # basic information (user at host in path)
-    PS1+="\[${red}\]\u\[${default}\] at \[${purple}\]\h\[${default}\] in\[${blue}\] \W\[${default}\]"
+    PS1+="\[${red}\]\u\[${default}\] at \[${purple}\]\h\[${default}\] in\[${blue}\] \W\[${default}\] "
     # Git status (if available)
     if [[ ${OS_KERNEL} == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
         if [[ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]]; then
@@ -32,11 +32,11 @@ function __prompt_command {
     if [[ -f ${GIT_PROMPT_COMMAND} ]]; then
         GIT_PS1_SHOWDIRTYSTATE=1
         source ${GIT_PROMPT_COMMAND}
-        PS1+=' $(__git_ps1 "\[${default}\]on \[${cyan}\]%s\[${default}\]")'
+        PS1+='$(__git_ps1 "\[${default}\]on \[${cyan}\]%s\[${default}\] ")'
     fi
     # Python virtual environments
     if [[ ${VIRTUAL_ENV} ]]; then
-        PS1+=" \[${default}\](\[${orange}\]`basename \"${VIRTUAL_ENV}\"`\[${default}\])"
+        PS1+="\[${default}\](\[${orange}\]`basename \"${VIRTUAL_ENV}\"`\[${default}\])"
     fi
     # prompt $ or # for root
     PS1+="\n\$ "
