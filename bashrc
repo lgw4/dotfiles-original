@@ -5,8 +5,8 @@ if [ -f /etc/bashrc ]; then
 	source /etc/bashrc
 fi
 
-# Enable globstar
 if ((BASH_VERSINFO[0] > 3)); then
+    shopt -s autocd
     shopt -s globstar
 fi
 
@@ -22,7 +22,7 @@ fi
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoredups:erasedups
+HISTCONTROL=erasedups:ignoreboth
 
 # Append to the history file, don't overwrite it
 shopt -s histappend

@@ -3,10 +3,9 @@
 # __prompt_command(): function to generate custom PS1 prompt
 function __prompt_command {
     # preserve history across sessions
-    history -n
-    history -w
-    history -c
-    history -r
+    builtin history -a
+    builtin history -c
+    builtin history -r
     # clear PS1 prompt
     PS1=""
     # terminal title bar
@@ -40,8 +39,13 @@ function __prompt_command {
     PS1+="\n\$ "
 }
 
-# add_to_path(): Add parameter to PATH if it isn't already there
-function add_to_path {
+function append_path {
+    if [[ -d "${1}" ]] && [[ ! "${PATH}" =~ (^|:)"${1}"(:|$) ]]; then
+            export PATH="${PATH}:${1}"
+    fi
+}
+
+function prepend_path {
     if [[ -d "${1}" ]] && [[ ! "${PATH}" =~ (^|:)"${1}"(:|$) ]]; then
             export PATH="${1}:${PATH}"
     fi

@@ -2,7 +2,7 @@
 
 # Homebrew npm executables
 if [[ ! -v VIRTUAL_ENV ]]; then
-    add_to_path "/usr/local/share/npm/bin"
+    append_path "/usr/local/share/npm/bin"
 fi
 
 # nvm
