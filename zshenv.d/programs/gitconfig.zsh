@@ -1,6 +1,4 @@
-# ~/.bashrc.d/30-gitconfig.sh
-
-if [[ ! -f "${HOME}/.gitconfig" ]] && [[ $(command -v git) ]]; then
+if [[ ! -f $HOME}/.gitconfig ]] && [[ $(command -v git) ]]; then
     git config --global user.name "Chip Warden"
     git config --global user.email "lgw4@icloud.com"
     git config --global color.ui auto
