@@ -29,7 +29,7 @@ generate_prompt() {
         PS1+="$(__git_ps1 "${default}on ${cyan}%s${default} ")"
     fi
     # Python virtual environments
-    if [[ "${VIRTUAL_ENV}" ]]; then
+    if [[ -v VIRTUAL_ENV ]]; then
         PS1+="${default}(${orange}$(basename "${VIRTUAL_ENV}")${default})"
     fi
     # prompt $ or # for root
