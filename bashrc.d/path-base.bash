@@ -1,5 +1,3 @@
-# -*- mode: sh; -*-
-
 if [[ ! -v VIRTUAL_ENV ]]; then
     # Check for /usr/local/sbin in PATH
     prepend_path "/usr/local/sbin"

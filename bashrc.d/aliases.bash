@@ -1,6 +1,4 @@
-# ~/.bashrc.d/98-alias-defs.sh
-
-if [[ ${OS_KERNEL} == "Darwin" ]]; then
+if [[ "${OS_KERNEL}" == "Darwin" ]]; then
     alias ls='ls -FG'
     alias finder='open -a Finder ./'
     if [[ -d "/Applications/Yoink.app" ]]; then

@@ -14,10 +14,12 @@ fi
 export OS_KERNEL="$(uname -s)"
 
 # Import files from ${HOME}/.bashrc.d
-if [[ -d "${HOME}/.bashrc.d" ]]; then
-    for f in ${HOME}/.bashrc.d/*.sh; do
-        source "${f}"
+if [[ -d "$HOME"/.bashrc.d ]]; then
+    for config in "$HOME"/.bashrc.d/*.bash; do
+        [[ -r "${config}" ]] || continue
+        source "${config}"
     done
+    unset -v config
 fi
 
 # Don't put duplicate lines or lines starting with space in the history.

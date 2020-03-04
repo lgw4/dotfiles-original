@@ -1,0 +1,1 @@
+PROMPT_COMMAND=generate_prompt
