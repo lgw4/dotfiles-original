@@ -1,7 +1,3 @@
-emacs.d/auto-save-list
-emacs.d/auto-save-list/**
-emacs.d/elpa
-emacs.d/elpa/**
 hammerspoon/Spoons
 hammerspoon/Spoons/**
 ipython/profile_default/db/
@@ -17,5 +13,4 @@ vim/plugged/**
 **/*.sqlite
 
 # Farmobile ignores
-bashrc.d/99-farmobile-config.sh
-zshenv.d/variables/farmobile.zsh
+bashrc.d/vars-farmobile.bash
