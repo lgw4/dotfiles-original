@@ -1,5 +1,3 @@
-# -*- mode: sh; -*-
-
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d "$HOME"/.pyenv/bin ]]; then
