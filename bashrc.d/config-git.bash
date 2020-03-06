@@ -1,4 +1,4 @@
-if [[ ! -f "$HOME"/.gitconfig ]] && [[ $(command -v git) ]]; then
+if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global user.name "Chip Warden"
     git config --global user.email "lgw4@icloud.com"
     git config --global color.ui auto
@@ -14,12 +14,12 @@ if [[ ! -f "$HOME"/.gitconfig ]] && [[ $(command -v git) ]]; then
     git config --global alias.type "cat-file -t"
     git config --global alias.dump "cat-file -p"
     git config --global github.user lgw4
-    if [[ $(uname -s) == "Darwin" ]]; then
+    if [[ "$(uname -s)" == "Darwin" ]]; then
         git config --global credential.helper osxkeychain
-    elif [[ -f /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
+    elif [[ -r /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
         git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
     else
         git config --global credential.helper store
     fi
-    chmod 600 ~/.gitconfig
+    chmod 600 "$HOME"/.gitconfig
 fi
