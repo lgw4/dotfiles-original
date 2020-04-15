@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
+# shellcheck disable=SC2207
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d "$HOME"/.pyenv/bin ]]; then

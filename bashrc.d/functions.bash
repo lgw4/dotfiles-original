@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
+# shellcheck disable=SC2034
 generate_prompt() {
     # Preserve history across sessions
     builtin history -a
@@ -71,7 +74,7 @@ if [[ "$OS_KERNEL" == "Darwin" ]]; then
     cdf() {
         target="$(osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)')"
         if [[ "$target" != "" ]]; then
-            cd "$target"; pwd
+            cd "$target" && pwd
         else
             echo "No Finder window found." >&2
         fi

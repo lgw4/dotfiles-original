@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d /usr/local/go ]]; then
         export GOROOT="/usr/local/go"

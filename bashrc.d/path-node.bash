@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
 # Homebrew npm executables
 if [[ ! -v VIRTUAL_ENV ]]; then
     append_path /usr/local/share/npm/bin

@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 if [ -f /etc/profile ]; then
 	source /etc/profile
 fi
