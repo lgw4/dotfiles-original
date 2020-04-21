@@ -1,2 +1,2 @@
 # shellcheck shell=bash
-prepend_path "$HOME"/.local/bin
+path_prepend "$HOME"/.local/bin PATH

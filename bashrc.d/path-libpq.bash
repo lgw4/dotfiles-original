@@ -1,4 +1,4 @@
 # shellcheck shell=bash
 if ! command -v psql > /dev/null 2>&1; then
-    append_path /usr/local/opt/libpq/bin
+    path_append /usr/local/opt/libpq/bin PATH
 fi

@@ -2,7 +2,7 @@
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d /usr/local/go ]]; then
         export GOROOT="/usr/local/go"
-        prepend_path "$GOROOT"/bin
+        path_prepend "$GOROOT"/bin PATH
     fi
 
     if [[ -d "$HOME"/Developer/go ]]; then
@@ -12,6 +12,6 @@ if [[ ! -v VIRTUAL_ENV ]]; then
     fi
 
     if [[ -n "$GOPATH" ]]; then
-        prepend_path "$GOPATH"/bin
+        path_prepend "$GOPATH"/bin PATH
     fi
 fi
