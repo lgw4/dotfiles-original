@@ -69,6 +69,7 @@ if [[ "$OS_KERNEL" == "Darwin" ]]; then
 fi
 
 # From https://bitbucket.org/flowblok/shell-startup/src/default/.shell/env_functions
+# Which is based upon https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
 
 # Usage: indirect_expand PATH -> $PATH
 indirect_expand () {
