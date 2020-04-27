@@ -1,7 +1,5 @@
 # shellcheck shell=bash
-# shellcheck disable=SC1090
-# shellcheck disable=SC1091
-# shellcheck disable=SC2155
+# shellcheck disable=SC1090,SC1091,SC2155
 if [ -f /etc/bashrc ]; then
 	source /etc/bashrc
 fi

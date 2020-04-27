@@ -1,4 +1,4 @@
 # shellcheck shell=bash
 if [[ ! -v VIRTUAL_ENV ]]; then
-    prepend_path "$HOME"/.cabal/bin
+    path_prepend "$HOME"/.cabal/bin PATH
 fi

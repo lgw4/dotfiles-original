@@ -1,4 +1,4 @@
 # shellcheck shell=bash
 if [[ ! -v VIRTUAL_ENV ]]; then
-    prepend_path "$HOME"/.cargo/bin
+    path_prepend "$HOME"/.cargo/bin PATH
 fi
