@@ -9,6 +9,11 @@ endif
 " Enable all Vim-specific features
 set nocompatible
 
+" Black Python code formatter
+if filereadable(glob("~/.local/pipx/venvs/black/pyvenv.cfg"))
+    let g:black_virtualenv="~/.local/pipx/venvs/black"
+endif
+
 " vim-plug
 if filereadable(glob("~/.vim/config/vim-plug.vim"))
     source ~/.vim/config/vim-plug.vim

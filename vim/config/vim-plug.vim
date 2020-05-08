@@ -11,6 +11,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'kh3phr3n/python-syntax'
 Plug 'nvie/vim-flake8'
 Plug 'plytophogy/vim-virtualenv'
+Plug 'psf/black', { 'branch': 'stable' }
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'w0rp/ale'
