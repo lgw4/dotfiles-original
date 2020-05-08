@@ -10,7 +10,7 @@ endif
 set nocompatible
 
 " Black Python code formatter
-if filereadable(glob("~/.local/pipx/venvs/black/pyvenv.cfg"))
+if has("macunix") && filereadable(glob("~/.local/pipx/venvs/black/pyvenv.cfg"))
     let g:black_virtualenv="~/.local/pipx/venvs/black"
 endif
 
