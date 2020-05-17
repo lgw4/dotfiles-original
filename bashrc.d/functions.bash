@@ -1,5 +1,5 @@
 # shellcheck shell=bash
-# shellcheck disable=SC1090,SC2034,SC2140,SC2155
+# shellcheck disable=SC1090,SC2015,SC2034,SC2140,SC2155
 generate_prompt() {
     # Preserve history across sessions
     builtin history -a
