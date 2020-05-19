@@ -6,7 +6,7 @@ if [[ "${OS_KERNEL}" == "Darwin" ]]; then
         alias yoink='open -a Yoink'
     fi
 else
-    alias ls='ls --color=auto'
+    alias ls='ls -F --color=auto'
     alias ll='ls -alF'
     alias la='ls -A'
     alias l='ls -CF'
