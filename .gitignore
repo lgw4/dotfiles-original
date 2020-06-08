@@ -15,4 +15,5 @@ vim/plugged/**
 bashrc.d/vars-farmobile.bash
 
 # Overrides
+!hammerspoon/Spoons/.gitkeep
 !hammerspoon/Spoons/SpoonInstall.spoon
