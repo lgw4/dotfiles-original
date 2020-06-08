@@ -1,5 +1,4 @@
-hammerspoon/Spoons
-hammerspoon/Spoons/**
+hammerspoon/Spoons/*
 ipython/profile_default/db/
 pip/cache
 tmux/plugins
@@ -14,3 +13,6 @@ vim/plugged/**
 
 # Farmobile ignores
 bashrc.d/vars-farmobile.bash
+
+# Overrides
+!hammerspoon/Spoons/SpoonInstall.spoon
