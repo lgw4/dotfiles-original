@@ -11,9 +11,6 @@ vim/plugged
 vim/plugged/**
 **/*.sqlite
 
-# Farmobile ignores
-bashrc.d/vars-farmobile.bash
-
 # Overrides
 !hammerspoon/Spoons/.gitkeep
 !hammerspoon/Spoons/SpoonInstall.spoon
