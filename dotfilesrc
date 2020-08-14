@@ -11,4 +11,3 @@ ignore = [
     'fishd.*',
     '.vscode']
 packages = ['config']
-
