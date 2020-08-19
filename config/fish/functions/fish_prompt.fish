@@ -9,7 +9,7 @@ function fish_prompt
     printf ' at '
 
     set_color magenta
-    echo -n (prompt_hostname)
+    printf '%s' (prompt_hostname)
     set_color normal
     printf ' in '
 
@@ -17,14 +17,14 @@ function fish_prompt
     printf '%s' (basename (prompt_pwd))
     set_color normal
 
+    set -g __fish_git_prompt_showcolorhints
+    set -g __fish_git_prompt_showdirtystate
+    set -g __fish_git_prompt_showuntrackedfiles
+    printf '%s' (fish_git_prompt)
+
     if test $VIRTUAL_ENV
         printf " (%s)" (set_color CB4B16)(basename $VIRTUAL_ENV)(set_color normal)
     end
-
-    set -g __fish_git_prompt_showcolorhints
-    set -g __fish_git_prompt_showdirtystate
-    # set -g __fish_git_prompt_color green
-    printf '%s' (fish_git_prompt)
 
     # Line 2
     echo
