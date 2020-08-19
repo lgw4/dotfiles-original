@@ -17,11 +17,17 @@ function fish_prompt
     printf '%s' (basename (prompt_pwd))
     set_color normal
 
+    if test $VIRTUAL_ENV
+        printf " (%s)" (set_color CB4B16)(basename $VIRTUAL_ENV)(set_color normal)
+    end
+
+    set -g __fish_git_prompt_showcolorhints
+    set -g __fish_git_prompt_showdirtystate
+    # set -g __fish_git_prompt_color green
+    printf '%s' (fish_git_prompt)
+
     # Line 2
     echo
-    if test $VIRTUAL_ENV
-        printf "(%s) " (set_color CB4B16)(basename $VIRTUAL_ENV)(set_color normal)
-    end
     printf '> '
     set_color normal
 end
