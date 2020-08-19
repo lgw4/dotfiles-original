@@ -7,6 +7,7 @@ if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global core.quotepath false
     git config --global core.trustctime false
     git config --global core.editor vim
+    git config --global pull.rebase false
     git config --global alias.br branch
     git config --global alias.ci commit
     git config --global alias.co checkout
