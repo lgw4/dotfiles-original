@@ -12,3 +12,5 @@ end
 if type -q pipx
     register-python-argcomplete --shell fish pipx | source
 end
+
+set -x HOMEBREW_CASK_OPTS --appdir=~/Applications
