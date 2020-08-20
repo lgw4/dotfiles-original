@@ -1,5 +1,4 @@
-if not test -r $HOME/.gitconfig
-    and type -q git
+if not test -r $HOME/.gitconfig && type -q git
     git config --global user.name "Chip Warden"
     git config --global user.email "lgw4@icloud.com"
     git config --global color.ui auto

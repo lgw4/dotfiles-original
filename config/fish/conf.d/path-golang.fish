@@ -11,7 +11,6 @@ else if test -d $HOME/devel/go
     set -x GOPATH $HOME/devel/go
 end
 
-if test $GOPATH
-    and not contains $GOPATH/bin PATH
+if test $GOPATH && ! contains $GOPATH/bin PATH
     set -x PATH $GOPATH/bin $PATH
 end
