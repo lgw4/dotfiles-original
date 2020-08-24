@@ -63,7 +63,7 @@ if [[ "$OS_KERNEL" == "Darwin" ]]; then
         if [[ "$target" != "" ]]; then
             cd "$target" && pwd
         else
-            echo "No Finder window found." >&2
+            echo "Error: no Finder window found." >&2
         fi
     }
 fi
