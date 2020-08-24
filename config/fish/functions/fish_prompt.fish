@@ -1,4 +1,4 @@
-function fish_prompt
+function fish_prompt -d "Set prompt for Fish shell"
     if not set -q VIRTUAL_ENV_DISABLE_PROMPT
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end

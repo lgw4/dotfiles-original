@@ -1,4 +1,4 @@
-function fish_title
+function fish_title -d "Set terminal application window title"
     printf '%s' $USER
     printf '@'
     printf '%s' (prompt_hostname)
