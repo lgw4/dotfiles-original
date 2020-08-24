@@ -4,7 +4,7 @@ if test (uname) = "Darwin"
         if test -n "$target"
             cd $target && echo "cd" (pwd)
         else
-            echo "No Finder window found." >&2
+            echo "Error: no Finder window found." >&2
         end
     end
 end
