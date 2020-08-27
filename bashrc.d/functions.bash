@@ -25,7 +25,7 @@ generate_prompt() {
     # Basic information (user at host in path)
     PS1+="${red}\u${default} at ${purple}\h${default} in ${blue}\W${default} "
     # Git status (if available)
-    if [[ "$OS_KERNEL" == "Darwin" ]] && command -v brew > /dev/null 2>&1; then
+    if [[ "$OS_KERNEL" == "Darwin" ]] && command -v brew >/dev/null 2>&1; then
         if [[ -r /usr/local/etc/bash_completion.d/git-prompt.sh ]]; then
             GIT_PROMPT_COMMAND="/usr/local/etc/bash_completion.d/git-prompt.sh"
         fi
@@ -71,23 +71,22 @@ fi
 # From https://github.com/sharfah/dotfiles/blob/master/.bash/.bash_dyncompletion.d/_compopt_o_filenames
 # Fixes error from Homebrew's rustc-completion formula, which is from
 # https://github.com/roshan/rust-bash-completion
-_compopt_o_filenames ()
-{
-    type compopt &>/dev/null && compopt -o filenames 2> /dev/null || compgen -f /non-existing-dir/ > /dev/null
+_compopt_o_filenames() {
+    type compopt &>/dev/null && compopt -o filenames 2>/dev/null || compgen -f /non-existing-dir/ >/dev/null
 }
 
 # From https://bitbucket.org/flowblok/shell-startup/src/default/.shell/env_functions
 # Which is based upon https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
 
 # Usage: indirect_expand PATH -> $PATH
-indirect_expand () {
+indirect_expand() {
     env | sed -n "s/^$1=//p"
 }
 
 # Usage: path_remove /path/to/bin [PATH]
 # To remove ~/bin from $PATH
 #     path_remove ~/bin PATH
-path_remove () {
+path_remove() {
     local IFS=':'
     local newpath
     local dir
@@ -104,7 +103,7 @@ path_remove () {
 # Usage: path_prepend /path/to/bin [PATH]
 # To prepend ~/bin to $PATH
 #     path_prepend ~/bin PATH
-path_prepend () {
+path_prepend() {
     path_remove "$1" "$2"
     local var="${2:-PATH}"
     local value=$(indirect_expand "$var")
@@ -114,7 +113,7 @@ path_prepend () {
 # Usage: path_append /path/to/bin [PATH]
 # To append ~/bin to $PATH
 #     path_append ~/bin PATH
-path_append () {
+path_append() {
     path_remove "${1}" "${2}"
     local var=${2:-PATH}
     local value=$(indirect_expand "$var")

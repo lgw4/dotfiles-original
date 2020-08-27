@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC1091,SC2155
 if [ -f /etc/bashrc ]; then
-	source /etc/bashrc
+    source /etc/bashrc
 fi
 
 if ((BASH_VERSINFO[0] > 3)); then
@@ -37,7 +37,7 @@ HISTFILESIZE=20480
 shopt -s checkwinsize
 
 # macOS settings
-if command -v brew > /dev/null 2>&1; then
+if command -v brew >/dev/null 2>&1; then
     export HOMEBREW_PREFIX="$(brew --prefix)"
     export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
     # Enable bash-completion with Homebrew
@@ -56,6 +56,6 @@ elif [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
 fi
 
-if command -v pipx > /dev/null 2>&1; then
+if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
 fi
