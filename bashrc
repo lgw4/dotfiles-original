@@ -6,6 +6,8 @@ fi
 
 if ((BASH_VERSINFO[0] > 3)); then
     shopt -s autocd
+    shopt -s cdspell
+    shopt -s dirspell
     shopt -s globstar
 fi
 
@@ -13,24 +15,33 @@ fi
 export OS_KERNEL="$(uname -s)"
 
 # Import files from ${HOME}/.bashrc.d
-if [[ -d "$HOME"/.bashrc.d ]]; then
-    for config in "$HOME"/.bashrc.d/*.bash; do
+if [[ -d "${HOME}"/.bashrc.d ]]; then
+    for config in "${HOME}"/.bashrc.d/*.bash; do
         [[ -r "${config}" ]] || continue
         source "${config}"
     done
     unset -v config
 fi
 
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=500000
+HISTFILESIZE=100000
+
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=erasedups:ignoreboth
 
-# Append to the history file, don't overwrite it
-shopt -s histappend
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history"
 
-# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10240
-HISTFILESIZE=20480
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
 
 # Check the window size after each command and, if necessary,
 # Update the values of LINES and COLUMNS.
