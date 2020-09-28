@@ -36,6 +36,8 @@ generate_prompt() {
     fi
     if [[ -r "${GIT_PROMPT_COMMAND}" ]]; then
         export GIT_PS1_SHOWDIRTYSTATE=1
+        export GIT_PS1_SHOWUNTRACKEDFILES=1
+        export GIT_PS1_SHOWCOLORHINTS=1
         source "${GIT_PROMPT_COMMAND}"
         PS1+="$(__git_ps1 "${default}on ${cyan}%s${default} ")"
     fi
