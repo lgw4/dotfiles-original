@@ -9,6 +9,14 @@ format = "on $hostname"
 ssh_only = false
 style = "purple"
 
+[nodejs]
+disabled = false
+style = "green"
+
+[python]
+disabled = false
+style = "#cb4b16"
+
 [username]
 disabled = false
 format = "$username"
