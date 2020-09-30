@@ -3,9 +3,24 @@ disabled = false
 truncation_length = 1
 style = "blue"
 
+[git_branch]
+disabled = false
+style = "#6c71c4"
+
+[git_commit]
+disabled = false
+style = "green"
+
+[git_state]
+disabled = false
+style = "yellow"
+
+[git_status]
+disabled = false
+style = "red"
+
 [hostname]
 disabled = false
-format = "on $hostname"
 ssh_only = false
 style = "purple"
 
@@ -19,7 +34,7 @@ style = "#cb4b16"
 
 [username]
 disabled = false
-format = "$username"
+format = "[$user]($style) at "
 show_always = true
 style_root = "red bold"
 style_user = "red"
