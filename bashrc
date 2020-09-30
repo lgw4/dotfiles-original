@@ -76,4 +76,6 @@ fi
 if command -v starship >/dev/null 2>&1; then
     starship_precmd_user_func="set_win_title"
     eval "$(starship init bash)"
+else
+    export PROMPT_DIRTRIM=1
 fi
