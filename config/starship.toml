@@ -1,0 +1,17 @@
+[directory]
+disabled = false
+truncation_length = 1
+style = "blue"
+
+[hostname]
+disabled = false
+format = "on $hostname"
+ssh_only = false
+style = "purple"
+
+[username]
+disabled = false
+format = "$username"
+show_always = true
+style_root = "red bold"
+style_user = "red"
