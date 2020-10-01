@@ -1,3 +1,6 @@
+[aws]
+disabled = true
+
 [character]
 disabled = false
 error_symbol = "[❯](red)"
