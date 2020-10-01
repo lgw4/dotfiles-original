@@ -12,6 +12,7 @@ style = "bold #6c71c4"
 
 [golang]
 disabled = false
+format = "[\\(go $version\\)]($style) "
 style = "bold cyan"
 
 [hostname]
@@ -19,16 +20,21 @@ disabled = false
 ssh_only = false
 style = "bold purple"
 
+[nodejs]
+disabled = false
+format = "[\\(node $version\\)]($style) "
+
 [package]
 disabled = true
 
 [python]
 disabled = false
+format = "[\\(python $version( \\($virtualenv\\))\\)]($style) "
 style = "bold #cb4b16"
 
 [rust]
 disabled = false
-style = "red"
+format = "[\\(rust $version\\)]($style) "
 
 [username]
 disabled = false
