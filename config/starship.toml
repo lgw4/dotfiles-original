@@ -1,7 +1,17 @@
+[character]
+disabled = false
+error_symbol = "[❯](red)"
+success_symbol = "[❯](green)"
+vicmd_symbol = "[❮](green)"
+
+[cmd_duration]
+disabled = false
+style = "yellow"
+
 [directory]
 disabled = false
-truncation_length = 1
 style = "blue"
+truncation_length = 1
 
 [git_branch]
 disabled = false
@@ -31,6 +41,10 @@ style = "green"
 [python]
 disabled = false
 style = "#cb4b16"
+
+[rust]
+disabled = false
+style = "red"
 
 [username]
 disabled = false
