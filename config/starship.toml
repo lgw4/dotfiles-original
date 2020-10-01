@@ -12,7 +12,7 @@ style = "bold #6c71c4"
 
 [golang]
 disabled = false
-format = "[\\(go $version\\)]($style) "
+format = "[\\($symbol$version\\)]($style) "
 style = "bold cyan"
 
 [hostname]
@@ -22,19 +22,19 @@ style = "bold purple"
 
 [nodejs]
 disabled = false
-format = "[\\(node $version\\)]($style) "
+format = "[\\($symbol$version\\)]($style) "
 
 [package]
 disabled = true
 
 [python]
 disabled = false
-format = "[\\(python $version( \\($virtualenv\\))\\)]($style) "
+format = "[\\($symbol$version( \\($virtualenv\\))\\)]($style) "
 style = "bold #cb4b16"
 
 [rust]
 disabled = false
-format = "[\\(rust $version\\)]($style) "
+format = "[\\($symbol$version\\)]($style) "
 
 [username]
 disabled = false
