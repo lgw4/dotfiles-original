@@ -1,56 +1,30 @@
 [aws]
 disabled = true
 
-[character]
-disabled = false
-error_symbol = "[❯](red)"
-success_symbol = "[❯](green)"
-vicmd_symbol = "[❮](green)"
-
-[cmd_duration]
-disabled = false
-style = "yellow"
-
 [directory]
 disabled = false
-style = "blue"
+style = "bold blue"
 truncation_length = 1
 
 [git_branch]
 disabled = false
-style = "#6c71c4"
-
-[git_commit]
-disabled = false
-style = "green"
-
-[git_state]
-disabled = false
-style = "yellow"
-
-[git_status]
-disabled = false
-style = "red"
+style = "bold #6c71c4"
 
 [golang]
 disabled = false
-style = "cyan"
+style = "bold cyan"
 
 [hostname]
 disabled = false
 ssh_only = false
-style = "purple"
-
-[nodejs]
-disabled = false
-style = "green"
+style = "bold purple"
 
 [package]
 disabled = true
 
 [python]
 disabled = false
-style = "#cb4b16"
+style = "bold #cb4b16"
 
 [rust]
 disabled = false
@@ -60,5 +34,5 @@ style = "red"
 disabled = false
 format = "[$user]($style) at "
 show_always = true
-style_root = "red bold"
-style_user = "red"
+style_root = "bold black"
+style_user = "bold red"
