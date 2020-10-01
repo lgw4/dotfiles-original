@@ -38,6 +38,9 @@ style = "purple"
 disabled = false
 style = "green"
 
+[package]
+disabled = true
+
 [python]
 disabled = false
 style = "#cb4b16"
