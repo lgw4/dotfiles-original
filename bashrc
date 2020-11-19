@@ -14,6 +14,12 @@ fi
 # Get OS kernel name
 export OS_KERNEL="$(uname -s)"
 
+# Check for macOS Homebrew
+if [[ -f /usr/local/bin/brew ]] || [[ -f /opt/homebrew/bin/brew ]]; then
+    export HOMEBREW_PREFIX="$(brew --prefix)"
+    export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+fi 
+
 # Import files from ${HOME}/.bashrc.d
 if [[ -d "${HOME}"/.bashrc.d ]]; then
     for config in "${HOME}"/.bashrc.d/*.bash; do
@@ -48,9 +54,7 @@ HISTTIMEFORMAT='%F %T '
 shopt -s checkwinsize
 
 # macOS settings
-if command -v brew >/dev/null 2>&1; then
-    export HOMEBREW_PREFIX="$(brew --prefix)"
-    export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+if [[ -d ${HOMEBREW_PREFIX} ]]; then
     # Enable bash-completion with Homebrew
     export BASH_COMPLETION_COMPAT_DIR="${HOMEBREW_PREFIX}/etc/bash_completion.d"
     if [[ -f "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
@@ -67,8 +71,10 @@ elif [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
     source "/etc/bash_completion"
 fi
 
+# Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
+    alias pipx='SYSTEM_VERSION_COMPAT=1 pipx'
 fi
 
 # Enable Starship

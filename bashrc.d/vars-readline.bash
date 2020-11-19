@@ -1,6 +1,6 @@
 # shellcheck shell=bash
-if [[ -d /usr/local/opt/readline ]]; then 
-    export CPPFLAGS="-I/usr/local/opt/readline/include ${CPPFLAGS}"
-    export LDFLAGS="-L/usr/local/opt/readline/lib ${LDFLAGS}"
-    path_prepend /usr/local/opt/readline/lib/pkgconfig PKG_CONFIG_PATH
+if [[ -d ${HOMEBREW_PREFIX}/opt/readline ]]; then 
+    export CPPFLAGS="-I${HOMEBREW_PREFIX}/opt/readline/include ${CPPFLAGS}"
+    export LDFLAGS="-L${HOMEBREW_PREFIX}/opt/readline/lib ${LDFLAGS}"
+    path_prepend ${HOMEBREW_PREFIX}/opt/readline/lib/pkgconfig PKG_CONFIG_PATH
 fi
