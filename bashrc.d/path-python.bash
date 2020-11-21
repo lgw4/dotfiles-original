@@ -37,6 +37,13 @@ if [[ -v VIRTUALENVWRAPPER ]]; then
     source "$(command -v "$VIRTUALENVWRAPPER")"
 fi
 
+# Big Sur "fix". Revisit this soon.
+alias pip='SYSTEM_VERSION_COMPAT=1 pip'
+alias pip3='SYSTEM_VERSION_COMPAT=1 pip3'
+alias pip3.7='SYSTEM_VERSION_COMPAT=1 pip3.7'
+alias pip3.8='SYSTEM_VERSION_COMPAT=1 pip3.8'
+alias pip3.9='SYSTEM_VERSION_COMPAT=1 pip3.9'
+
 # Enable pip completion
 _pip_completion() {
     COMPREPLY=($(COMP_WORDS="${COMP_WORDS[*]}" \
