@@ -9,7 +9,13 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         eval "$(pyenv init -)"
         export PYENV_VIRTUALENV_DISABLE_PROMPT=1
         # Big Sur "fix". Revisit this soon.
-        alias pyenv='SYSTEM_VERSION_COMPAT=1 pyenv'
+        if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+            if [[ "$(arch)" == "arm64" ]]; then
+                alias pyenv='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pyenv'
+            else
+                alias pyenv='SYSTEM_VERSION_COMPAT=1 pyenv'
+            fi
+        fi        
     fi
 fi
 
@@ -38,11 +44,21 @@ if [[ -v VIRTUALENVWRAPPER ]]; then
 fi
 
 # Big Sur "fix". Revisit this soon.
-alias pip='SYSTEM_VERSION_COMPAT=1 pip'
-alias pip3='SYSTEM_VERSION_COMPAT=1 pip3'
-alias pip3.7='SYSTEM_VERSION_COMPAT=1 pip3.7'
-alias pip3.8='SYSTEM_VERSION_COMPAT=1 pip3.8'
-alias pip3.9='SYSTEM_VERSION_COMPAT=1 pip3.9'
+if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    if [[ "$(arch)" == "arm64" ]]; then
+        alias pip='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip'
+        alias pip3='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3'
+        alias pip3.7='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3.7'
+        alias pip3.8='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3.8'
+        alias pip3.9='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3.9'
+    else
+        alias pip='SYSTEM_VERSION_COMPAT=1 pip'
+        alias pip3='SYSTEM_VERSION_COMPAT=1 pip3'
+        alias pip3.7='SYSTEM_VERSION_COMPAT=1 pip3.7'
+        alias pip3.8='SYSTEM_VERSION_COMPAT=1 pip3.8'
+        alias pip3.9='SYSTEM_VERSION_COMPAT=1 pip3.9'
+    fi
+fi
 
 # Enable pip completion
 _pip_completion() {
@@ -52,3 +68,6 @@ _pip_completion() {
 }
 complete -o default -F _pip_completion pip
 complete -o default -F _pip_completion pip3
+complete -o default -F _pip_completion pip3.7
+complete -o default -F _pip_completion pip3.8
+complete -o default -F _pip_completion pip3.9

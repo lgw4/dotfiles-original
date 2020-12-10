@@ -14,3 +14,9 @@ fi
 if [[ -r "$NVM_DIR"/bash_completion ]]; then
     source "$NVM_DIR"/bash_completion
 fi
+
+if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    if [[ "$(arch)" == "arm64" ]]; then
+        alias nvm='ARCHPREFERENCE="x86_64" nvm'
+    fi
+fi

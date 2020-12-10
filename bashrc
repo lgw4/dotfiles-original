@@ -77,7 +77,12 @@ fi
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    alias pipx='SYSTEM_VERSION_COMPAT=1 pipx'
+    if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+        if [[ "$(arch)" == "arm64" ]]; then
+                alias pipx='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pipx'
+        fi
+        alias pipx='SYSTEM_VERSION_COMPAT=1 pipx'
+    fi
 fi
 
 # Enable Starship
