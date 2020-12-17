@@ -15,7 +15,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
             else
                 alias pyenv='SYSTEM_VERSION_COMPAT=1 pyenv'
             fi
-        fi        
+        fi
     fi
 fi
 
@@ -28,8 +28,8 @@ if [[ -v VIRTUALENVWRAPPER ]]; then
     PYENV_PYTHON3="$(pyenv which python3)"
     if [[ -x "$PYENV_PYTHON3" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="$PYENV_PYTHON3"
-    elif [[ -x ${HOMEBREW_PREFIX}/bin/python3 ]]; then
-        export VIRTUALENVWRAPPER_PYTHON="${HOMEBREW_PREFIX}/bin/python3"
+    elif [[ -x ${HOMEBREW_ROOT}/bin/python3 ]]; then
+        export VIRTUALENVWRAPPER_PYTHON="${HOMEBREW_ROOT}/bin/python3"
     elif [[ -x /usr/bin/python3 ]]; then
         export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3"
     fi

@@ -8,7 +8,8 @@ if [[ ! -v VIRTUAL_ENV ]]; then
     fi
     if command -v pyenv >/dev/null 2>&1 && if [[ -z ${path[(r)"$HOME/.pyenv/shims"]} ]]; then
         eval "$(pyenv init -)"
-        export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+        eval "$(pyenv virtualenv-init -)"
+        # export PYENV_VIRTUALENV_DISABLE_PROMPT=1
         # Big Sur "fix". Revisit this soon.
         if  [[ $OSTYPE == darwin* ]]; then
             if [[ "$(arch)" == "arm64" ]]; then
