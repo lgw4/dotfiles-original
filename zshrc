@@ -7,6 +7,10 @@ for f in $HOME/.zshrc.d/**/*.zsh(N); do
     fi
 done
 
+if [[ -d ${HOMEBREW_ROOT} ]] && (( $+commands[brew] )); then
+    export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+fi
+
 if (( $+commands[starship] )); then
     eval "$(starship init zsh)"
 fi
