@@ -20,7 +20,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
     fi
 fi
 
-if  [[ $OSTYPE == darwin* ]]; then
+if [[ $OSTYPE == darwin* ]]; then
     if [[ "$(arch)" == "arm64" ]]; then
         alias pip='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip'
         alias pip3='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3'
@@ -35,3 +35,15 @@ if  [[ $OSTYPE == darwin* ]]; then
         alias pip3.9='SYSTEM_VERSION_COMPAT=1 pip3.9'
     fi
 fi
+
+# Enable pip completion
+_pip_completion() {
+    COMPREPLY=($(COMP_WORDS="${COMP_WORDS[*]}" \
+        COMP_CWORD="$COMP_CWORD" \
+        PIP_AUTO_COMPLETE=1 "$1"))
+}
+complete -o default -F _pip_completion pip
+complete -o default -F _pip_completion pip3
+complete -o default -F _pip_completion pip3.7
+complete -o default -F _pip_completion pip3.8
+complete -o default -F _pip_completion pip3.9
