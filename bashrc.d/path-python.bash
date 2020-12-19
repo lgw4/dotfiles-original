@@ -9,7 +9,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
         export PYENV_VIRTUALENV_DISABLE_PROMPT=1
         # Big Sur "fix". Revisit this soon.
-        if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+        if [[ "${OS_KERNEL}" == "Darwin" ]]; then
             if [[ "$(arch)" == "arm64" ]]; then
                 alias pyenv='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pyenv'
             else
@@ -20,7 +20,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
 fi
 
 # Big Sur "fix". Revisit this soon.
-if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+if [[ "${OS_KERNEL}" == "Darwin" ]]; then
     if [[ "$(arch)" == "arm64" ]]; then
         alias pip='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip'
         alias pip3='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pip3'
