@@ -15,7 +15,7 @@ fi
 export OS_KERNEL="$(uname -s)"
 
 # Check for macOS Homebrew
-if [[ -f /usr/local/bin/brew ]]; then
+if [[ "$(arch)" == "i386" ]] && [[ -f /usr/local/bin/brew ]]; then
     export HOMEBREW_ROOT="$(/usr/local/bin/brew --prefix)"
 elif [[ -f /opt/homebrew/bin/brew ]]; then
     export HOMEBREW_ROOT="$(/opt/homebrew/bin/brew --prefix)"
@@ -77,9 +77,9 @@ fi
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    if  [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    if [[ "${OS_KERNEL}" == "Darwin" ]]; then
         if [[ "$(arch)" == "arm64" ]]; then
-                alias pipx='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pipx'
+            alias pipx='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pipx'
         fi
         alias pipx='SYSTEM_VERSION_COMPAT=1 pipx'
     fi
