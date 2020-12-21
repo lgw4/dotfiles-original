@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d "/usr/local/go" ]]; then
         export GOROOT="/usr/local/go"

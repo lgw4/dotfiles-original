@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 if [[ -d ${HOMEBREW_ROOT}/opt/zlib ]]; then
     export CPPFLAGS="-I${HOMEBREW_ROOT}/opt/sqlite/include ${CPPFLAGS}"
     export LDFLAGS="-L${HOMEBREW_ROOT}/opt/sqlite/lib ${LDFLAGS}"

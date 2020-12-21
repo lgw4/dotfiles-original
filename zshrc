@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 fpath+=("${HOME}/.local/share/zsh/local-functions")
 autoload -Uz compinit && compinit
 

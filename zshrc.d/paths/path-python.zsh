@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
     if [[ -d "${HOME}/.pyenv/bin" ]]; then

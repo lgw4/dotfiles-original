@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 # Homebrew npm executables
 if [[ ! -v VIRTUAL_ENV ]] && [[ -d "${HOMEBREW_ROOT}/share/npm/bin" ]]; then
     typeset -U PATH path

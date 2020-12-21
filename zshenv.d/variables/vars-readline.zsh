@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 if [[ -d ${HOMEBREW_ROOT}/opt/readline ]]; then
     export CPPFLAGS="-I${HOMEBREW_ROOT}/opt/readline/include ${CPPFLAGS}"
     export LDFLAGS="-L${HOMEBREW_ROOT}/opt/readline/lib ${LDFLAGS}"

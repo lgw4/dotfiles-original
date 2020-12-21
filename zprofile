@@ -1,1 +1,1 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh

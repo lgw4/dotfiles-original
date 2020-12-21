@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 if (( $+commands[code] )) && [[ ! -v SSH_CONNECTION ]]; then
     export EDITOR="code"
 else

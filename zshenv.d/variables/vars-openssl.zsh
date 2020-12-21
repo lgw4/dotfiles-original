@@ -1,4 +1,4 @@
-# shellcheck shell=zsh
+#!/usr/bin/env zsh
 if [[ -d ${HOMEBREW_ROOT}/opt/openssl@1.1/ ]]; then
     export CPPFLAGS="-I${HOMEBREW_ROOT}/opt/openssl@1.1/include ${CPPFLAGS}"
     export LDFLAGS="-L${HOMEBREW_ROOT}/opt/openssl@1.1/lib ${LDFLAGS}"
