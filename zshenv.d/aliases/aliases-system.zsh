@@ -1,5 +1,5 @@
 # shellcheck shell=zsh
-if [[ $OSTYPE == darwin* ]]; then
+if [[ "${OSTYPE}" == darwin* ]]; then
     alias ls='ls -FG'
     alias finder='open -a Finder ./'
 else

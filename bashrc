@@ -11,14 +11,11 @@ if ((BASH_VERSINFO[0] > 3)); then
     shopt -s globstar
 fi
 
-# Get OS kernel name
-export OS_KERNEL="$(uname -s)"
-
 # Check for macOS Homebrew
-if [[ "$(arch)" == "i386" ]] && [[ -f /usr/local/bin/brew ]]; then
-    export HOMEBREW_ROOT="$(/usr/local/bin/brew --prefix)"
-elif [[ -f /opt/homebrew/bin/brew ]]; then
-    export HOMEBREW_ROOT="$(/opt/homebrew/bin/brew --prefix)"
+if [[ "$(arch)" == "i386" ]] && [[ -f "/usr/local/bin/brew" ]]; then
+    export HOMEBREW_ROOT="/usr/local"
+elif [[ -f "/opt/homebrew/bin/brew" ]]; then
+    export HOMEBREW_ROOT="/opt/homebrew"
 fi
 
 # Import files from ${HOME}/.bashrc.d
@@ -77,7 +74,7 @@ fi
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    if [[ "${OS_KERNEL}" == "Darwin" ]]; then
+    if [[ "${OSTYPE}" == darwin* ]]; then
         if [[ "$(arch)" == "arm64" ]]; then
             alias pipx='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pipx'
         fi

@@ -1,16 +1,16 @@
 # shellcheck shell=zsh
 # Enable pyenv
 if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ -d "$HOME"/.pyenv/bin ]]; then
+    if [[ -d "${HOME}/.pyenv/bin" ]]; then
         typeset -U PATH path
-        path=("$HOME/.pyenv/bin" $path[@])
+        path=("${HOME/.pyenv/bin}" "$path[@]")
         export PATH
     fi
-    if (( $+commands[pyenv] )) && [[ -z ${path[(r)"$HOME/.pyenv/shims"]} ]]; then
+    if (($ + commands[pyenv])) && [[ -z '${path[(r)"${HOME}/.pyenv/shims"]}' ]]; then
         eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
         export PYENV_VIRTUALENV_DISABLE_PROMPT=1
         # Big Sur "fix". Revisit this soon.
-        if  [[ $OSTYPE == darwin* ]]; then
+        if [[ $OSTYPE == darwin* ]]; then
             if [[ "$(arch)" == "arm64" ]]; then
                 alias pyenv='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pyenv'
             else
