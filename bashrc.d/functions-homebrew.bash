@@ -10,5 +10,8 @@ if [[ $OSTYPE == darwin* ]]; then
         brew() {
             arch -x86_64 /usr/local/bin/brew "$@"
         }
+        bash-x86_64() {
+            /usr/local/bin/bash
+        }
     fi
 fi
