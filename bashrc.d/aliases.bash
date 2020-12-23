@@ -2,9 +2,6 @@
 alias refresh='source ~/.bashrc'
 
 if [[ "${OSTYPE}" == darwin* ]]; then
-    if [[ "$(arch)" == "arm64" ]] && [[ -f "/opt/homebrew/bin/brew" ]] && [[ -f "/usr/local/bin/brew" ]]; then
-        alias ibrew='arch -x86_64 /usr/local/bin/brew'
-    fi
     alias ls='ls -FG'
     alias finder='open -a Finder ./'
     if [[ -d "/Applications/Yoink.app" ]]; then

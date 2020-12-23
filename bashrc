@@ -12,10 +12,8 @@ if ((BASH_VERSINFO[0] > 3)); then
 fi
 
 # Check for macOS Homebrew
-if [[ "$(arch)" == "i386" ]] && [[ -f "/usr/local/bin/brew" ]]; then
+if [[ -f "/usr/local/bin/brew" ]]; then
     export HOMEBREW_ROOT="/usr/local"
-elif [[ -f "/opt/homebrew/bin/brew" ]]; then
-    export HOMEBREW_ROOT="/opt/homebrew"
 fi
 
 # Import files from ${HOME}/.bashrc.d
@@ -64,6 +62,7 @@ if [[ -d ${HOMEBREW_ROOT} ]] && command -v brew >/dev/null 2>&1; then
     if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
         source "${HOME}/.iterm2_shell_integration.bash"
     fi
+    complete -o bashdefault -o default -F _brew brew-arm64
 # GNU/Linux settings
 elif [[ -f "/etc/profile.d/bash_completion.sh" ]] && ! shopt -oq posix; then
     source "/etc/profile.d/bash_completion.sh"
