@@ -8,10 +8,10 @@ if [[ $OSTYPE == darwin* ]]; then
 
     if [[ -f /usr/local/bin/brew ]] && [[ $(arch) == arm64 ]]; then
         brew() {
-            arch -x86_64 /usr/local/bin/brew "$@"
+            /usr/bin/arch -x86_64 /usr/local/bin/brew "$@"
         }
         bash-x86_64() {
-            /usr/local/bin/bash
+            /usr/bin/arch -x86_64 /usr/local/bin/bash
         }
     fi
 fi
