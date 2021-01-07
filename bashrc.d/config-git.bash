@@ -2,6 +2,7 @@
 if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global user.name "Chip Warden"
     git config --global user.email "lgw4@icloud.com"
+    git config --global init.defaultBranch main
     git config --global color.ui auto
     git config --global core.excludesfile ~/.gitignore_global
     git config --global core.quotepath false
