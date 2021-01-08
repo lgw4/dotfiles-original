@@ -1,6 +1,7 @@
-if not test -r $HOME/.gitconfig && type -q git
+if not test -r "$HOME"/.gitconfig && type -q git
     git config --global user.name "Chip Warden"
     git config --global user.email "lgw4@icloud.com"
+    git config --global init.defaultBranch main
     git config --global color.ui auto
     git config --global core.excludesfile ~/.gitignore_global
     git config --global core.quotepath false
@@ -16,7 +17,7 @@ if not test -r $HOME/.gitconfig && type -q git
     git config --global alias.st status
     git config --global alias.type "cat-file -t"
     git config --global github.user lgw4
-    if test (uname -s) = "Darwin"
+    if test (uname) = "Darwin"
         git config --global credential.helper osxkeychain
     else if test -r /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
         git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring

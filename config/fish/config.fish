@@ -14,3 +14,7 @@ if type -q pipx
 end
 
 set -x HOMEBREW_CASK_OPTS --appdir=~/Applications
+
+if type -q starship
+    starship init fish | source
+end
