@@ -12,7 +12,7 @@ if ((BASH_VERSINFO[0] > 3)); then
 fi
 
 # Check for macOS Homebrew
-if [[ -f "/usr/local/bin/brew" ]]; then
+if [[ -f /usr/local/bin/brew ]]; then
     export HOMEBREW_ROOT="/usr/local"
 fi
 
@@ -73,11 +73,8 @@ fi
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    if [[ "${OSTYPE}" == darwin* ]]; then
-        if [[ "$(arch)" == "arm64" ]]; then
-            alias pipx='SYSTEM_VERSION_COMPAT=1 arch -x86_64 pipx'
-        fi
-        alias pipx='SYSTEM_VERSION_COMPAT=1 pipx'
+    if [[ "${OSTYPE}" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
+        alias pipx='/usr/bin/arch -x86_64 pipx'
     fi
 fi
 

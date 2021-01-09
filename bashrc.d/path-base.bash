@@ -10,12 +10,6 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         path_prepend /usr/local/bin PATH
     fi
 
-    # Check macOS Homebrew (Apple Silicon)
-    if [[ -d /opt/homebrew ]]; then
-        path_prepend /opt/homebrew/sbin PATH
-        path_prepend /opt/homebrew/bin PATH
-    fi
-
     # Add /sbin and /usr/sbin to PATH on Debian systems
     if [[ -e /etc/debian_version ]]; then
         path_prepend /usr/sbin PATH
