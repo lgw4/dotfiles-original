@@ -32,8 +32,8 @@ shopt -s histappend
 shopt -s cmdhist
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=500000
-HISTFILESIZE=100000
+HISTSIZE=10000
+HISTFILESIZE=50000
 
 # Don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
