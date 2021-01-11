@@ -16,26 +16,18 @@ if [[ $OSTYPE == darwin* ]]; then
     fi
 
     if [[ -f /opt/homebrew/bin/starship ]]; then
-        starship() {
-            /opt/homebrew/bin/starship "$@"
-        }
+        alias starship='/opt/homebrew/bin/starship'
     fi
 
     if [[ -f /opt/homebrew/bin/git ]]; then
-        git() {
-            /opt/homebrew/bin/git "$@"
-        }
+        alias git='/opt/homebrew/bin/git'
     fi
 
     if [[ -f /opt/homebrew/bin/tree ]]; then
-        tree() {
-            /opt/homebrew/bin/tree "$@"
-        }
+        alias tree='/opt/homebrew/bin/tree'
     fi
 
     if [[ -f /opt/homebrew/bin/bat ]]; then
-        bat() {
-            /opt/homebrew/bin/bat "$@"
-        }
+        alias bat='/opt/homebrew/bin/bat'
     fi
 fi
