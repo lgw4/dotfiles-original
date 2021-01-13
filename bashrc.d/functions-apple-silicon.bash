@@ -6,7 +6,7 @@ if [[ $OSTYPE == darwin* ]]; then
         }
     fi
 
-    if [[ -f /usr/local/bin/brew ]] && [[ $(arch) == arm64 ]]; then
+    if [[ -f /usr/local/bin/brew ]] && [[ $(arch) == "arm64" ]]; then
         brew() {
             /usr/bin/arch -x86_64 /usr/local/bin/brew "$@"
         }
