@@ -74,7 +74,10 @@ fi
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
     if [[ "${OSTYPE}" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
-        alias pipx='/usr/bin/arch -x86_64 pipx'
+        pipx-x86_64() {
+            /usr/bin/arch -x86_64 pipx "$@"
+        }
+        complete -o bashdefault -o default -o nospace -F _python_argcomplete pipx-x86_64
     fi
 fi
 
