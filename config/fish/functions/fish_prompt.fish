@@ -22,7 +22,7 @@ function fish_prompt -d "Set prompt for Fish shell"
     set -g __fish_git_prompt_showuntrackedfiles
     printf '%s' (fish_git_prompt)
 
-    if test $VIRTUAL_ENV
+    if test -n "$VIRTUAL_ENV"
         printf " (%s)" (set_color CB4B16)(basename $VIRTUAL_ENV)(set_color normal)
     end
 

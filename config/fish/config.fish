@@ -5,14 +5,14 @@ if status is-login
     fortune
 end
 
-if test -e $HOME/.iterm2_shell_integration.fish
+if test -e "$HOME/.iterm2_shell_integration.fish"
     source $HOME/.iterm2_shell_integration.fish
 end
 
+if type -q pipx
+    register-python-argcomplete --shell fish pipx | source
+end
+
 if type -q starship
-    if test -x /opt/homebrew/bin/starship
-        /opt/homebrew/bin/starship init fish | source
-    else
-        starship init fish | source
-    end
+    starship init fish | source
 end

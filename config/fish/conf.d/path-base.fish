@@ -9,12 +9,16 @@ if test (uname) = 'Darwin'
         set -x HOMEBREW_ROOT /usr/local
     end
 
-    if test $HOMEBREW_ROOT = '/usr/local'
+    if test "$HOMEBREW_ROOT" = '/usr/local'
         path_append /opt/homebrew/bin
         path_append /opt/homebrew/sbin
     else
         path_prepend /opt/homebrew/sbin
         path_prepend /opt/homebrew/bin
+    end
+
+    if test -n "$HOMEBREW_ROOT"
+        set -x HOMEBREW_CASK_OPTS --appdir=~/Applications
     end
 end
 
