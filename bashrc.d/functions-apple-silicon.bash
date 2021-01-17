@@ -18,11 +18,11 @@ if [[ $OSTYPE == darwin* ]]; then
         }
     fi
 
-    # if [[ -f /opt/homebrew/bin/direnv ]]; then
-    #     function direnv {
-    #         /opt/homebrew/bin/direnv "$@"
-    #     }
-    # fi
+    if [[ -f /opt/homebrew/bin/direnv ]]; then
+        function direnv {
+            /opt/homebrew/bin/direnv "$@"
+        }
+    fi
 
     if [[ -f /opt/homebrew/bin/git ]]; then
         function git {
