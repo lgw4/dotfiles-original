@@ -1,9 +1,5 @@
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC1091,SC2155
-if [ -f /etc/bashrc ]; then
-    source /etc/bashrc
-fi
-
 if ((BASH_VERSINFO[0] > 3)); then
     shopt -s autocd
     shopt -s cdspell
@@ -11,9 +7,13 @@ if ((BASH_VERSINFO[0] > 3)); then
     shopt -s globstar
 fi
 
-# Check for macOS Homebrew
-if [[ -f /usr/local/bin/brew ]]; then
-    export HOMEBREW_ROOT="/usr/local"
+# Set macOS Homebrew installation root
+if [[ "$OSTYPE" == darwin* ]]; then
+    if [[ $(arch) == "arm64" ]] && [[ ! -e /usr/local/bin/brew ]]; then
+        export HOMEBREW_ROOT="/opt/homebrew"
+    else
+        export HOMEBREW_ROOT="/usr/local"
+    fi
 fi
 
 # Import files from ${HOME}/.bashrc.d
@@ -90,3 +90,5 @@ else
     export PROMPT_COMMAND=set_win_title
     export PROMPT_DIRTRIM=1
 fi
+
+eval "$(direnv hook bash)"

@@ -6,7 +6,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         path_prepend "$HOME"/.pyenv/bin PATH
     fi
     if command -v pyenv >/dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
-        eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
+        eval "$(pyenv init -)"
         export PYENV_VIRTUALENV_DISABLE_PROMPT=1
         # Run under Rosetta2 on Apple Silicon
         if [[ "${OSTYPE}" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
