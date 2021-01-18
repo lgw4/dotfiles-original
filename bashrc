@@ -17,10 +17,10 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 # Import files from ${HOME}/.bashrc.d
-if [[ -d "${HOME}"/.bashrc.d ]]; then
-    for config in "${HOME}"/.bashrc.d/*.bash; do
-        [[ -r "${config}" ]] || continue
-        source "${config}"
+if [[ -d "$HOME"/.bashrc.d ]]; then
+    for config in "$HOME"/.bashrc.d/*.bash; do
+        [[ -r "$config" ]] || continue
+        source "$config"
     done
     unset -v config
 fi
@@ -50,28 +50,28 @@ HISTTIMEFORMAT='%F %T '
 shopt -s checkwinsize
 
 # macOS settings
-if [[ "${OSTYPE}" == darwin* ]]; then
-    if [[ -d ${HOMEBREW_ROOT} ]] && command -v brew >/dev/null 2>&1; then
+if [[ "$OSTYPE" == darwin* ]]; then
+    if [[ -d "$HOMEBREW_ROOT" ]] && command -v brew >/dev/null 2>&1; then
         # Set Homebrew Cask default Applications directory
         export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
         # Enable bash-completion with Homebrew
-        export BASH_COMPLETION_COMPAT_DIR="${HOMEBREW_ROOT}/etc/bash_completion.d"
-        if [[ -f "${HOMEBREW_ROOT}/etc/profile.d/bash_completion.sh" ]]; then
-            source "${HOMEBREW_ROOT}/etc/profile.d/bash_completion.sh"
+        export BASH_COMPLETION_COMPAT_DIR="$HOMEBREW_ROOT/etc/bash_completion.d"
+        if [[ -f "$HOMEBREW_ROOT/etc/profile.d/bash_completion.sh" ]]; then
+            source "$HOMEBREW_ROOT/etc/profile.d/bash_completion.sh"
         fi
         complete -o bashdefault -o default -F _brew brew-arm64
     # GNU/Linux settings
-    elif [[ -f "/etc/profile.d/bash_completion.sh" ]] && ! shopt -oq posix; then
-        source "/etc/profile.d/bash_completion.sh"
-    elif [[ -f "/etc/bash_completion" ]] && ! shopt -oq posix; then
-        source "/etc/bash_completion"
+    elif [[ -f /etc/profile.d/bash_completion.sh ]] && ! shopt -oq posix; then
+        source /etc/profile.d/bash_completion.sh
+    elif [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
+        source /etc/bash_completion
     fi
 fi
 
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    if [[ "${OSTYPE}" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
+    if [[ "$OSTYPE" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
         pipx-x86_64() {
             /usr/bin/arch -x86_64 pipx "$@"
         }
@@ -94,8 +94,8 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # iTerm2 shell integration
-if [[ "${OSTYPE}" == darwin* ]]; then
-    if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
-        source "${HOME}/.iterm2_shell_integration.bash"
+if [[ "$OSTYPE" == darwin* ]]; then
+    if [[ -e "$HOME/.iterm2_shell_integration.bash" ]]; then
+        source "$HOME/.iterm2_shell_integration.bash"
     fi
 fi
