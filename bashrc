@@ -94,8 +94,6 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 
 # iTerm2 shell integration
-if [[ "$OSTYPE" == darwin* ]]; then
-    if [[ -e "$HOME/.iterm2_shell_integration.bash" ]]; then
-        source "$HOME/.iterm2_shell_integration.bash"
-    fi
+if [[ -e "$HOME/.iterm2_shell_integration.bash" ]]; then
+    source "$HOME/.iterm2_shell_integration.bash"
 fi
