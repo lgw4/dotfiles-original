@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 fpath+=(/usr/local/share/zsh/site-functions /opt/homebrew/share/zsh/site-functions "$HOME"/.local/share/zsh/local-functions)
+typeset -U fpath
 autoload -Uz compinit && compinit
 autoload bashcompinit && bashcompinit
 

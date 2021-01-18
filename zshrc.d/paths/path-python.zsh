@@ -12,7 +12,7 @@ if command -v pyenv >/dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims
     eval "$(pyenv init -)"
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
     # Run under Rosetta2 on Apple Silicon
-    if [[ "${OSTYPE}" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
+    if [[ "$OSTYPE" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
         pyenv-x86_64 () {
             /usr/bin/arch -x86_64 pyenv "$@"
         }
