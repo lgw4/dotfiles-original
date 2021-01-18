@@ -7,7 +7,7 @@ fi
 export NVM_DIR="${HOME}/.nvm"
 if [[ -e "$NVM_DIR"/nvm.sh ]]; then
     source "$NVM_DIR"/nvm.sh
-    export NVM_COLORS="gbyrk"
+    export NVM_COLORS="gbyrc"
 fi
 
 # nvm bash completion
