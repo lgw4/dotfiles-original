@@ -4,11 +4,12 @@ path_prepend /usr/local/bin
 
 # macOS HOMEBREW_ROOT
 if [[ $OSTYPE == darwin* ]]; then
-    if [[ $(arch) == "arm64" ]] && [[ ! -f /usr/local/bin/brew ]]; then
+    if [[ $(arch) == "arm64" ]]; then
         export HOMEBREW_ROOT="/opt/homebrew"
     else
         export HOMEBREW_ROOT="/usr/local"
     fi
+
     if [[ $HOMEBREW_ROOT == /usr/local ]]; then
         path_append /opt/homebrew/bin
         path_append /opt/homebrew/sbin

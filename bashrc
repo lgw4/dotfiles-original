@@ -9,7 +9,7 @@ fi
 
 # Set macOS Homebrew installation root
 if [[ "$OSTYPE" == darwin* ]]; then
-    if [[ $(arch) == "arm64" ]] && [[ ! -e /usr/local/bin/brew ]]; then
+    if [[ $(arch) == "arm64" ]]; then
         export HOMEBREW_ROOT="/opt/homebrew"
     else
         export HOMEBREW_ROOT="/usr/local"
@@ -71,12 +71,6 @@ fi
 # Enable pipx
 if command -v pipx >/dev/null 2>&1; then
     eval "$(register-python-argcomplete pipx)"
-    if [[ "$OSTYPE" == darwin* ]] && [[ "$(arch)" == "arm64" ]]; then
-        pipx-x86_64() {
-            /usr/bin/arch -x86_64 pipx "$@"
-        }
-        complete -o bashdefault -o default -o nospace -F _python_argcomplete pipx-x86_64
-    fi
 fi
 
 # Enable Starship
