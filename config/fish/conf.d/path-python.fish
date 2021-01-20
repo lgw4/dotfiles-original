@@ -5,7 +5,7 @@ if test -d "$HOME/.pyenv"
         and not contains $PYENV_ROOT/shims $PATH
         and status --is-interactive
         pyenv init - | source
-        # pyenv virtualenv-init - | source
+        pyenv virtualenv-init - | source
         set -x PYENV_VIRTUALENV_DISABLE_PROMPT 1
     end
 end
