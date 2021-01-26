@@ -1,6 +1,8 @@
-bashrc.d/config-bardavon.bash
+bashrc.d/functions-bardavon.bash
+bashrc.d/vars-bardavon.bash
 bashrc.d/vars-homebrew-github-api-token.bash
 config/fish/fish_variables
+config/fish/conf.d/config-bardavon.fish
 hammerspoon/Spoons/*
 ipython/profile_default/db/
 pip/cache
