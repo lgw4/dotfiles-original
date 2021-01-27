@@ -59,13 +59,12 @@ if [[ "$OSTYPE" == darwin* ]]; then
         if [[ -f "$HOMEBREW_ROOT/etc/profile.d/bash_completion.sh" ]]; then
             source "$HOMEBREW_ROOT/etc/profile.d/bash_completion.sh"
         fi
-        complete -o bashdefault -o default -F _brew brew-arm64
-    # GNU/Linux settings
-    elif [[ -f /etc/profile.d/bash_completion.sh ]] && ! shopt -oq posix; then
-        source /etc/profile.d/bash_completion.sh
-    elif [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
-        source /etc/bash_completion
     fi
+# GNU/Linux settings
+elif [[ -f /etc/profile.d/bash_completion.sh ]] && ! shopt -oq posix; then
+    source /etc/profile.d/bash_completion.sh
+elif [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
+    source /etc/bash_completion
 fi
 
 # Enable pipx
