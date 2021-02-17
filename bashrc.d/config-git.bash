@@ -13,6 +13,13 @@ if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global core.excludesfile ~/.gitignore_global
     git config --global core.quotepath false
     git config --global core.trustctime false
+    if [[ "$OSTYPE" == darwin* ]]; then
+        git config --global credential.helper osxkeychain
+    elif [[ -r /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
+        git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+    else
+        git config --global credential.helper store
+    fi
     git config --global fetch.fsckObjects true
     git config --global github.user lgw4
     git config --global init.defaultBranch main
@@ -23,12 +30,5 @@ if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global transfer.fsckObjects true
     git config --global user.email "lgw4@icloud.com"
     git config --global user.name "Chip Warden"
-    if [[ "$OSTYPE" == darwin* ]]; then
-        git config --global credential.helper osxkeychain
-    elif [[ -r /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring ]]; then
-        git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
-    else
-        git config --global credential.helper store
-    fi
     chmod 600 "$HOME"/.gitconfig
 fi
