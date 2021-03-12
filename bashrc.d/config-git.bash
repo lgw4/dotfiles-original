@@ -28,7 +28,7 @@ if [[ ! -r "$HOME"/.gitconfig ]] && [[ "$(command -v git)" ]]; then
     git config --global pull.rebase false
     git config --global receive.fsckObjects true
     git config --global transfer.fsckObjects true
-    git config --global user.email "lgw4@icloud.com"
+    git config --global user.email lgw4@icloud.com
     git config --global user.name "Chip Warden"
     chmod 600 "$HOME"/.gitconfig
 fi
