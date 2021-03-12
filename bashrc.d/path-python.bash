@@ -1,14 +1,17 @@
 # shellcheck shell=bash
 # shellcheck disable=SC1090,SC2207
 # Enable pyenv
-if [[ ! -v VIRTUAL_ENV ]]; then
-    if [[ -d "$HOME"/.pyenv/bin ]]; then
-        path_prepend "$HOME"/.pyenv/bin PATH
-    fi
-    if command -v pyenv >/dev/null 2>&1 && [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
+if [[ -d "$HOME"/.pyenv/bin ]]; then
+    path_prepend "$HOME"/.pyenv/bin PATH
+fi
+if command -v pyenv >/dev/null 2>&1; then
+    completion="${HOME}/.pyenv/completions/pyenv.bash"
+    if [[ ":${PATH}:" != *":${HOME}/.pyenv/shims:"* ]]; then
         eval "$(pyenv init -)"
         eval "$(pyenv virtualenv-init -)"
         export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+    elif [[ -r "$completion" ]]; then
+        source "$completion"
     fi
 fi
 
