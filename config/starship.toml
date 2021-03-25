@@ -22,6 +22,7 @@ style = "bold purple"
 
 [nodejs]
 disabled = false
+symbol = "⬢ "
 format = "[\\($symbol$version\\)]($style) "
 
 [package]
