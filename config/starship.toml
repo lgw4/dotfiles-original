@@ -1,3 +1,5 @@
+command_timeout = 2500
+
 [aws]
 disabled = true
 
