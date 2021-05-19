@@ -14,12 +14,12 @@ if command -v pyenv >/dev/null 2>&1; then
     elif [[ -r "$PYENV_COMPLETION" ]]; then
         source "$PYENV_COMPLETION"
     fi
+    PYENV_PYTHON3="$(pyenv which python3)"
 fi
 
 # Enable virtualenvwrapper
 VIRTUALENVWRAPPER=$(command -v virtualenvwrapper.sh)
 if [[ -e "${VIRTUALENVWRAPPER}" ]]; then
-    PYENV_PYTHON3="$(pyenv which python3)"
     if [[ -x "${PYENV_PYTHON3}" ]]; then
         export VIRTUALENVWRAPPER_PYTHON="${PYENV_PYTHON3}"
     elif [[ -x /usr/local/bin/python3 ]]; then
