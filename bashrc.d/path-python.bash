@@ -20,7 +20,7 @@ fi
 # Enable virtualenvwrapper
 VIRTUALENVWRAPPER=$(command -v virtualenvwrapper.sh)
 if [[ -e "${VIRTUALENVWRAPPER}" ]]; then
-    if [[ -x "${PYENV_PYTHON3}" ]]; then
+    if [[ -v PYENV_PYTHON3 ]]; then
         export VIRTUALENVWRAPPER_PYTHON="${PYENV_PYTHON3}"
     elif [[ -x /usr/local/bin/python3 ]]; then
         export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
