@@ -16,6 +16,27 @@ if command -v pyenv >/dev/null 2>&1; then
     fi
 fi
 
+# Enable virtualenvwrapper
+VIRTUALENVWRAPPER=$(command -v virtualenvwrapper.sh)
+if [[ -x "${VIRTUALENVWRAPPER}" ]]; then
+    PYENV_PYTHON3="$(pyenv which python3)"
+    if [[ -x "${PYENV_PYTHON3}" ]]; then
+        export VIRTUALENVWRAPPER_PYTHON="${PYENV_PYTHON3}"
+    elif [[ -x /usr/local/bin/python3 ]]; then
+        export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+    elif [[ -x /usr/bin/python3 ]]; then
+        export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    fi
+    if [[ -d "$HOME"/Developer/python ]]; then
+        export PROJECT_HOME="${HOME}"/Developer/python
+    else
+        export PROJECT_HOME="${HOME}"/devel/python
+    fi
+    export WORKON_HOME="${HOME}"/.local/share/virtualenvs
+    export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}"/_hooks
+    source "$(command -v "$VIRTUALENVWRAPPER")"
+fi
+
 # Enable pip completion
 _pip_completion() {
     COMPREPLY=($(COMP_WORDS="${COMP_WORDS[*]}" \
