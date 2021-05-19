@@ -18,8 +18,16 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 # Enable virtualenvwrapper
-VIRTUALENVWRAPPER=$(command -v virtualenvwrapper.sh)
-if [[ -e "${VIRTUALENVWRAPPER}" ]]; then
+if [[ -e "${HOME}"/.local/bin/virtualenvwrapper.sh ]]; then
+    VIRTUALENVWRAPPER="${HOME}"/.local/bin/virtualenvwrapper.sh
+elif [[ -e /opt/homebrew/bin/virtualenvwrapper.sh ]]; then
+    VIRTUALENVWRAPPER=/opt/homebrew/bin/virtualenvwrapper.sh
+elif [[ -e /usr/local/bin/virtualenvwrapper.sh ]]; then
+    VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
+elif [[ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]]; then
+    VIRTUALENVWRAPPER=/usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
+if [[ -v VIRTUALENVWRAPPER ]]; then
     if [[ -v PYENV_PYTHON3 ]]; then
         export VIRTUALENVWRAPPER_PYTHON="${PYENV_PYTHON3}"
     elif [[ -x /usr/local/bin/python3 ]]; then
