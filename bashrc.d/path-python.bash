@@ -34,7 +34,7 @@ if [[ -e "${VIRTUALENVWRAPPER}" ]]; then
     fi
     export WORKON_HOME="${HOME}"/.local/share/virtualenvs
     export VIRTUALENVWRAPPER_HOOK_DIR="${WORKON_HOME}"/_hooks
-    source "$(command -v "$VIRTUALENVWRAPPER")"
+    source "${VIRTUALENVWRAPPER}"
 fi
 
 # Enable pip completion
