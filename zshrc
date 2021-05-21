@@ -14,6 +14,8 @@ if [[ -d "$HOMEBREW_ROOT" ]] && (( $+commands[brew] )); then
     export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 fi
 
+complete -o nospace -C "$GOPATH"/bin/gocomplete go
+
 if (( $+commands[starship] )); then
     eval "$(starship init zsh)"
 else
