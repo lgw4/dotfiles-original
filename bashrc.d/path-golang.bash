@@ -1,5 +1,15 @@
 # shellcheck shell=bash
+# shellcheck disable=SC1091
 if [[ ! -v VIRTUAL_ENV ]]; then
+    export GOENV_ROOT="$HOME/.goenv"
+    if [[ -d "$GOENV_ROOT"/bin ]]; then
+        path_prepend "$GOENV_ROOT"/bin
+    fi
+
+    if command -v nodenv >/dev/null 2>&1; then
+        eval "$(nodenv init -)"
+    fi
+
     if [[ -d "$HOME"/Developer/go ]]; then
         export GOPATH="${HOME}/Developer/go"
     elif [[ -d "$HOME"/devel/go ]]; then
@@ -7,6 +17,6 @@ if [[ ! -v VIRTUAL_ENV ]]; then
     fi
 
     if [[ -n "$GOPATH" ]]; then
-        path_prepend "$GOPATH"/bin PATH
+        path_append "$GOPATH"/bin PATH
     fi
 fi
