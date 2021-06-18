@@ -11,5 +11,3 @@ if test -d "$HOME/.nodenv"
         nodenv init - | source
     end
 end
-
-set -g NVM_COLORS gbyrc
