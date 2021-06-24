@@ -1,4 +1,6 @@
 function fish_greeting -d "Tell me a fortune…"
-    echo
-    fortune
+    if status --is-login
+        echo
+        fortune
+    end
 end
