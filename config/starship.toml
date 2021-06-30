@@ -20,6 +20,7 @@ format = "[\\($symbol$version \\(OTP $otp_version\\)\\)]($style) "
 disabled = false
 format = "[\\($symbol$version\\)]($style) "
 symbol = "℮ "
+
 [git_branch]
 disabled = false
 style = "bold #6c71c4"
@@ -42,6 +43,7 @@ format = "[\\($symbol$version\\)]($style) "
 [nodejs]
 disabled = false
 format = "[\\($symbol$version\\)]($style) "
+symbol = "⬢ "
 
 [package]
 disabled = true
