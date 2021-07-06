@@ -9,10 +9,7 @@ if test (uname) = Darwin
         set -x HOMEBREW_ROOT /usr/local
     end
 
-    if test "$HOMEBREW_ROOT" = /usr/local
-        path_append /opt/homebrew/bin
-        path_append /opt/homebrew/sbin
-    else
+    if test "$HOMEBREW_ROOT" = /opt/homebrew
         path_prepend /opt/homebrew/sbin
         path_prepend /opt/homebrew/bin
     end

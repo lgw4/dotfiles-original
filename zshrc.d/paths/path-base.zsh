@@ -10,10 +10,7 @@ if [[ $OSTYPE == darwin* ]]; then
         export HOMEBREW_ROOT="/usr/local"
     fi
 
-    if [[ $HOMEBREW_ROOT == /usr/local ]]; then
-        path_append /opt/homebrew/bin
-        path_append /opt/homebrew/sbin
-    else
+    if [[ $HOMEBREW_ROOT == /opt/homebrew ]]; then
         path_prepend /opt/homebrew/sbin
         path_prepend /opt/homebrew/bin
     fi
