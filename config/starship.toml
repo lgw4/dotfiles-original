@@ -50,7 +50,7 @@ disabled = true
 
 [python]
 disabled = false
-format = "[\\($symbol$version \\($virtualenv\\)\\)]($style) "
+format = "[\\($symbol$version( \\($virtualenv\\))\\)]($style) "
 style = "bold #cb4b16"
 
 [ruby]
