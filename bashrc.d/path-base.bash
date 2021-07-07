@@ -12,10 +12,7 @@ if [[ ! -v VIRTUAL_ENV ]]; then
 
     # Apple Silicon Homebrew
     if [[ ${OSTYPE} == darwin* ]] && [[ $(arch) == "arm64" ]]; then
-        if [[ ${HOMEBREW_ROOT} == /usr/local ]]; then
-            path_append /opt/homebrew/bin PATH
-            path_append /opt/homebrew/sbin PATH
-        else
+        if [[ ${HOMEBREW_ROOT} == /opt/homebrew ]]; then
             path_prepend /opt/homebrew/sbin PATH
             path_prepend /opt/homebrew/bin PATH
         fi
