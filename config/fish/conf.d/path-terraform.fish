@@ -6,4 +6,10 @@ if test -d "$HOME/.tfenv"
         and status --is-interactive
         tfenv init - | source
     end
+    function tfenv_update -d "Update tfenv installation"
+        cd $TFENV_ROOT
+        git fetch
+        git pull origin master
+        cd $HOME
+    end
 end
