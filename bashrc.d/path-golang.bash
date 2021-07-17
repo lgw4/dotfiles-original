@@ -6,9 +6,16 @@ if [[ ! -v VIRTUAL_ENV ]]; then
         path_prepend "$GOENV_ROOT"/bin
     fi
 
-    if command -v nodenv >/dev/null 2>&1; then
-        eval "$(nodenv init -)"
+    if command -v goenv >/dev/null 2>&1; then
+        eval "$(goenv init -)"
     fi
+
+    goenv_update() {
+        cd "$GOENV_ROOT" || exit
+        git fetch
+        git pull origin master
+        cd "$HOME" || exit
+    }
 
     if [[ -d "$HOME"/Developer/go ]]; then
         export GOPATH="${HOME}/Developer/go"
